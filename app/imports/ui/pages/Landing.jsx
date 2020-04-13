@@ -44,7 +44,7 @@ export default class Landing extends React.Component {
                     <Grid style={gridStyle} verticalAlign='middle' textAlign='center' container>
                       <Grid.Column centered>
                         <Grid.Row>
-                          <Header as='h1' textAlign='center' inverted>Study UHp is a web application that can allows
+                          <Header as='h1' textAlign='center' inverted>Study UHp is a web application that allows
                             students to organize face-to-face groups for studying course material.</Header>
                         </Grid.Row>
                       </Grid.Column>
