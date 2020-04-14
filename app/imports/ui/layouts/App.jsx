@@ -25,12 +25,12 @@ class App extends React.Component {
     return (
         <Router>
           <div>
-            {Meteor.userId() ? (<NavBar/>) : ''}
+            <NavBarRoute />
             <Switch>
-              <Route exact path="/" component={Landing}/>
-              <Route path="/signin" component={Signin}/>
-              <Route path="/signup" component={Signup}/>
-              <Route path="/dashboard" component={Dashboard}/>
+              <LoggedInRoute exact path="/" component={Landing}/>
+              <SignInSignUpRoute path="/signin" component={Signin}/>
+              <SignInSignUpRoute path="/signup" component={Signup}/>
+              <ProtectedRoute path="/dashboard" component={Dashboard}/>
               <ProtectedRoute path="/sessions" component={ListStudySessions}/>
               <ProtectedRoute path="/add" component={AddStudySession}/>
               <ProtectedRoute path="/calendar" component={Calendar}/>
@@ -40,12 +40,54 @@ class App extends React.Component {
               <ProtectedRoute path="/signout" component={Signout}/>
               <Route component={NotFound}/>
             </Switch>
-            {Meteor.userId() ? (<Footer/>) : ''}
+            <FooterRoute />
           </div>
         </Router>
     );
   }
 }
+
+const NavBarRoute = () => (
+  <Route render={() => {
+    const isLogged = Meteor.userId() !== null;
+    return isLogged ? (<NavBar />) : ('');
+    }}
+  />
+);
+
+const FooterRoute = () => (
+  <Route render={() => {
+    const isLogged = Meteor.userId() !== null;
+    return isLogged ? (<Footer />) : ('');
+    }}
+  />
+);
+
+const SignInSignUpRoute = ({ component: Component, ...rest }) => (
+  <Route
+      {...rest}
+      render={(props) => {
+        const isLogged = Meteor.userId() !== null;
+        return isLogged ?
+            (<Redirect to={{ pathname: '/dashboard', state: { from: props.location } }}/>) :
+            (<div><NavBar /><Component {...props} /><Footer /></div>
+            );
+      }}
+  />
+);
+
+const LoggedInRoute = ({ component: Component, ...rest }) => (
+  <Route
+      {...rest}
+      render={(props) => {
+        const isLogged = Meteor.userId() !== null;
+        return isLogged ?
+            (<Redirect to={{ pathname: '/dashboard', state: { from: props.location } }}/>) :
+            (<Component {...props} />
+            );
+      }}
+  />
+);
 
 /**
  * ProtectedRoute (see React Router v4 sample)
