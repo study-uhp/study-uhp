@@ -20,41 +20,32 @@ class NavBar extends React.Component {
     );
 
     return (
-        <Menu style={menuStyle} attached="top" borderless inverted>
-          <Menu.Item style={logoStyle} as={NavLink} activeClassName="" exact to="/">
-            <Image src='/images/studyuhp_logo_final_small.png'/>
+      <Menu style={menuStyle} attached="top" borderless inverted>
+        <Menu.Item style={logoStyle} as={NavLink} activeClassName="" exact to="/">
+          <Image src='/images/studyuhp_logo_final_small.png'/>
+        </Menu.Item>
+        {this.props.currentUser ? ([
+          <Menu.Item position="right" key='search'>
+            <Input inverted transparent size='mini' className='icon' icon='search' placeholder='Search...'/>
+          </Menu.Item>,
+          <Menu.Item as={NavLink} activeClassName="active" exact to="/sessions" key='sessions'>Sessions</Menu.Item>,
+          <Menu.Item as={NavLink} activeClassName="active" exact to="/calendar" key='calendar'>Calendar</Menu.Item>,
+          <Menu.Item as={NavLink} activeClassName="active" exact to="/dashboard" key='home'>Dashboard</Menu.Item>,
+        ]) : ''}
+        {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
+            <Menu.Item as={NavLink} activeClassName="active" exact to="/admin" key='admin'>Admin</Menu.Item>
+        ) : ''}
+        {this.props.currentUser === '' ? ( '' ) : (
+          <Menu.Item>
+            <Dropdown trigger={trigger} pointing="top right" icon={null}>
+              <Dropdown.Menu>
+                <Dropdown.Item icon="user" text="Profile" as={NavLink} exact to="/profile"/>
+                <Dropdown.Item icon="sign out" text="Sign Out" as={NavLink} exact to="/signout"/>
+              </Dropdown.Menu>
+            </Dropdown>
           </Menu.Item>
-          {this.props.currentUser ? ([
-            <Menu.Item position="right" key='search'>
-              <Input inverted transparent size='mini' className='icon' icon='search' placeholder='Search...'/>
-            </Menu.Item>,
-            <Menu.Item as={NavLink} activeClassName="active" exact to="/sessions" key='sessions'>Sessions</Menu.Item>,
-            <Menu.Item as={NavLink} activeClassName="active" exact to="/calendar" key='calendar'>Calendar</Menu.Item>,
-            <Menu.Item as={NavLink} activeClassName="active" exact to="/dashboard" key='home'>Dashboard</Menu.Item>,
-          ]) : ''}
-          {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-              <Menu.Item as={NavLink} activeClassName="active" exact to="/admin" key='admin'>Admin</Menu.Item>
-          ) : ''}
-          {this.props.currentUser === '' ? (
-              <Menu.Item position="right">
-                <Dropdown text="Login&nbsp;&nbsp;" pointing="top right" icon={'user'}>
-                  <Dropdown.Menu>
-                    <Dropdown.Item icon="user" text="Sign In" as={NavLink} exact to="/signin"/>
-                    <Dropdown.Item icon="add user" text="Sign Up" as={NavLink} exact to="/signup"/>
-                  </Dropdown.Menu>
-                </Dropdown>
-              </Menu.Item>
-          ) : (
-              <Menu.Item>
-                <Dropdown trigger={trigger} pointing="top right" icon={null}>
-                  <Dropdown.Menu>
-                    <Dropdown.Item icon="user" text="Profile" as={NavLink} exact to="/profile"/>
-                    <Dropdown.Item icon="sign out" text="Sign Out" as={NavLink} exact to="/signout"/>
-                  </Dropdown.Menu>
-                </Dropdown>
-              </Menu.Item>
-          )}
-        </Menu>
+        )}
+      </Menu>
     );
   }
 }
