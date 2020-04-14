@@ -45,8 +45,8 @@ export default class Signin extends React.Component {
       <Container>
         <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
           <Grid.Column>
-            <Header as="h2" textAlign="center">
-              Login to your account
+            <Header as="h2" textAlign="left">
+              Sign in:
             </Header>
             <Form onSubmit={this.submit}>
               <Segment stacked>
