@@ -1,7 +1,8 @@
 {
   "defaultAccounts": [
-    { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
-    { "email": "john@foo.com", "password": "changeme" }
+    { "email": "admin@foo.com", "firstName": "ADMIN", "lastName": "ADMIN",
+      "password": "changeme", "about": "I AM AN ADMIN, AND I HAVE THE POWER TO DO WHATEVER I WANT", "role": "admin" },
+    { "email": "john@foo.com", "firstName": "John", "lastName": "Foo", "password": "changeme", "About": "Hello! My name is John, and I am a test user." }
   ],
 
   "defaultStudySessions": [
