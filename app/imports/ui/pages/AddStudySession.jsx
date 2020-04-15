@@ -43,7 +43,7 @@ class AddStudySession extends React.Component {
   render() {
     let fRef = null;
     return (
-        <Grid container centered>
+        <Grid container centered className="main-content">
           <Grid.Column>
             <Header as="h2" textAlign="center">Add Session</Header>
             <AutoForm ref={ref => { fRef = ref; }} schema={formSchema} onSubmit={data => this.submit(data, fRef)} >

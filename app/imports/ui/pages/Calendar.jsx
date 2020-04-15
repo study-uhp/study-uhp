@@ -13,7 +13,7 @@ const localizer = momentLocalizer(moment);
 class Calendar extends React.Component {
   render() {
     return (
-        <Grid container centered>
+        <Grid container centered className="main-content">
           <Grid.Column>
             <Header as="h2" textAlign="center">Calendar</Header>
             <div style={{ height: '70vh'}} >

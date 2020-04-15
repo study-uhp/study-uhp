@@ -5,7 +5,7 @@ import { Grid, Header } from 'semantic-ui-react';
 class Calendar extends React.Component {
   render() {
     return (
-        <Grid container centered>
+        <Grid container centered className="main-content">
           <Grid.Column>
             <Header as="h2" textAlign="center">Profile</Header>
           </Grid.Column>
