@@ -17,7 +17,7 @@ export default class Landing extends React.Component {
     return (
       <div className='study-uhp-landing-background'>
         <Grid style={gridStyle} verticalAlign='middle' textAlign='center' container>
-          <Grid.Column centered>
+          <Grid.Column>
             <Grid.Row>
               <Image style={imageStyle} src="/images/studyuhp_logo_square.png" centered/>
             </Grid.Row>
