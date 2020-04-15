@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Table, Header, Loader, Button } from 'semantic-ui-react';
+import { Grid, Table, Header, Loader, Button } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -18,25 +18,27 @@ class ListStudySessions extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     return (
-        <Container>
-          <Header as="h2" textAlign="center">List Sessions</Header>
-          <Table celled>
-            <Table.Header>
-              <Table.Row>
-                <Table.HeaderCell>Course</Table.HeaderCell>
-                <Table.HeaderCell>Topic</Table.HeaderCell>
-                <Table.HeaderCell>Date</Table.HeaderCell>
-                <Table.HeaderCell>Time</Table.HeaderCell>
-                <Table.HeaderCell>Edit</Table.HeaderCell>
-              </Table.Row>
-            </Table.Header>
-            <Table.Body>
-              {this.props.studysessions.map((studysession) => <StudySession
-                key={studysession._id} studysession={studysession} />)}
-            </Table.Body>
-          </Table>
-          <Button as={NavLink} activeClassName="active" exact to="/add" key='add'>Create Session</Button>
-        </Container>
+        <Grid container centered className="main-content">
+          <Grid.Column>
+            <Header as="h2" textAlign="center">List Sessions</Header>
+            <Table celled>
+              <Table.Header>
+                <Table.Row>
+                  <Table.HeaderCell>Course</Table.HeaderCell>
+                  <Table.HeaderCell>Topic</Table.HeaderCell>
+                  <Table.HeaderCell>Date</Table.HeaderCell>
+                  <Table.HeaderCell>Time</Table.HeaderCell>
+                  <Table.HeaderCell>Edit</Table.HeaderCell>
+                </Table.Row>
+              </Table.Header>
+              <Table.Body>
+                {this.props.studysessions.map((studysession) => <StudySession
+                  key={studysession._id} studysession={studysession} />)}
+              </Table.Body>
+            </Table>
+            <Button as={NavLink} activeClassName="active" exact to="/add" key='add'>Create Session</Button>
+          </Grid.Column>
+        </Grid>
     );
   }
 }

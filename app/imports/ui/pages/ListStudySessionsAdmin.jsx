@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Table, Header, Loader } from 'semantic-ui-react';
+import { Grid, Table, Header, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { StudySessions } from '../../api/studysessions/StudySessions';
@@ -17,24 +17,26 @@ class ListStudySessionsAdmin extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     return (
-        <Container>
-          <Header as="h2" textAlign="center">List Sessions (Admin)</Header>
-          <Table celled>
-            <Table.Header>
-              <Table.Row>
-                <Table.HeaderCell>Course</Table.HeaderCell>
-                <Table.HeaderCell>Topic</Table.HeaderCell>
-                <Table.HeaderCell>Date</Table.HeaderCell>
-                <Table.HeaderCell>Time</Table.HeaderCell>
-                <Table.HeaderCell>Owner</Table.HeaderCell>
-              </Table.Row>
-            </Table.Header>
-            <Table.Body>
-              {this.props.studysessions.map((studysession) => <StudySessionAdmin
-                key={studysession._id} studysession={studysession} />)}
-            </Table.Body>
-          </Table>
-        </Container>
+        <Grid container centered className="main-content">
+          <Grid.Column>
+            <Header as="h2" textAlign="center">List Sessions (Admin)</Header>
+            <Table celled>
+              <Table.Header>
+                <Table.Row>
+                  <Table.HeaderCell>Course</Table.HeaderCell>
+                  <Table.HeaderCell>Topic</Table.HeaderCell>
+                  <Table.HeaderCell>Date</Table.HeaderCell>
+                  <Table.HeaderCell>Time</Table.HeaderCell>
+                  <Table.HeaderCell>Owner</Table.HeaderCell>
+                </Table.Row>
+              </Table.Header>
+              <Table.Body>
+                {this.props.studysessions.map((studysession) => <StudySessionAdmin
+                  key={studysession._id} studysession={studysession} />)}
+              </Table.Body>
+            </Table>
+          </Grid.Column>
+        </Grid>
     );
   }
 }

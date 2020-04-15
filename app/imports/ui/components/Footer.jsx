@@ -1,4 +1,5 @@
 import React from 'react';
+import { Divider } from 'semantic-ui-react';
 
 /** The Footer appears at the bottom of every page. Rendered by the App Layout component. */
 class Footer extends React.Component {
@@ -7,9 +8,8 @@ class Footer extends React.Component {
     return (
         <footer>
           <div style={divStyle} className="ui center aligned container">
-            <hr />
-              ICS 314 Spring 2020 Final Project<br />
-              Aaron Banks, Jack Horton, Michael Gainey, Christian Jensen<br />
+            <Divider horizontal>ICS 314 Spring 2020 Final Project</Divider>
+            <span>Aaron Banks, Michael Gainey, Jack Horton, Christian Jensen</span>
           </div>
         </footer>
     );

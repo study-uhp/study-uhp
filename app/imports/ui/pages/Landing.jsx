@@ -5,15 +5,15 @@ import { Link } from 'react-router-dom';
 /** A simple static component to render some text for the landing page. */
 export default class Landing extends React.Component {
   render() {
-    const gridStyle = { height: '100vh' };
+    const gridStyle = { height: '101vh' };
     const buttonStyle = {
-      color: '#000000',
-      width: '200px',
-      background: '#006400',
-      marginBottom: '20px',
-      fontSize: '25px',
+      color: 'rgba(0, 0, 0, 0.8)',
+      width: '150px',
+      background: '#063f00',
+      marginTop: '20px',
+      fontSize: '19px',
     };
-    const imageStyle = { marginBottom: '20px', size: 'medium' };
+    const imageStyle = { size: 'medium' };
     return (
       <div className='study-uhp-landing-background'>
         <Grid style={gridStyle} verticalAlign='middle' textAlign='center' container>
@@ -22,15 +22,14 @@ export default class Landing extends React.Component {
               <Image style={imageStyle} src="/images/studyuhp_logo_square.png" centered/>
             </Grid.Row>
             <Grid.Row>
-              <Button animated style={buttonStyle} as={Link} to="/signup">
-                <Button.Content visible>Sign Up</Button.Content>
+              <Button animated style={buttonStyle} as={Link} to="/signin">
+                <Button.Content visible>Sign In</Button.Content>
                 <Button.Content hidden> <Icon name='arrow right'/></Button.Content>
               </Button>
             </Grid.Row>
-            <Grid.Row/>
             <Grid.Row>
-              <Button animated style={buttonStyle} as={Link} to="/signin">
-                <Button.Content visible>Log In</Button.Content>
+              <Button animated style={buttonStyle} as={Link} to="/signup">
+                <Button.Content visible>Sign Up</Button.Content>
                 <Button.Content hidden> <Icon name='arrow right'/></Button.Content>
               </Button>
             </Grid.Row>

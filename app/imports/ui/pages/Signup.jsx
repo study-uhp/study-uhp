@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, Redirect } from 'react-router-dom';
-import { Container, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
+import { Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
 import { Accounts } from 'meteor/accounts-base';
 
 /**
@@ -41,66 +41,67 @@ class Signup extends React.Component {
       return <Redirect to={from}/>;
     }
     return (
-        <Container>
-          <Grid textAlign="center" verticalAlign="middle" centered columns={2}>
-            <Grid.Column>
+        <Grid container centered className="main-content">
+          <Grid.Column>
+            <div style={{ width: '400px', marginLeft: 'auto', marginRight: 'auto' }}>
               <Header as="h2" textAlign="left">
-                Sign up:
+                Sign Up:
               </Header>
-              <Form onSubmit={this.submit}>
-                <Segment stacked>
+              <Segment>
+                <Form onSubmit={this.submit}>
                   <Form.Input required
-                      label="Email"
-                      icon="user"
-                      iconPosition="left"
-                      name="email"
-                      type="email"
-                      placeholder="E-mail address"
-                      onChange={this.handleChange}
+                    label="Email"
+                    icon="user"
+                    iconPosition="left"
+                    name="email"
+                    type="email"
+                    placeholder="E-mail address"
+                    onChange={this.handleChange}
                   />
-                  <Form.Group inline={true}>
-                    <Form.Input required
-                        label="First name"
-                        name="first name"
-                        type='first name'
-                        placeholder='First name'
-                        onChange={this.handleChange}
-                    /><Form.Input required
+                  <Form.Group inline widths='equal'>
+                    <Form.Input required fluid
+                      label="First name"
+                      name="first name"
+                      type='first name'
+                      placeholder='First name'
+                      onChange={this.handleChange}
+                    />
+                    <Form.Input required fluid
                       label="Last name"
                       name="last name"
                       type='last name'
-                      placeholder='last name'
+                      placeholder='Last name'
                       onChange={this.handleChange}
-                  />
+                    />
                   </Form.Group>
                   <Form.Input required
-                      label="Password"
-                      icon="lock"
-                      iconPosition="left"
-                      name="password"
-                      placeholder="Password"
-                      type="password"
-                      onChange={this.handleChange}
+                    label="Password"
+                    icon="lock"
+                    iconPosition="left"
+                    name="password"
+                    placeholder="Password"
+                    type="password"
+                    onChange={this.handleChange}
                   />
                   <Form.TextArea label='About' placeholder='Tell us more about you...' required/>
                   <Form.Button content="Submit"/>
-                </Segment>
-              </Form>
+                </Form>
+              </Segment>
               <Message>
                 Already have an account? Login <Link to="/signin">here</Link>
               </Message>
               {this.state.error === '' ? (
                   ''
               ) : (
-                  <Message
-                      error
-                      header="Registration was not successful"
-                      content={this.state.error}
-                  />
+                <Message
+                  error
+                  header="Registration was not successful"
+                  content={this.state.error}
+                />
               )}
-            </Grid.Column>
-          </Grid>
-        </Container>
+              </div>
+          </Grid.Column>
+        </Grid>
     );
   }
 }

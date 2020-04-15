@@ -27,7 +27,7 @@ class EditStudySession extends React.Component {
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   renderPage() {
     return (
-        <Grid container centered>
+        <Grid container centered className="main-content">
           <Grid.Column>
             <Header as="h2" textAlign="center">Edit Session</Header>
             <AutoForm schema={StudySessionSchema} onSubmit={data => this.submit(data)} model={this.props.doc}>
