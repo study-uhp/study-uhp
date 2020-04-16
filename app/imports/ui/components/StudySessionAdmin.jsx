@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table } from 'semantic-ui-react';
+import { Table, Button } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 
 /** Renders a single row in the List Sessions (Admin) table. See pages/ListStudySessionsAdmin.jsx. */
@@ -14,10 +14,12 @@ class StudySessionAdmin extends React.Component {
             {`${this.props.studysession.timeBegin} - ${this.props.studysession.timeEnd}`}
           </Table.Cell>
           <Table.Cell collapsing>{this.props.studysession.owner}</Table.Cell>
+          <Table.Cell collapsing><Button small content='Delete session' /></Table.Cell>
         </Table.Row>
     );
   }
 }
+// todo implement delete session button.
 
 /** Require a document to be passed to this component. */
 StudySessionAdmin.propTypes = {

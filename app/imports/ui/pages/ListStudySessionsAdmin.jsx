@@ -28,6 +28,7 @@ class ListStudySessionsAdmin extends React.Component {
                   <Table.HeaderCell>Date</Table.HeaderCell>
                   <Table.HeaderCell>Time</Table.HeaderCell>
                   <Table.HeaderCell>Owner</Table.HeaderCell>
+                  <Table.HeaderCell>     </Table.HeaderCell>
                 </Table.Row>
               </Table.Header>
               <Table.Body>
