@@ -30,7 +30,8 @@ footer .ui.horizontal.divider {
   font-family: 'Montserrat', sans-serif !important;
 }
 .study-uhp-landing-background {
-  background: linear-gradient(rgba(0, 0, 0, 0.8), 
+  /*noinspection CssUnknownTarget*/
+  background: linear-gradient(rgba(0, 0, 0, 0.8),
             rgba(0, 0, 0, 0.8)), 
               url('images/campus.jpg') 
               no-repeat center center fixed;
@@ -38,7 +39,7 @@ footer .ui.horizontal.divider {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  height: '100vh';
+  height: 100vh;
   /* padding-bottom: 40px; */
 }
 
@@ -47,3 +48,276 @@ footer .ui.horizontal.divider {
 	border-color: rgba(255, 255, 255, 0.1) !important;
 	color: rgba(255, 255, 255, 0.9) !important;
 }
+
+a:link {
+  color: white!important;
+}
+
+a:hover {
+  color: green!important;
+}
+
+/*
+ * Animated CSS button
+ * Copyright Alexander Bodin 2019-09-07
+ *
+ * Useage: .class {@import button($button-size, $hue, $sat);}
+ */
+.animated-button6 {
+  background: #005226;
+  padding: 10px 10px;
+  margin: 0px 10px 10px 20px;
+  width: 130px;
+  display: inline-block;
+  -webkit-transform: translate(0%, 0%);
+  transform: translate(0%, 0%);
+  overflow: hidden;
+  color: #d6d9ce;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+  font-weight: bolder;
+  letter-spacing: 2.5px;
+  text-align: center;
+  text-decoration: none;
+  -webkit-box-shadow: 0 20px 50px rgba(0, 83, 37, 0.5);
+  box-shadow: 0px 0px 7px rgba(0, 83, 37, 0.9);
+}
+
+.animated-button6::before {
+  content: '';
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: #85ad99;
+  opacity: 0;
+  -webkit-transition: .2s opacity ease-in-out;
+  transition: .2s opacity ease-in-out;
+}
+
+.animated-button6:hover::before {
+  opacity: 0.2;
+}
+
+.animated-button6 span {
+  position: absolute;
+}
+
+.animated-button6 span:nth-child(1) {
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 2px;
+  background: -webkit-gradient(linear, right top, left top, from(rgba(8, 43, 26, 0)), to(#26d980));
+  background: linear-gradient(to left, rgba(8, 43, 26, 0), #26d980);
+  -webkit-animation: 5s animateTop linear 3s infinite;
+  animation: 5s animateTop linear 3s infinite;
+}
+
+@keyframes animateTop {
+  0% {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+  100% {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+}
+
+.animated-button6 span:nth-child(2) {
+  top: 0px;
+  right: 0px;
+  height: 100%;
+  width: 2px;
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(8, 43, 26, 0)), to(#26d980));
+  background: linear-gradient(to top, rgba(8, 43, 26, 0), #26d980);
+  -webkit-animation: 5s animateRight linear 0.5s infinite;
+  animation: 5s animateRight linear 0.5s infinite;
+}
+
+@keyframes animateRight {
+  0% {
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+  }
+  100% {
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+  }
+}
+
+.animated-button6 span:nth-child(3) {
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 2px;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(8, 43, 26, 0)), to(#26d980));
+  background: linear-gradient(to right, rgba(8, 43, 26, 0), #26d980);
+  -webkit-animation: 5s animateBottom linear 3s infinite;
+  animation: 5s animateBottom linear 3s infinite;
+}
+
+@keyframes animateBottom {
+  0% {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+  100% {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+}
+
+.animated-button6 span:nth-child(4) {
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 2px;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(8, 43, 26, 0)), to(#26d980));
+  background: linear-gradient(to bottom, rgba(8, 43, 26, 0), #26d980);
+  -webkit-animation: 5s animateLeft linear 0.5s infinite;
+  animation: 5s animateLeft linear 0.5s infinite;
+}
+
+@keyframes animateLeft {
+  0% {
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+  }
+  100% {
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+  }
+}
+
+.animated-button6-rev {
+  background: #005226;
+  padding: 10px 10px;
+  margin: 20px 10px 10px 20px;
+  width: 130px;
+  display: inline-block;
+  -webkit-transform: translate(0%, 0%);
+  transform: translate(0%, 0%);
+  overflow: hidden;
+  color: #d6d9ce;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+  font-weight: bolder;
+  letter-spacing: 2.5px;
+  text-align: center;
+  text-decoration: none;
+  -webkit-box-shadow: 0 20px 50px rgba(0, 83, 37, 0.5);
+  box-shadow: 0px 0px 7px rgba(0, 83, 37, 0.9);
+}
+
+.animated-button6-rev::before {
+  content: '';
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: #85ad99;
+  opacity: 0;
+  -webkit-transition: .2s opacity ease-in-out;
+  transition: .2s opacity ease-in-out;
+}
+
+.animated-button6-rev:hover::before {
+  opacity: 0.2;
+}
+
+.animated-button6-rev span {
+  position: absolute;
+}
+
+.animated-button6-rev span:nth-child(4) {
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 2px;
+  background: -webkit-gradient(linear, right top, left top, from(rgba(8, 43, 26, 0)), to(#26d980));
+  background: linear-gradient(to left, rgba(8, 43, 26, 0), #26d980);
+  -webkit-animation: 5s animateTop linear 3s infinite;
+  animation: 5s animateTop linear reverse 3s infinite;
+}
+
+@keyframes animateTop {
+  100% {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+  0% {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+}
+
+.animated-button6-rev span:nth-child(3) {
+  top: 0px;
+  right: 0px;
+  height: 100%;
+  width: 2px;
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(8, 43, 26, 0)), to(#26d980));
+  background: linear-gradient(to top, rgba(8, 43, 26, 0), #26d980);
+  -webkit-animation: 5s animateRight linear 0.5s infinite;
+  animation: 5s animateRight linear reverse 0.5s infinite;
+}
+
+@keyframes animateRight {
+  100% {
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+  }
+  0% {
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+  }
+}
+
+.animated-button6-rev span:nth-child(2) {
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  height: 2px;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(8, 43, 26, 0)), to(#26d980));
+  background: linear-gradient(to right, rgba(8, 43, 26, 0), #26d980);
+  -webkit-animation: 5s animateBottom linear 3s infinite;
+  animation: 5s animateBottom linear reverse 3s infinite;
+}
+
+@keyframes animateBottom {
+  100% {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+  0% {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+}
+
+.animated-button6-rev span:nth-child(1) {
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 2px;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(8, 43, 26, 0)), to(#26d980));
+  background: linear-gradient(to bottom, rgba(8, 43, 26, 0), #26d980);
+  -webkit-animation: 5s animateLeft linear 0.5s infinite;
+  animation: 5s animateLeft linear reverse 0.5s infinite;
+}
+
+@keyframes animateLeft {
+  100% {
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+  }
+  0% {
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+  }
+}
+/*# sourceMappingURL=button.css.map */
