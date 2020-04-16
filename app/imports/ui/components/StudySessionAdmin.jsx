@@ -7,13 +7,13 @@ class StudySessionAdmin extends React.Component {
   render() {
     return (
         <Table.Row>
-          <Table.Cell>{this.props.studysession.course}</Table.Cell>
+          <Table.Cell collapsing>{this.props.studysession.course}</Table.Cell>
           <Table.Cell>{this.props.studysession.topic}</Table.Cell>
-          <Table.Cell>{this.props.studysession.date}</Table.Cell>
-          <Table.Cell>
+          <Table.Cell collapsing>{this.props.studysession.date}</Table.Cell>
+          <Table.Cell collapsing>
             {`${this.props.studysession.timeBegin} - ${this.props.studysession.timeEnd}`}
           </Table.Cell>
-          <Table.Cell>{this.props.studysession.owner}</Table.Cell>
+          <Table.Cell collapsing>{this.props.studysession.owner}</Table.Cell>
         </Table.Row>
     );
   }

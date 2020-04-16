@@ -21,14 +21,14 @@ class ListStudySessions extends React.Component {
         <Grid container centered className="main-content">
           <Grid.Column>
             <Header as="h2" textAlign="center">List Sessions</Header>
-            <Table celled>
+            <Table celled inverted compact>
               <Table.Header>
                 <Table.Row>
                   <Table.HeaderCell>Course</Table.HeaderCell>
                   <Table.HeaderCell>Topic</Table.HeaderCell>
                   <Table.HeaderCell>Date</Table.HeaderCell>
                   <Table.HeaderCell>Time</Table.HeaderCell>
-                  <Table.HeaderCell>Edit</Table.HeaderCell>
+                  <Table.HeaderCell></Table.HeaderCell>
                 </Table.Row>
               </Table.Header>
               <Table.Body>
@@ -36,7 +36,7 @@ class ListStudySessions extends React.Component {
                   key={studysession._id} studysession={studysession} />)}
               </Table.Body>
             </Table>
-            <Button as={NavLink} activeClassName="active" exact to="/add" key='add'>Create Session</Button>
+            <Button compact secondary as={NavLink} activeClassName="active" exact to="/add" key='add'>Create Session</Button>
           </Grid.Column>
         </Grid>
     );

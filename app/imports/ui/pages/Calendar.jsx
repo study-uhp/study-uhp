@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Header } from 'semantic-ui-react';
 import Swal from 'sweetalert2';
-import 'react-big-calendar/lib/css/react-big-calendar.css';
+import '../components/react-big-calendar.css';
 import { Calendar as Cal, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import events from '../components/events';

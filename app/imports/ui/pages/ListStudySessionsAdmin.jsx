@@ -20,7 +20,7 @@ class ListStudySessionsAdmin extends React.Component {
         <Grid container centered className="main-content">
           <Grid.Column>
             <Header as="h2" textAlign="center">List Sessions (Admin)</Header>
-            <Table celled>
+            <Table celled inverted compact>
               <Table.Header>
                 <Table.Row>
                   <Table.HeaderCell>Course</Table.HeaderCell>

@@ -8,14 +8,14 @@ class StudySession extends React.Component {
   render() {
     return (
         <Table.Row>
-          <Table.Cell>{this.props.studysession.course}</Table.Cell>
+          <Table.Cell collapsing>{this.props.studysession.course}</Table.Cell>
           <Table.Cell>{this.props.studysession.topic}</Table.Cell>
-          <Table.Cell>{this.props.studysession.date}</Table.Cell>
-          <Table.Cell>
+          <Table.Cell collapsing>{this.props.studysession.date}</Table.Cell>
+          <Table.Cell collapsing>
             {`${this.props.studysession.timeBegin} - ${this.props.studysession.timeEnd}`}
           </Table.Cell>
-          <Table.Cell>
-            <Link to={`/edit/${this.props.studysession._id}`}>Edit</Link>
+          <Table.Cell collapsing>
+            <Link to={`/edit/${this.props.studysession._id}`}>Edit Session</Link>
           </Table.Cell>
         </Table.Row>
     );

@@ -2,6 +2,7 @@ import React from 'react';
 import { Grid, Segment, Header } from 'semantic-ui-react';
 import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-semantic';
 import Swal from 'sweetalert2';
+import '@sweetalert2/theme-dark/dark.css';
 import { Meteor } from 'meteor/meteor';
 import 'uniforms-bridge-simple-schema-2'; // required for Uniforms
 import SimpleSchema from 'simpl-schema';

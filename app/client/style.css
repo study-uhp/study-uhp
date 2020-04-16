@@ -41,3 +41,9 @@ footer .ui.horizontal.divider {
   height: '100vh';
   /* padding-bottom: 40px; */
 }
+
+.ui.inverted.table th {
+	background-color: #063f00 !important;
+	border-color: rgba(255, 255, 255, 0.1) !important;
+	color: rgba(255, 255, 255, 0.9) !important;
+}
