@@ -2,6 +2,14 @@ import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 import { StudySessions } from '../../api/studysessions/StudySessions';
 
+/** This subscription publishes all documents regardless of user, but only if logged in. */
+Meteor.publish('StudySessionsAll', function publish() {
+  if (this.userId) {
+    return StudySessions.find();
+  }
+  return this.ready();
+});
+
 /** This subscription publishes only the documents associated with the logged in user */
 Meteor.publish('StudySessions', function publish() {
   if (this.userId) {
