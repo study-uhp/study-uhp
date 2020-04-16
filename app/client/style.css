@@ -47,3 +47,12 @@ footer .ui.horizontal.divider {
 	border-color: rgba(255, 255, 255, 0.1) !important;
 	color: rgba(255, 255, 255, 0.9) !important;
 }
+
+.ui.primary.buttons .button, .ui.primary.button {
+	background-color: #063f00 !important;
+	color: rgba(0, 0, 0, 0.8) !important;
+}
+
+.ui.primary.buttons .button:hover, .ui.primary.button:hover {
+	background-color: #063800 !important;
+}

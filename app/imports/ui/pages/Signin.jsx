@@ -48,8 +48,8 @@ export default class Signin extends React.Component {
               <Header as="h2" textAlign="left">
                 Sign In:
               </Header>
-              <Segment>
-                <Form onSubmit={this.submit}>
+              <Segment inverted>
+                <Form inverted onSubmit={this.submit}>
                   <Form.Input
                     label="Email"
                     icon="user"
@@ -68,16 +68,17 @@ export default class Signin extends React.Component {
                     type="password"
                     onChange={this.handleChange}
                   />
-                  <Form.Button content="Submit"/>
+                  <Form.Button primary content="Submit"/>
                 </Form>
               </Segment>
-              <Message>
+              <Message color='black'>
                 <Link to="/signup">Click here to Register</Link>
               </Message>
               {this.state.error === '' ? (
                 ''
               ) : (
                 <Message
+                  color='black'
                   error
                   header="Login was not successful"
                   content={this.state.error}
