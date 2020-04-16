@@ -47,8 +47,8 @@ class Signup extends React.Component {
               <Header as="h2" textAlign="left">
                 Sign Up:
               </Header>
-              <Segment>
-                <Form onSubmit={this.submit}>
+              <Segment inverted>
+                <Form inverted onSubmit={this.submit}>
                   <Form.Input required
                     label="Email"
                     icon="user"
@@ -84,16 +84,17 @@ class Signup extends React.Component {
                     onChange={this.handleChange}
                   />
                   <Form.TextArea label='About' placeholder='Tell us more about you...' required/>
-                  <Form.Button content="Submit"/>
+                  <Form.Button primary content="Submit"/>
                 </Form>
               </Segment>
-              <Message>
+              <Message color='black'>
                 Already have an account? Login <Link to="/signin">here</Link>
               </Message>
               {this.state.error === '' ? (
                   ''
               ) : (
                 <Message
+                  color='black'
                   error
                   header="Registration was not successful"
                   content={this.state.error}
