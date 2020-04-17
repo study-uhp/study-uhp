@@ -18,9 +18,8 @@ class ListStudySessions extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     return (
-        <Grid container centered className="main-content">
+        <Grid container centered>
           <Grid.Column>
-            <Header as="h2" textAlign="center">List Sessions</Header>
             <Table celled inverted compact>
               <Table.Header>
                 <Table.Row>

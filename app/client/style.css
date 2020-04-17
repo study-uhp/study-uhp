@@ -49,6 +49,15 @@ footer .ui.horizontal.divider {
 	color: rgba(255, 255, 255, 0.9) !important;
 }
 
+.card-style {
+  background-color: #063f00 !important;
+}
+.button-style {
+  background-color: rgb(63, 63, 63) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
 .ui.primary.buttons .button, .ui.primary.button {
 	background-color: #063f00 !important;
 	color: rgba(0, 0, 0, 0.8) !important;

@@ -1,17 +1,27 @@
 import React from 'react';
-import { Grid, Header } from 'semantic-ui-react';
+import { Card, Button } from 'semantic-ui-react';
 
 /** A simple static component to render some text for the landing page. */
-class Calendar extends React.Component {
+class Profile extends React.Component {
   render() {
     return (
-        <Grid container centered className="main-content">
-          <Grid.Column>
-            <Header as="h2" textAlign="center">Profile</Header>
-          </Grid.Column>
-        </Grid>
+        <Card container centered className="card-style">
+            <Card.Content header={"User 1"} textAlign="center"/>
+            <Card.Content
+                style={{
+                    height: "200px",
+                    backgroundImage: `url(images/user.png)`,
+                    backgroundSize: "cover",
+                }}
+            ></Card.Content>
+            <Card.Content>
+                <Button container className="button-style" floated="left">Friends</Button>
+                <Button container className="button-style" floated="right">Settings</Button>
+            </Card.Content>
+        </Card>
+
     );
   }
 }
 
-export default Calendar;
+export default Profile;
