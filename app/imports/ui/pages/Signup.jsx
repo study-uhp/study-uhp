@@ -84,7 +84,7 @@ class Signup extends React.Component {
                     onChange={this.handleChange}
                   />
                   <Form.TextArea label='About' placeholder='Tell us more about you...' required/>
-                  <Form.Button primary content="Submit"/>
+                  <Form.Button primary compact content="Submit"/>
                 </Form>
               </Segment>
               <Message color='black'>

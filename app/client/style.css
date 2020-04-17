@@ -40,7 +40,7 @@ footer .ui.horizontal.divider {
   -o-background-size: cover;
   background-size: cover;
   height: 100vh;
-  /* padding-bottom: 40px; */
+  overflow: hidden;
 }
 
 .ui.inverted.table th {
@@ -56,6 +56,58 @@ footer .ui.horizontal.divider {
 
 .ui.primary.buttons .button:hover, .ui.primary.button:hover {
 	background-color: #063800 !important;
+}
+
+.ui.form .ui.inverted.segment .ui.button {
+	background: #063f00 none !important;
+}
+
+.ui.inverted.form input:not([type]),
+.ui.inverted.form input[type="date"],
+.ui.inverted.form input[type="datetime-local"],
+.ui.inverted.form input[type="email"],
+.ui.inverted.form input[type="number"],
+.ui.inverted.form input[type="password"],
+.ui.inverted.form input[type="search"],
+.ui.inverted.form input[type="tel"],
+.ui.inverted.form input[type="time"],
+.ui.inverted.form input[type="text"],
+.ui.inverted.form input[type="file"],
+.ui.inverted.form input[type="url"] {
+	background: rgb(145, 145, 145) !important;
+}
+
+.ui.input > input {
+	background: rgb(145, 145, 145) !important;
+
+}
+
+.ui.form textarea {
+	background: rgb(145, 145, 145) !important;
+}
+
+.ui.input > input::placeholder {
+	color: rgba(66, 66, 66, 0.87) !important;
+}
+
+.ui.form ::placeholder {
+	color: rgba(66, 66, 66, 0.87) !important;
+}
+
+.ui.dropdown .menu {
+	background: #1b1c1d !important;
+}
+
+.ui.pointing.dropdown > .menu::after {
+  background: #1b1c1d !important;
+}
+
+.ui.menu .ui.dropdown .menu > .item > .text{
+	color: rgba(255, 255, 255, 0.87) !important;
+}
+
+.ui.menu .ui.dropdown .menu > .item > .icon{
+	color: rgba(255, 255, 255, 0.87) !important;
 }
 
 a:link {
