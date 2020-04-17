@@ -29,19 +29,21 @@ class EditStudySession extends React.Component {
     return (
         <Grid container centered className="main-content">
           <Grid.Column>
-            <Header as="h2" textAlign="center">Edit Session</Header>
-            <AutoForm schema={StudySessionSchema} onSubmit={data => this.submit(data)} model={this.props.doc}>
-              <Segment>
-                <TextField name='course'/>
-                <TextField name='topic'/>
-                <TextField name='date'/>
-                <TextField name='timeBegin'/>
-                <TextField name='timeEnd'/>
-                <SubmitField value='Submit'/>
-                <ErrorsField/>
-                <HiddenField name='owner' />
-              </Segment>
-            </AutoForm>
+            <div style={{ width: '400px', marginLeft: 'auto', marginRight: 'auto' }}>
+              <Header as="h2" textAlign="center">Edit Session</Header>
+              <AutoForm schema={StudySessionSchema} onSubmit={data => this.submit(data)} model={this.props.doc}>
+                <Segment inverted>
+                  <TextField name='course'/>
+                  <TextField name='topic'/>
+                  <TextField name='date'/>
+                  <TextField name='timeBegin'/>
+                  <TextField name='timeEnd'/>
+                  <SubmitField primary compact value='Submit'/>
+                  <ErrorsField/>
+                  <HiddenField name='owner' />
+                </Segment>
+              </AutoForm>
+            </div>
           </Grid.Column>
         </Grid>
     );

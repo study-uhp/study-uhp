@@ -25,7 +25,7 @@ class Calendar extends React.Component {
               views={['month', 'week', 'day']}
               toolbar={false}
               selectable={false}
-              onSelectEvent={event => Swal.fire(event.title)}
+              onSelectEvent={event => Swal.fire(event.title, 'Info about the study session')}
             />
             </div>
           </Grid.Column>

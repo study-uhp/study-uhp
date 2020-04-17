@@ -14,7 +14,7 @@ class StudySessionAdmin extends React.Component {
             {`${this.props.studysession.timeBegin} - ${this.props.studysession.timeEnd}`}
           </Table.Cell>
           <Table.Cell collapsing>{this.props.studysession.owner}</Table.Cell>
-          <Table.Cell collapsing><Button small content='Delete session' /></Table.Cell>
+          <Table.Cell collapsing><Button secondary compact content='Delete' /></Table.Cell>
         </Table.Row>
     );
   }

@@ -5,11 +5,14 @@ import Tilt from 'react-parallax-tilt';
 /** A simple static component to render some text for the landing page. */
 export default class Landing extends React.Component {
   render() {
-    const gridStyle = { height: '101vh' };
+    const gridStyle = { height: '100vh' };
     const imageStyle = { size: 'large' };
     const align = {
       textAlign: 'center',
       color: 'white',
+      filter: 'drop-shadow(0px 0px 4px rgba(255, 255, 255, 0.2))',
+      paddingRight: '25px',
+      paddingLeft: '25px',
     };
     return (
         <div className='study-uhp-landing-background'>
@@ -32,7 +35,7 @@ export default class Landing extends React.Component {
                       Take the skills you learned in a
                       class and use them to help some
                       one else succeed!</p>
-                    <Header inverted as="h3">Collaborate in person</Header>
+                    <Header inverted as="h3">Work together as a team</Header>
                     <p>Collaborate in real time by
                       working in the ICSpace. Get the
                       advantage of teamwork and
