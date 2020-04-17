@@ -1,11 +1,10 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Grid, Table, Header, Loader, Button } from 'semantic-ui-react';
+import { Grid, Header, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
-import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { StudySessions } from '../../api/studysessions/StudySessions';
-import StudySession from '../components/StudySession';
+import ListStudySessions from '../pages/ListStudySessions';
 
 /** Renders a table containing all of the StudySessions. Use <StudySession> to render each row. */
 class Dashboard extends React.Component {
@@ -21,22 +20,7 @@ class Dashboard extends React.Component {
             <Grid container centered className="main-content">
                 <Grid.Column>
                     <Header as="h2" textAlign="center">Dashboard</Header>
-                    <Table celled inverted compact>
-                        <Table.Header>
-                            <Table.Row>
-                                <Table.HeaderCell>Course</Table.HeaderCell>
-                                <Table.HeaderCell>Topic</Table.HeaderCell>
-                                <Table.HeaderCell>Date</Table.HeaderCell>
-                                <Table.HeaderCell>Time</Table.HeaderCell>
-                                <Table.HeaderCell></Table.HeaderCell>
-                            </Table.Row>
-                        </Table.Header>
-                        <Table.Body>
-                            {this.props.studysessions.map((studysession) => <StudySession
-                                key={studysession._id} studysession={studysession} />)}
-                        </Table.Body>
-                    </Table>
-                    <Button compact secondary as={NavLink} activeClassName="active" exact to="/add" key='add'>Create Session</Button>
+                    <ListStudySessions/>
                 </Grid.Column>
             </Grid>
         );
