@@ -1,8 +1,30 @@
 {
   "defaultAccounts": [
-    { "email": "admin@foo.com", "firstName": "ADMIN", "lastName": "ADMIN",
-      "password": "changeme", "about": "I AM AN ADMIN, AND I HAVE THE POWER TO DO WHATEVER I WANT", "role": "admin" },
-    { "email": "john@foo.com", "firstName": "John", "lastName": "Foo", "password": "changeme", "About": "Hello! My name is John, and I am a test user." }
+    { 
+      "email": "admin@foo.com",
+      "password": "changeme",
+      "role": "admin",
+      "profile": {
+        "name": {
+          "first": "ADMIN",
+          "last": "ADMIN"
+        },
+        "bio": "I AM AN ADMIN, AND I HAVE THE POWER TO DO WHATEVER I WANT",
+        "avatar": "https://randomuser.me/api/portraits/men/48.jpg"
+      }
+    },
+    {
+      "email": "john@foo.com",
+      "password": "changeme",
+      "profile": {
+        "name": {
+          "first": "John",
+          "last": "Foo"
+        },
+        "bio": "Hello! My name is John, and I am a test user.",
+        "avatar": "https://randomuser.me/api/portraits/men/60.jpg"
+      }
+    }
   ],
 
   "defaultStudySessions": [
@@ -25,6 +47,27 @@
     { 
       "course": "ICS312", "topic": "Assembly", "date": "04/09/2020", 
       "timeBegin": "1200", "timeEnd": "1400", "owner": "john@foo.com" 
+    }
+  ],
+
+  "defaultProfiles": [
+    {
+      "user": "admin@foo.com",
+      "name": {
+        "first": "ADMIN",
+        "last": "ADMIN"
+      },
+      "bio": "I AM AN ADMIN, AND I HAVE THE POWER TO DO WHATEVER I WANT",
+      "avatar": "https://randomuser.me/api/portraits/men/48.jpg"
+    },
+    {
+      "user": "john@foo.com",
+      "name": {
+        "first": "John",
+        "last": "Foo"
+      },
+      "bio": "Hello! My name is John, and I am a test user.",
+      "avatar": "https://randomuser.me/api/portraits/men/60.jpg"
     }
   ]
 }
