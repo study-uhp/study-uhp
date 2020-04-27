@@ -12,7 +12,10 @@ const UserProfileSchema = new SimpleSchema({
   'name.first': String,
   'name.last': String,
   bio: String,
-  avatar: String,
+  avatar: {
+    type: String,
+    optional: true,
+  },
 }, { tracker: Tracker });
 
 /** Attach this schema to the collection. */

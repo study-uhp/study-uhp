@@ -34,16 +34,21 @@ class Profile extends React.Component {
               <Segment inverted>
                 <Image src={userAvatar} size='small' circular centered/>
                 <Header as="h2" textAlign="center">{userName}</Header>
-              </Segment>
-              <Segment inverted style={{ width: '70%' }}>
-                {userBio}
                 <Button compact className="button-style" floated="right" onClick={this.handleClick}>Console</Button>
                 <Button 
                   as={Link} to={`/editprofile/${this.props.userprofile[0]._id}`} 
-                  compact className="button-style" floated="right"
+                  compact className="button-style" floated="left"
                 >
                   Edit
                 </Button>
+              </Segment>
+              <Segment inverted style={{ width: '50%' }}>
+                {userBio}
+              </Segment>
+              <Segment inverted style={{ width: '25%' }}>
+                <span>Calendar</span>
+                <br/>
+                <span>Session Feed</span>
               </Segment>
             </Segment.Group>
         </Grid.Column>

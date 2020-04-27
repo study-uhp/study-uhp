@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Loader, Header, Segment } from 'semantic-ui-react';
+import { Grid, Loader, Header, Segment, Form } from 'semantic-ui-react';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content'
 import { AutoForm, ErrorsField, HiddenField, SubmitField, TextField, LongTextField } from 'uniforms-semantic';
@@ -36,12 +36,14 @@ class EditProfile extends React.Component {
     return (
         <Grid container centered className="main-content">
           <Grid.Column>
-            <div style={{ width: '400px', marginLeft: 'auto', marginRight: 'auto' }}>
+            <div style={{ width: '450px', marginLeft: 'auto', marginRight: 'auto' }}>
               <Header as="h2" textAlign="center">Edit Profile</Header>
               <AutoForm schema={UserProfileSchema} onSubmit={data => this.submit(data)} model={this.props.doc}>
                 <Segment inverted>
-                  <TextField name='name.first'/>
-                  <TextField name='name.last'/>
+                  <Form.Group widths={'equal'}>
+                    <TextField name='name.first'/>
+                    <TextField name='name.last'/>
+                  </Form.Group>
                   <LongTextField name='bio'/>
                   <TextField name='avatar'/>
                   <SubmitField value='Submit'/>
