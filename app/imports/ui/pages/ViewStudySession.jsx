@@ -20,7 +20,7 @@ class ViewStudySession extends React.Component {
         <Grid container centered className="main-content">
           <Grid.Column>
             <Header as="h1" textAlign="center">View Session</Header>
-            <ViewSession/>
+            <ViewSession studysession={this.doc}/>
           </Grid.Column>
         </Grid>
     );
@@ -30,7 +30,6 @@ class ViewStudySession extends React.Component {
 /** Require the presence of a Session in the props object. Uniforms adds 'model' to the props, which we use. */
 ViewStudySession.propTypes = {
   doc: PropTypes.object,
-  model: PropTypes.object,
   ready: PropTypes.bool.isRequired,
 };
 

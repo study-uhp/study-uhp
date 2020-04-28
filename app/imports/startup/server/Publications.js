@@ -28,7 +28,7 @@ Meteor.publish('StudySessionsAdmin', function publish() {
 });
 
 /** This subscription publishes all documents regardless of user, but only if logged in. */
-Meteor.publish('ViewSession', function publish() {
+Meteor.publish('ViewStudySession', function publish() {
   if (this.userId) {
     return StudySessions.find();
   }
