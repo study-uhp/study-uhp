@@ -5,6 +5,7 @@ import { withTracker } from 'meteor/react-meteor-data';
 import { withRouter, NavLink } from 'react-router-dom';
 import { Menu, Dropdown, Input, Image } from 'semantic-ui-react';
 import { Roles } from 'meteor/alanning:roles';
+import UserAvatar from './UserAvatar';
 
 /** The NavBar appears at the top of every page. Rendered by the App Layout component. */
 class NavBar extends React.Component {
@@ -15,7 +16,8 @@ class NavBar extends React.Component {
     /** This would get changed to something like {this.props.currentuser.picture} */
     const trigger = (
         <span>
-        <Image avatar src={this.props.userAvatar}/> {this.props.currentUser}
+        <UserAvatar/>
+        {this.props.currentUser}
       </span>
     );
 
@@ -53,13 +55,11 @@ class NavBar extends React.Component {
 /** Declare the types of all properties. */
 NavBar.propTypes = {
   currentUser: PropTypes.string,
-  userAvatar: PropTypes.string,
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 const NavBarContainer = withTracker(() => ({
   currentUser: Meteor.user() ? Meteor.user().username : '',
-  userAvatar: Meteor.user() ? Meteor.user().profile.avatar : '',
 }))(NavBar);
 
 /** Enable ReactRouter for this component. https://reacttraining.com/react-router/web/api/withRouter */
