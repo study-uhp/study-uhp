@@ -27,6 +27,7 @@ const UserProfileSchema = new SimpleSchema({
     type: String,
     optional: true,
   },
+  points: Number,
 }, { tracker: Tracker });
 
 /** Attach this schema to the collection. */

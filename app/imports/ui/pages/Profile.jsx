@@ -26,6 +26,7 @@ class Profile extends React.Component {
     const userName = `${profile.name.first} ${profile.name.last}`;
     const userAvatar = profile.avatar;
     const userBio = profile.bio;
+    const userPoints = profile.points;
 
     return (
       <Grid container centered className="main-content">
@@ -35,13 +36,14 @@ class Profile extends React.Component {
             <Segment inverted style={{ width: '30%' }}>
               <Image src={userAvatar} size='small' circular centered/>
               <Header as="h2" textAlign="center">{userName}</Header>
+              <Header as='h5' textAlign="center">Points: {userPoints}</Header>
               {userBio}
               <br/><br/>
-              <Button 
+              {/* <Button 
                 onClick={this.handleClick}
                 compact className="button-style" floated="right"
                 >Console
-              </Button>
+              </Button> */}
               <Button 
                 as={Link} to={`/editprofile/${profile._id}`} 
                 compact className="button-style" floated="left"

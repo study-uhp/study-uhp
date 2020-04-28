@@ -66,7 +66,8 @@
       "courses": {
         "grasshopper": [],
         "sensei": []
-      }
+      },
+      "points": 0
     },
     {
       "user": "john@foo.com",
@@ -88,7 +89,8 @@
           "211",
           "241"
         ]
-      }
+      },
+      "points": 0
     }
   ]
 }

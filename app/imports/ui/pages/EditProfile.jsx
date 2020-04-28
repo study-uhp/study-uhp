@@ -45,23 +45,16 @@ const editProfileSchema = (allCourses) => new SimpleSchema({
     optional: true,
     allowedValues: allCourses
   },
+  points: Number,
 });
 
 
 /** Renders the Page for editing a single document. */
 class EditProfile extends React.Component {
-  
-  handleClick = () => {
-    console.log(this.props.clist);
-    console.log(allCourses);
-    console.log(CourseList.find().fetch())
-  }
 
   /** On successful submit, insert the data. */
   submit(data) {
-    console.log(data);
     const { 'name': first, 'name': last, bio, avatar, 'courses': grasshopper, 'courses': sensei, _id } = data;
-    console.log(data);
     UserProfiles.update(_id, { 
       $set: { 'name': first, 'name': last, bio, avatar, 'courses': grasshopper, 'courses': sensei, }
     }, (error) => (error ?
@@ -100,10 +93,9 @@ class EditProfile extends React.Component {
                   <SubmitField value='Submit'/>
                   <ErrorsField/>
                   <HiddenField name='user' />
+                  <HiddenField name='points' />
                 </Segment>
               </AutoForm>
-              {/* <Dropdown name='courses.grasshopper' onChange={this.handleChange} placeholder='Skills' multiple selection options={options} /> */}
-              <Button onClick={this.handleClick}>Console</Button>
             </div>
           </Grid.Column>
         </Grid>
