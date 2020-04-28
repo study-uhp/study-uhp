@@ -1,7 +1,7 @@
 import React from 'react';
-import { Icon, Table, Grid, Header } from 'semantic-ui-react';
+import { Grid, Header } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 /** Renders a single row in the List Sessions table. See pages/ListStudySessions.jsx. */
 class ViewSession extends React.Component {

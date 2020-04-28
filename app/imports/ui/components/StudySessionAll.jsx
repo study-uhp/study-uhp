@@ -17,7 +17,7 @@ class StudySessionAll extends React.Component {
           <Table.Cell collapsing>
             <Link to={`/join/${this.props.studysession._id}`}>Join Session</Link>
           </Table.Cell>
-          <Table.Cell>
+          <Table.Cell collapsing>
             <Link to={`/viewstudysession/${this.props.studysession._id}`}>View Session</Link>
           </Table.Cell>
         </Table.Row>
