@@ -15,12 +15,13 @@ class ViewStudySession extends React.Component {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
   }
 
+  /** Render the page and read ViewSession component */
   renderPage() {
     return (
         <Grid container centered className="main-content">
           <Grid.Column>
-            <Header as="h1" textAlign="center">View Session</Header>
-            <ViewSession studysession={this.doc}/>
+
+            <ViewSession studysession={this.props.doc}/>
           </Grid.Column>
         </Grid>
     );

@@ -17,6 +17,9 @@ class StudySession extends React.Component {
           <Table.Cell collapsing>
             <Link to={`/edit/${this.props.studysession._id}`}><Icon name='edit'/></Link>
           </Table.Cell>
+          <Table.Cell collapsing>
+            <Link to={`/viewstudysession/${this.props.studysession._id}`}>View</Link>
+          </Table.Cell>
         </Table.Row>
     );
   }

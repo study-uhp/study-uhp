@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Header } from 'semantic-ui-react';
+import { Grid, Header, Segment } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 
@@ -7,22 +7,19 @@ import { withRouter } from 'react-router-dom';
 class ViewSession extends React.Component {
   render() {
     return (
-        <Grid divided="vertically">
-          <Grid.Row>
-            <Grid.Column><Header as='h1'>{this.props.studysession.course}</Header></Grid.Column>
-            <Grid.Column><Header as='h1'>{this.props.studysession.topic}</Header></Grid.Column>
-          </Grid.Row>
-          <Grid.Row>
-            <Grid.Column><Header as='h2'>{this.props.studysession.date}</Header></Grid.Column>
-          </Grid.Row>
-          <Grid.Row>
-            <Grid.Column><Header as='h2'>{this.props.studysession.timeBegin}</Header></Grid.Column>
-            <Grid.Column><Header as='h2'>{this.props.studysession.timeEnd}</Header></Grid.Column>
-          </Grid.Row>
-          <Grid.Row>
-            <Header as='h2'>Owner: {this.props.studysession.owner}</Header>
-          </Grid.Row>
-        </Grid>
+        <Segment.Group inverted>
+          <Segment inverted><Header as="h1" textAlign="center">View Session</Header></Segment>
+          <Segment.Group inverted>
+            <Segment><Header textAlign="center" as="h4">{this.props.studysession.course}</Header></Segment>
+            <Segment><Header textAlign="center" as="h4">{this.props.studysession.topic}</Header></Segment>
+          </Segment.Group>
+          <Segment.Group horizonta inverted>
+            <Segment><Header textAlign="center" as="h4">{this.props.studysession.date}</Header></Segment>
+            <Segment><Header textAlign="center" as="h4">{this.props.studysession.timeBegin}</Header></Segment>
+            <Segment><Header textAlign="center" as="h4">{this.props.studysession.timeEnd}</Header></Segment>
+          </Segment.Group>
+          <Segment inverted><Header textAlign="center" as="h4">{this.props.studysession.owner}</Header></Segment>
+        </Segment.Group>
     );
   }
 }
