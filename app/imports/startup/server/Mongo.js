@@ -1,6 +1,8 @@
 import { Meteor } from 'meteor/meteor';
 import { StudySessions } from '../../api/studysessions/StudySessions';
 import { UserProfiles } from '../../api/userprofiles/UserProfiles';
+import { CourseList } from '../../api/courselist/CourseList'
+import { icsCourses } from '../../api/courselist/CourseList.json'
 
 /* eslint-disable no-console */
 
@@ -28,5 +30,18 @@ if (UserProfiles.find().count() === 0) {
   if (Meteor.settings.defaultProfiles) {
     console.log('Creating default user profiles.');
     Meteor.settings.defaultProfiles.map(data => addProfiles(data));
+  }
+}
+
+function addCourses(data) {
+  console.log(`  Adding course: ${data.course}`);
+  CourseList.insert(data);
+}
+
+/** Initialize the collection if empty. */
+if (CourseList.find().count() === 0) {
+  if (icsCourses) {
+    console.log('Creating ICS course listiing.');
+    icsCourses.map(data => addCourses(data));
   }
 }
