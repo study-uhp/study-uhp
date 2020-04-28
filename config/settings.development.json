@@ -26,5 +26,17 @@
       "course": "ICS312", "topic": "Assembly", "date": "04/09/2020", 
       "timeBegin": "1200", "timeEnd": "1400", "owner": "john@foo.com" 
     }
+  ],
+
+  "defaultFriendList": [
+    {
+    "firstName": "Philip", "lastName": "Johnson", "email": "sample@hawaii.du", "owner": "john@foo.com"
+    },
+    {
+    "firstName": "Henri", "lastName": "Casanova", "email": "sample@hawaii.du", "owner": "john@foo.com"
+    },
+    {
+    "firstName": "Kim", "lastName": "Binsted", "email": "sample@hawaii.du", "owner": "john@foo.com"
+    }
   ]
 }

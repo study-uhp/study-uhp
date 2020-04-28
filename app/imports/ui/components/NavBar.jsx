@@ -28,14 +28,16 @@ class NavBar extends React.Component {
           <Menu.Item position="right" key='search'>
             <Input inverted transparent size='mini' className='icon' icon='search' placeholder='Search...'/>
           </Menu.Item>,
-          <Menu.Item as={NavLink} activeClassName="active" exact to="/allsessions" key='allsessions'>All Sessions</Menu.Item>,
+          <Menu.Item as={NavLink} activeClassName="active" exact to="/allsessions"
+                     key='allsessions'>All Sessions</Menu.Item>,
           <Menu.Item as={NavLink} activeClassName="active" exact to="/calendar" key='calendar'>Calendar</Menu.Item>,
           <Menu.Item as={NavLink} activeClassName="active" exact to="/dashboard" key='dashboard'>Dashboard</Menu.Item>,
+          <Menu.Item as={NavLink} activeClassName="active" exact to="/addfriend" key='addfriend'>Add Friend</Menu.Item>,
         ]) : ''}
         {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
             <Menu.Item as={NavLink} activeClassName="active" exact to="/admin" key='admin'>Admin</Menu.Item>
         ) : ''}
-        {this.props.currentUser === '' ? ( '' ) : (
+        {this.props.currentUser === '' ? ('') : (
           <Menu.Item>
             <Dropdown trigger={trigger} pointing="top right" icon={null}>
               <Dropdown.Menu>
