@@ -1,9 +1,8 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Card, Container, Header } from 'semantic-ui-react';
+import { Card, Container, Header, Loader } from 'semantic-ui-react';
 import Friend from '/imports/ui/components/Friend';
 import { withTracker } from 'meteor/react-meteor-data';
-import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { FriendsC } from '../../api/friends/FriendsC';
 
@@ -11,12 +10,18 @@ import { FriendsC } from '../../api/friends/FriendsC';
 /** A simple static component to render some text for the landing page. */
 class Friends extends React.Component {
 
-  render() {
+    /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
+    render() {
+        return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
+    }
+
+  renderPage() {
     return (
         <Container>
             <Header as="h2" textAlign="center">Friends</Header>
             <Card.Group>
-                {this.props.friendsc.map((friend, index) => <Friend key={index} friend={friend}/>)}
+                {this.props.friendsc.map((friend) => <Friend
+                    key={friend._id} studysession={friend} />)}
             </Card.Group>
         </Container>
 
