@@ -3,50 +3,54 @@
     { 
       "email": "admin@foo.com",
       "password": "changeme",
-      "role": "admin",
-      "profile": {
-        "name": {
-          "first": "ADMIN",
-          "last": "ADMIN"
-        },
-        "bio": "I AM AN ADMIN, AND I HAVE THE POWER TO DO WHATEVER I WANT",
-        "avatar": "https://randomuser.me/api/portraits/men/48.jpg"
-      }
+      "role": "admin"
     },
     {
       "email": "john@foo.com",
-      "password": "changeme",
-      "profile": {
-        "name": {
-          "first": "John",
-          "last": "Foo"
-        },
-        "bio": "Hello! My name is John, and I am a test user.",
-        "avatar": "https://randomuser.me/api/portraits/men/60.jpg"
-      }
+      "password": "changeme"
     }
   ],
 
   "defaultStudySessions": [
     { 
-      "course": "ICS311", "topic": "Greedy Algorithms", "date": "04/04/2020", 
-      "timeBegin": "1300", "timeEnd": "1400", "owner": "john@foo.com"
+      "course": "ICS311",
+      "topic": "Greedy Algorithms",
+      "date": "04/04/2020",
+      "timeBegin": "1300",
+      "timeEnd": "1400",
+      "owner": "john@foo.com"
     },
     { 
-      "course": "ICS314", "topic": "Mongo Databases", "date": "04/07/2020", 
-      "timeBegin": "1500", "timeEnd": "1600", "owner": "john@foo.com" 
+      "course": "ICS314",
+      "topic": "Mongo Databases",
+      "date": "04/07/2020",
+      "timeBegin": "1500",
+      "timeEnd": "1600",
+      "owner": "john@foo.com" 
     },
     { 
-      "course": "ICS212", "topic": "Pointers", "date": "04/05/2020", 
-      "timeBegin": "1200", "timeEnd": "1400", "owner": "john@foo.com" 
+      "course": "ICS212",
+      "topic": "Pointers",
+      "date": "04/05/2020",
+      "timeBegin": "1200",
+      "timeEnd": "1400",
+      "owner": "john@foo.com" 
     },
     { 
-      "course": "ICS311", "topic": "Dyanmic Programming", "date": "04/10/2020", 
-      "timeBegin": "1600", "timeEnd": "1700", "owner": "john@foo.com" 
+      "course": "ICS311",
+      "topic": "Dyanmic Programming",
+      "date": "04/10/2020",
+      "timeBegin": "1600",
+      "timeEnd": "1700",
+      "owner": "john@foo.com" 
     },
     { 
-      "course": "ICS312", "topic": "Assembly", "date": "04/09/2020", 
-      "timeBegin": "1200", "timeEnd": "1400", "owner": "john@foo.com" 
+      "course": "ICS312",
+      "topic": "Assembly",
+      "date": "04/09/2020",
+      "timeBegin": "1200",
+      "timeEnd": "1400",
+      "owner": "john@foo.com" 
     }
   ],
 
@@ -58,7 +62,11 @@
         "last": "ADMIN"
       },
       "bio": "I AM AN ADMIN, AND I HAVE THE POWER TO DO WHATEVER I WANT",
-      "avatar": "https://randomuser.me/api/portraits/men/48.jpg"
+      "avatar": "https://randomuser.me/api/portraits/men/48.jpg",
+      "courses": {
+        "grasshopper": [],
+        "sensei": []
+      }
     },
     {
       "user": "john@foo.com",
@@ -67,7 +75,20 @@
         "last": "Foo"
       },
       "bio": "Hello! My name is John, and I am a test user.",
-      "avatar": "https://randomuser.me/api/portraits/men/60.jpg"
+      "avatar": "https://randomuser.me/api/portraits/men/60.jpg",
+      "courses": {
+        "grasshopper": [ 
+          "212",
+          "311",
+          "314"
+        ],
+        "sensei": [
+          "111",
+          "141",
+          "211",
+          "241"
+        ]
+      }
     }
   ]
 }

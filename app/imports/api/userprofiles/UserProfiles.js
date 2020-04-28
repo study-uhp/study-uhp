@@ -16,6 +16,11 @@ const UserProfileSchema = new SimpleSchema({
     type: String,
     optional: true,
   },
+  courses: Object,
+  'courses.grasshopper': Array,
+  'courses.grasshopper.$': String,
+  'courses.sensei': Array,
+  'courses.sensei.$': String,
 }, { tracker: Tracker });
 
 /** Attach this schema to the collection. */
