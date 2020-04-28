@@ -6,9 +6,10 @@ import PropTypes from 'prop-types';
 import 'uniforms-bridge-simple-schema-2'; // required for Uniforms
 import { StudySessions } from '../../api/studysessions/StudySessions';
 import ViewSession from '../components/ViewSession';
+import ViewSessionAdmin from '../components/ViewSessionAdmin';
 
 /** Renders the Page for editing a single document. */
-class ViewStudySession extends React.Component {
+class ViewStudySessionAdmin extends React.Component {
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
@@ -20,7 +21,7 @@ class ViewStudySession extends React.Component {
     return (
         <Grid container centered className="main-content">
           <Grid.Column>
-            <ViewSession studysession={this.props.doc}/>
+            <ViewSessionAdmin studysession={this.props.doc}/>
           </Grid.Column>
         </Grid>
     );
@@ -28,7 +29,7 @@ class ViewStudySession extends React.Component {
 }
 
 /** Require the presence of a Session in the props object. Uniforms adds 'model' to the props, which we use. */
-ViewStudySession.propTypes = {
+ViewStudySessionAdmin.propTypes = {
   doc: PropTypes.object,
   ready: PropTypes.bool.isRequired,
 };
@@ -43,4 +44,4 @@ export default withTracker(({ match }) => {
     doc: StudySessions.findOne(documentId),
     ready: subscription.ready(),
   };
-})(ViewStudySession);
+})(ViewStudySessionAdmin);

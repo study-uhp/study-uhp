@@ -12,6 +12,7 @@ import ListStudySessions from '../pages/ListStudySessions';
 import ListStudySessionsAdmin from '../pages/ListStudySessionsAdmin';
 import AddStudySession from '../pages/AddStudySession';
 import EditStudySession from '../pages/EditStudySession';
+import EditStudySessionAdmin from '../pages/EditStudySessionAdmin';
 import Calendar from '../pages/Calendar';
 import Profile from '../pages/Profile';
 import NotFound from '../pages/NotFound';
@@ -41,6 +42,8 @@ class App extends React.Component {
               <ProtectedRoute path="/profile" component={Profile}/>
               <ProtectedRoute path="/edit/:_id" component={EditStudySession}/>
               <AdminProtectedRoute path="/admin" component={ListStudySessionsAdmin}/>
+              <AdminProtectedRoute path="/editadmin/:_id" component={EditStudySessionAdmin}/>
+              <AdminProtectedRoute path="/viewstudysessionadmin/:_id" component={ViewStudySession}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <Route component={NotFound}/>
             </Switch>
