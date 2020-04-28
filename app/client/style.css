@@ -116,6 +116,16 @@ footer .ui.horizontal.divider {
 }
 
 .ui.menu .ui.dropdown .menu > .item > .icon{
+  color: rgba(255, 255, 255, 0.87) !important;
+}
+
+.ui.selection.dropdown, .ui.selection.dropdown .menu {
+	background: rgb(145, 145, 145) !important;
+	color: rgba(0, 0, 0, 0.87);
+}
+
+.ui.selection.dropdown .ui.label {
+	background-color: #1b1c1d !important;
 	color: rgba(255, 255, 255, 0.87) !important;
 }
 

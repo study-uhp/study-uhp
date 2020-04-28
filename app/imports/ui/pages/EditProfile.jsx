@@ -16,20 +16,6 @@ import MultiSelectField from '../components/MultiSelectField';
 
 const MySwal = withReactContent(Swal);
 
-const options = [
-  { key: '111', text: '111', value: '111' },
-  { key: '222', text: '222', value: '222' },
-  { key: '333', text: '333', value: '333' },
-  { key: '444', text: '444', value: '444' },
-];
-
-// const options = _.map(allowedValues, (val, index) => ({
-//   key: index,
-//   text: transform ? transform(val) : val,
-//   value: val,
-// }));
-
-
 const editProfileSchema = (allCourses) => new SimpleSchema({
   user: String,
   name: Object,
@@ -41,10 +27,24 @@ const editProfileSchema = (allCourses) => new SimpleSchema({
     optional: true,
   },
   courses: Object,
-  'courses.grasshopper': Array,
-  'courses.grasshopper.$': {type: String, allowedValues: allCourses },
-  'courses.sensei': Array,
-  'courses.sensei.$': {type: String, allowedValues: allCourses },
+  'courses.grasshopper': {
+    type: Array,
+    optional: true,
+  },
+  'courses.grasshopper.$': {
+    type: String,
+    optional: true,
+    allowedValues: allCourses
+  },
+  'courses.sensei': {
+    type: Array,
+    optional: true,
+  },
+  'courses.sensei.$': {
+    type: String,
+    optional: true,
+    allowedValues: allCourses
+  },
 });
 
 
@@ -59,8 +59,12 @@ class EditProfile extends React.Component {
 
   /** On successful submit, insert the data. */
   submit(data) {
-    const { 'name': first, 'name': last, bio, avatar, _id } = data;
-    UserProfiles.update(_id, { $set: { 'name': first, 'name': last, bio, avatar } }, (error) => (error ?
+    console.log(data);
+    const { 'name': first, 'name': last, bio, avatar, 'courses': grasshopper, 'courses': sensei, _id } = data;
+    console.log(data);
+    UserProfiles.update(_id, { 
+      $set: { 'name': first, 'name': last, bio, avatar, 'courses': grasshopper, 'courses': sensei, }
+    }, (error) => (error ?
       MySwal.fire('Error', error.message, 'error') :
       MySwal.fire('Success', 'Profile updated successfully', 'success').then(() => {
         window.location.href="./#/profile";
@@ -91,10 +95,8 @@ class EditProfile extends React.Component {
                   </Form.Group>
                   <LongTextField name='bio'/>
                   <TextField name='avatar'/>
-                  {/* <Dropdown name='courses.grasshopper' placeholder='grasshopper' multiple selection 
-                    options={this.props.doc.courses.grasshopper} /> */}
-                    <MultiSelectField name='courses.grasshopper' showInlineError={true} placeholder={'Grasshopper'}/>
-                    <MultiSelectField name='courses.sensei' showInlineError={true} placeholder={'Sensei'}/>
+                  <MultiSelectField name='courses.grasshopper'/>
+                  <MultiSelectField name='courses.sensei'/>
                   <SubmitField value='Submit'/>
                   <ErrorsField/>
                   <HiddenField name='user' />
