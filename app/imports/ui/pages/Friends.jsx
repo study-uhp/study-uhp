@@ -15,6 +15,7 @@ class Friends extends React.Component {
         return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
     }
 
+<<<<<<< Updated upstream
   renderPage() {
     return (
         <Container>
@@ -29,6 +30,20 @@ class Friends extends React.Component {
   }
 }
 
+=======
+    renderPage() {
+        return (
+            <Container>
+                <Header as="h2" textAlign="center">Friends</Header>
+                <Card.Group>
+                    {this.props.friendsc.map((friend) => <Friend
+                        key={friend._id} studysession={friend} />)}
+                </Card.Group>
+            </Container>
+        );
+    }
+}
+>>>>>>> Stashed changes
 /** Require an array of FriendsC in the props. */
 Friends.propTypes = {
     friendsc: PropTypes.array.isRequired,

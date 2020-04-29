@@ -11,6 +11,7 @@ import { FriendsC, FriendsCSchema } from '../../api/friends/FriendsC';
 /** Renders the Page for adding a document. */
 class AddFriend extends React.Component {
 
+<<<<<<< Updated upstream
   /** On submit, insert the data. */
   submit(data, formRef) {
     const { firstName, lastName, email } = data;
@@ -54,3 +55,48 @@ class AddFriend extends React.Component {
 }
 
 export default AddFriend;
+=======
+    /** On submit, insert the data. */
+    submit(data, formRef) {
+        const { firstName, lastName, email } = data;
+        const owner = Meteor.user().username;
+        FriendsC.insert({ firstName, lastName, email, owner },
+            (error) => {
+                if (error) {
+                    Swal.fire('Error', error.message, 'error');
+                } else {
+                    Swal.fire('Success', 'Friend added successfully', 'success');
+                    formRef.reset();
+                }
+            });
+    }
+
+    /** Render the form. Use Uniforms: https://github.com/vazco/uniforms
+     *
+     * Right now this is just hacked together for testing. Everything should
+     * not be just TextFields! Need to figure out the proper way to set up
+     * the Schema and also Uniforms.
+     */
+    render() {
+        let fRef = null;
+        return (
+            <Grid container centered className="main-content">
+                <Grid.Column>
+                    <Header as="h2" textAlign="center" inverted>Add Friend</Header>
+                    <AutoForm ref={ref => { fRef = ref; }} schema={FriendsCSchema} onSubmit={data => this.submit(data, fRef)} >
+                        <Segment inverted>
+                            <TextField name='firstName'/>
+                            <TextField name='lastName'/>
+                            <TextField name='email'/>
+                            <SubmitField value='Submit'/>
+                            <ErrorsField/>
+                        </Segment>
+                    </AutoForm>
+                </Grid.Column>
+            </Grid>
+        );
+    }
+}
+
+export default AddFriend;
+>>>>>>> Stashed changes

@@ -19,6 +19,10 @@ import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
 import Dashboard from '../pages/Dashboard';
+<<<<<<< Updated upstream
+=======
+import ViewStudySession from '../pages/ViewStudySession';
+>>>>>>> Stashed changes
 import Friends from '../pages/Friends';
 import AddFriend from '../pages/AddFriend';
 
@@ -41,7 +45,13 @@ class App extends React.Component {
               <ProtectedRoute path="/profile" component={Profile}/>
               <ProtectedRoute path="/Friends" component={Friends}/>
               <ProtectedRoute path="/edit/:_id" component={EditStudySession}/>
+<<<<<<< Updated upstream
               <ProtectedRoute path="/addfriend" component={AddFriend}/>
+=======
+              <ProtectedRoute path="/editprofile/:_id" component={EditProfile}/>
+              <ProtectedRoute path="/addfriend" component={AddFriend}/>
+                <ProtectedRoute path="/Friends" component={Friends}/>
+>>>>>>> Stashed changes
               <AdminProtectedRoute path="/admin" component={ListStudySessionsAdmin}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <Route component={NotFound}/>

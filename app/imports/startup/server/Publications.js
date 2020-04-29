@@ -1,6 +1,11 @@
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 import { StudySessions } from '../../api/studysessions/StudySessions';
+<<<<<<< Updated upstream
+=======
+import { UserProfiles } from '../../api/userprofiles/UserProfiles';
+import { CourseList } from '../../api/courselist/CourseList'
+>>>>>>> Stashed changes
 import { FriendsC } from '../../api/friends/FriendsC';
 
 /** This subscription publishes all documents regardless of user, but only if logged in. */
@@ -24,6 +29,14 @@ Meteor.publish('StudySessions', function publish() {
 Meteor.publish('StudySessionsAdmin', function publish() {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
     return StudySessions.find();
+  }
+  return this.ready();
+});
+
+Meteor.publish('FriendsC', function publish() {
+  if (this.userId) {
+    const username = Meteor.users.findOne(this.userId).username;
+    return FriendsC.find({ owner: username });
   }
   return this.ready();
 });

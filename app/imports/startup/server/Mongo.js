@@ -1,6 +1,14 @@
 import { Meteor } from 'meteor/meteor';
 import { StudySessions } from '../../api/studysessions/StudySessions';
+<<<<<<< Updated upstream
 import { FriendsC } from '../../api/friends/FriendsC';
+=======
+import { UserProfiles } from '../../api/userprofiles/UserProfiles';
+import { CourseList } from '../../api/courselist/CourseList';
+import { icsCourses } from '../../api/courselist/CourseList.json';
+import { FriendsC } from '../../api/friends/FriendsC';
+
+>>>>>>> Stashed changes
 /* eslint-disable no-console */
 
 /** Initialize the database with a default data document. */
@@ -30,3 +38,50 @@ if (FriendsC.find().count() === 0) {
     Meteor.settings.defaultFriendList.map(data => addFriend(data));
   }
 }
+<<<<<<< Updated upstream
+=======
+
+
+/** Adding the mock users */
+function createUser(user, role) {
+  const userID = Accounts.createUser({ username: user, email: user, password: 'changeme' });
+  if (role === 'admin') {
+    Roles.addUsersToRoles(userID, 'admin');
+  }
+}
+
+/** Defines a new user and associated profile. Error if user already exists. */
+function addProfile({ user, name, bio, avatar, courses, points, role }) {
+  console.log(`Defining profile ${user}`);
+  // Define the user in the Meteor accounts package.
+  createUser(user, role);
+  // Create the profile.
+  UserProfiles.insert({ user, name, bio, avatar, courses, points });
+}
+
+function addSessions(data) {
+  StudySessions.insert(data);
+}
+
+if ((Meteor.settings.loadAssetsFile) && (Meteor.users.find().count() < 3)) {
+  const assetsFileName = 'data.json';
+  console.log(`Loading data from private/${assetsFileName}`);
+  const jsonData = JSON.parse(Assets.getText(assetsFileName));
+  jsonData.profiles.map(profile => addProfile(profile));
+  jsonData.sessions.map(sessions => addSessions(sessions));
+}
+
+/** Initialize the database with a default data document. */
+function addFriend(data) {
+  console.log(`  Adding: ${data.lastName} (${data.owner})`);
+  FriendsC.insert(data);
+}
+
+/** Initialize the collection if empty. */
+if (FriendsC.find().count() === 0) {
+  if (Meteor.settings.defaultFriendList) {
+    console.log('Creating default friends list.');
+    Meteor.settings.defaultFriendList.map(data => addFriend(data));
+  }
+}
+>>>>>>> Stashed changes
