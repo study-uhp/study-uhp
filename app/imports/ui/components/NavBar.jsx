@@ -30,7 +30,7 @@ class NavBar extends React.Component {
           <Menu.Item position="right" key='search'>
             <Input inverted transparent size='mini' className='icon' icon='search' placeholder='Search...'/>
           </Menu.Item>,
-          <Menu.Item as={NavLink} activeClassName="active" exact to="/allsessions" key='allsessions'>All Sessions</Menu.Item>,
+          <Menu.Item as={NavLink} activeClassName="active" exact to="/allsessions2" key='allsessions'>All Sessions</Menu.Item>,
           <Menu.Item as={NavLink} activeClassName="active" exact to="/calendar" key='calendar'>Calendar</Menu.Item>,
           <Menu.Item as={NavLink} activeClassName="active" exact to="/dashboard" key='dashboard'>Dashboard</Menu.Item>,
         ]) : ''}
