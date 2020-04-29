@@ -440,3 +440,15 @@ a:hover {
 .ui.comments .comment .metadata {
 	color: rgba(255, 255, 255, 0.4) !important;
 }
+
+.griddle-pagination select.ui.dropdown {
+	height: 25px !important;
+  margin-right: 2px;
+  min-height: 25px !important;
+  padding: 2px 5px 2px 5px !important;
+  min-width: 0px !important;
+}
+
+.ui.secondary.buttons .button:focus, .ui.secondary.button:focus {
+	background-color: #1B1C1D !important;
+}

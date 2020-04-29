@@ -8,6 +8,7 @@ import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
 import ListStudySessionsAll from '../pages/ListStudySessionsAll';
+import ListStudySessionsAll2 from '../pages/ListStudySessionsAll2';
 import ListStudySessions from '../pages/ListStudySessions';
 import ListStudySessionsAdmin from '../pages/ListStudySessionsAdmin';
 import AddStudySession from '../pages/AddStudySession';
@@ -35,6 +36,7 @@ class App extends React.Component {
               <SignInSignUpRoute path="/signup" component={Signup}/>
               <ProtectedRoute path="/dashboard" component={Dashboard}/>
               <ProtectedRoute path="/allsessions" component={ListStudySessionsAll}/>
+              <ProtectedRoute path="/allsessions2" component={ListStudySessionsAll2}/>
               <ProtectedRoute path="/sessions" component={ListStudySessions}/>
               <ProtectedRoute path="/add" component={AddStudySession}/>
               <ProtectedRoute path="/viewstudysession/:_id" component={ViewStudySession}/>
