@@ -116,6 +116,16 @@ footer .ui.horizontal.divider {
 }
 
 .ui.menu .ui.dropdown .menu > .item > .icon{
+  color: rgba(255, 255, 255, 0.87) !important;
+}
+
+.ui.selection.dropdown, .ui.selection.dropdown .menu {
+	background: rgb(145, 145, 145) !important;
+	color: rgba(0, 0, 0, 0.87);
+}
+
+.ui.selection.dropdown .ui.label {
+	background-color: #1b1c1d !important;
 	color: rgba(255, 255, 255, 0.87) !important;
 }
 
@@ -391,3 +401,42 @@ a:hover {
   }
 }
 /*# sourceMappingURL=button.css.map */
+
+
+.ui.horizontal.segments {
+  background-color: #1B1C1D !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.ui.feed > .event > .content .summary {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+.ui.feed > .event > .content .date {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.ui.feed .ui.header {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* .ui.table, .ui.table thead th {
+	background: rgb(54, 56, 58) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.ui.table tr.active, .ui.table td.active {
+	background: rgb(99, 102, 104) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+} */
+
+.ui.comments .comment .author {
+	color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.ui.comments .comment .text {
+	color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.ui.comments .comment .metadata {
+	color: rgba(255, 255, 255, 0.4) !important;
+}

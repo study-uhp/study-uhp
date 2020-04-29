@@ -1,0 +1,1024 @@
+{
+  "sessions": [
+  {
+    "course": "ICS111",
+    "topic": "Making a class in Java",
+    "date": "04/02/2020",
+    "timeBegin": "09:00:00 AM",
+    "timeEnd": "10:00:00 AM",
+    "owner": "aaron@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS141",
+    "topic": "Truth tables",
+    "date": "04/12/2020",
+    "timeBegin": "12:00:00 PM",
+    "timeEnd": "01:00:00 PM",
+    "owner": "aaron@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS211",
+    "topic": "Understanding how bubblesort works",
+    "date": "04/13/2020",
+    "timeBegin": "09:00:00 AM",
+    "timeEnd": "10:00:00 AM",
+    "owner": "aaron@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS241",
+    "topic": "Conditional operators",
+    "date": "04/03/2020",
+    "timeBegin": "03:00:00 PM",
+    "timeEnd": "04:00:00 PM",
+    "owner": "aaron@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS212",
+    "topic": "Compiling using gcc",
+    "date": "04/04/2020",
+    "timeBegin": "10:00:00 AM",
+    "timeEnd": "11:00:00 AM",
+    "owner": "aaron@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS311",
+    "topic": "Memoization",
+    "date": "04/05/2020",
+    "timeBegin": "11:00:00 AM",
+    "timeEnd": "12:00:00 PM",
+    "owner": "aaron@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS314",
+    "topic": "Using the underscore library",
+    "date": "04/22/2020",
+    "timeBegin": "01:00:00 PM",
+    "timeEnd": "02:00:00 PM",
+    "owner": "aaron@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS211",
+    "topic": "Recursive backtracking",
+    "date": "04/23/2020",
+    "timeBegin": "10:00:00 AM",
+    "timeEnd": "11:00:00 AM",
+    "owner": "aaron@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS311",
+    "topic": "Sorting algorithms",
+    "date": "04/24/2020",
+    "timeBegin": "02:00:00 PM",
+    "timeEnd": "03:00:00 PM",
+    "owner": "aaron@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS111",
+    "topic": "Using methods",
+    "date": "04/25/2020",
+    "timeBegin": "12:00:00 PM",
+    "timeEnd": "01:00:00 PM",
+    "owner": "aaron@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS111",
+    "topic": "Making a class in Java",
+    "date": "04/17/2020",
+    "timeBegin": "11:00:00 AM",
+    "timeEnd": "12:00:00 PM",
+    "owner": "michael@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS141",
+    "topic": "Truth tables",
+    "date": "04/18/2020",
+    "timeBegin": "01:00:00 PM",
+    "timeEnd": "02:00:00 PM",
+    "owner": "michael@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS211",
+    "topic": "Understanding how bubblesort works",
+    "date": "04/19/2020",
+    "timeBegin": "03:00:00 PM",
+    "timeEnd": "04:00:00 PM",
+    "owner": "michael@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS241",
+    "topic": "Conditional operators",
+    "date": "04/14/2020",
+    "timeBegin": "02:00:00 PM",
+    "timeEnd": "03:00:00 PM",
+    "owner": "michael@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS212",
+    "topic": "Compiling using gcc",
+    "date": "04/15/2020",
+    "timeBegin": "09:00:00 AM",
+    "timeEnd": "10:00:00 AM",
+    "owner": "michael@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS311",
+    "topic": "Memoization",
+    "date": "04/16/2020",
+    "timeBegin": "12:00:00 PM",
+    "timeEnd": "01:00:00 PM",
+    "owner": "michael@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS314",
+    "topic": "Using the underscore library",
+    "date": "04/20/2020",
+    "timeBegin": "09:00:00 AM",
+    "timeEnd": "10:00:00 AM",
+    "owner": "michael@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS211",
+    "topic": "Recursive backtracking",
+    "date": "04/21/2020",
+    "timeBegin": "03:00:00 PM",
+    "timeEnd": "04:00:00 PM",
+    "owner": "michael@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS311",
+    "topic": "Sorting algorithms",
+    "date": "04/09/2020",
+    "timeBegin": "10:00:00 AM",
+    "timeEnd": "11:00:00 AM",
+    "owner": "michael@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS111",
+    "topic": "Using methods",
+    "date": "04/10/2020",
+    "timeBegin": "11:00:00 AM",
+    "timeEnd": "12:00:00 PM",
+    "owner": "michael@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS111",
+    "topic": "Making a class in Java",
+    "date": "04/11/2020",
+    "timeBegin": "01:00:00 PM",
+    "timeEnd": "02:00:00 PM",
+    "owner": "jack@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS141",
+    "topic": "Truth tables",
+    "date": "04/06/2020",
+    "timeBegin": "10:00:00 AM",
+    "timeEnd": "11:00:00 AM",
+    "owner": "jack@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS211",
+    "topic": "Understanding how bubblesort works",
+    "date": "04/07/2020",
+    "timeBegin": "02:00:00 PM",
+    "timeEnd": "03:00:00 PM",
+    "owner": "jack@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS241",
+    "topic": "Conditional operators",
+    "date": "04/08/2020",
+    "timeBegin": "12:00:00 PM",
+    "timeEnd": "01:00:00 PM",
+    "owner": "jack@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS212",
+    "topic": "Compiling using gcc",
+    "date": "04/02/2020",
+    "timeBegin": "11:00:00 AM",
+    "timeEnd": "12:00:00 PM",
+    "owner": "jack@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS311",
+    "topic": "Memoization",
+    "date": "04/12/2020",
+    "timeBegin": "01:00:00 PM",
+    "timeEnd": "02:00:00 PM",
+    "owner": "jack@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS314",
+    "topic": "Using the underscore library",
+    "date": "04/13/2020",
+    "timeBegin": "03:00:00 PM",
+    "timeEnd": "04:00:00 PM",
+    "owner": "jack@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS211",
+    "topic": "Recursive backtracking",
+    "date": "04/03/2020",
+    "timeBegin": "02:00:00 PM",
+    "timeEnd": "03:00:00 PM",
+    "owner": "jack@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS311",
+    "topic": "Sorting algorithms",
+    "date": "04/04/2020",
+    "timeBegin": "09:00:00 AM",
+    "timeEnd": "10:00:00 AM",
+    "owner": "jack@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS111",
+    "topic": "Using methods",
+    "date": "04/05/2020",
+    "timeBegin": "12:00:00 PM",
+    "timeEnd": "01:00:00 PM",
+    "owner": "jack@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS111",
+    "topic": "Making a class in Java",
+    "date": "04/22/2020",
+    "timeBegin": "09:00:00 AM",
+    "timeEnd": "10:00:00 AM",
+    "owner": "cameron@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS141",
+    "topic": "Truth tables",
+    "date": "04/23/2020",
+    "timeBegin": "03:00:00 PM",
+    "timeEnd": "04:00:00 PM",
+    "owner": "cameron@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS211",
+    "topic": "Understanding how bubblesort works",
+    "date": "04/24/2020",
+    "timeBegin": "09:00:00 AM",
+    "timeEnd": "10:00:00 AM",
+    "owner": "cameron@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS241",
+    "topic": "Conditional operators",
+    "date": "04/25/2020",
+    "timeBegin": "12:00:00 PM",
+    "timeEnd": "01:00:00 PM",
+    "owner": "cameron@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS212",
+    "topic": "Compiling using gcc",
+    "date": "04/17/2020",
+    "timeBegin": "09:00:00 AM",
+    "timeEnd": "10:00:00 AM",
+    "owner": "cameron@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS311",
+    "topic": "Memoization",
+    "date": "04/18/2020",
+    "timeBegin": "03:00:00 PM",
+    "timeEnd": "04:00:00 PM",
+    "owner": "cameron@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS314",
+    "topic": "Using the underscore library",
+    "date": "04/19/2020",
+    "timeBegin": "10:00:00 AM",
+    "timeEnd": "11:00:00 AM",
+    "owner": "cameron@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS211",
+    "topic": "Recursive backtracking",
+    "date": "04/14/2020",
+    "timeBegin": "11:00:00 AM",
+    "timeEnd": "12:00:00 PM",
+    "owner": "cameron@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS311",
+    "topic": "Sorting algorithms",
+    "date": "04/15/2020",
+    "timeBegin": "01:00:00 PM",
+    "timeEnd": "02:00:00 PM",
+    "owner": "cameron@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS111",
+    "topic": "Using methods",
+    "date": "04/16/2020",
+    "timeBegin": "10:00:00 AM",
+    "timeEnd": "11:00:00 AM",
+    "owner": "cameron@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS111",
+    "topic": "Making a class in Java",
+    "date": "04/20/2020",
+    "timeBegin": "02:00:00 PM",
+    "timeEnd": "03:00:00 PM",
+    "owner": "alice@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS141",
+    "topic": "Truth tables",
+    "date": "04/21/2020",
+    "timeBegin": "12:00:00 PM",
+    "timeEnd": "01:00:00 PM",
+    "owner": "alice@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS211",
+    "topic": "Understanding how bubblesort works",
+    "date": "04/09/2020",
+    "timeBegin": "11:00:00 AM",
+    "timeEnd": "12:00:00 PM",
+    "owner": "alice@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS241",
+    "topic": "Conditional operators",
+    "date": "04/10/2020",
+    "timeBegin": "01:00:00 PM",
+    "timeEnd": "02:00:00 PM",
+    "owner": "alice@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS212",
+    "topic": "Compiling using gcc",
+    "date": "04/11/2020",
+    "timeBegin": "03:00:00 PM",
+    "timeEnd": "04:00:00 PM",
+    "owner": "alice@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS311",
+    "topic": "Memoization",
+    "date": "04/06/2020",
+    "timeBegin": "02:00:00 PM",
+    "timeEnd": "03:00:00 PM",
+    "owner": "alice@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS314",
+    "topic": "Using the underscore library",
+    "date": "04/07/2020",
+    "timeBegin": "09:00:00 AM",
+    "timeEnd": "10:00:00 AM",
+    "owner": "alice@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS211",
+    "topic": "Recursive backtracking",
+    "date": "04/08/2020",
+    "timeBegin": "12:00:00 PM",
+    "timeEnd": "01:00:00 PM",
+    "owner": "alice@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS311",
+    "topic": "Sorting algorithms",
+    "date": "04/02/2020",
+    "timeBegin": "09:00:00 AM",
+    "timeEnd": "10:00:00 AM",
+    "owner": "alice@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS111",
+    "topic": "Using methods",
+    "date": "04/12/2020",
+    "timeBegin": "03:00:00 PM",
+    "timeEnd": "04:00:00 PM",
+    "owner": "alice@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS111",
+    "topic": "Making a class in Java",
+    "date": "04/13/2020",
+    "timeBegin": "10:00:00 AM",
+    "timeEnd": "11:00:00 AM",
+    "owner": "philip@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS141",
+    "topic": "Truth tables",
+    "date": "04/03/2020",
+    "timeBegin": "11:00:00 AM",
+    "timeEnd": "12:00:00 PM",
+    "owner": "philip@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS211",
+    "topic": "Understanding how bubblesort works",
+    "date": "04/04/2020",
+    "timeBegin": "01:00:00 PM",
+    "timeEnd": "02:00:00 PM",
+    "owner": "philip@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS241",
+    "topic": "Conditional operators",
+    "date": "04/02/2020",
+    "timeBegin": "10:00:00 AM",
+    "timeEnd": "11:00:00 AM",
+    "owner": "philip@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS212",
+    "topic": "Compiling using gcc",
+    "date": "04/12/2020",
+    "timeBegin": "02:00:00 PM",
+    "timeEnd": "03:00:00 PM",
+    "owner": "philip@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS311",
+    "topic": "Memoization",
+    "date": "04/13/2020",
+    "timeBegin": "09:00:00 AM",
+    "timeEnd": "10:00:00 AM",
+    "owner": "philip@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS314",
+    "topic": "Using the underscore library",
+    "date": "04/03/2020",
+    "timeBegin": "12:00:00 PM",
+    "timeEnd": "01:00:00 PM",
+    "owner": "philip@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS211",
+    "topic": "Recursive backtracking",
+    "date": "04/04/2020",
+    "timeBegin": "09:00:00 AM",
+    "timeEnd": "10:00:00 AM",
+    "owner": "philip@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS311",
+    "topic": "Sorting algorithms",
+    "date": "04/05/2020",
+    "timeBegin": "03:00:00 PM",
+    "timeEnd": "04:00:00 PM",
+    "owner": "philip@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS111",
+    "topic": "Using methods",
+    "date": "04/22/2020",
+    "timeBegin": "10:00:00 AM",
+    "timeEnd": "11:00:00 AM",
+    "owner": "philip@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS111",
+    "topic": "Making a class in Java",
+    "date": "04/23/2020",
+    "timeBegin": "11:00:00 AM",
+    "timeEnd": "12:00:00 PM",
+    "owner": "christian@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS141",
+    "topic": "Truth tables",
+    "date": "04/24/2020",
+    "timeBegin": "01:00:00 PM",
+    "timeEnd": "02:00:00 PM",
+    "owner": "christian@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS211",
+    "topic": "Understanding how bubblesort works",
+    "date": "04/25/2020",
+    "timeBegin": "10:00:00 AM",
+    "timeEnd": "11:00:00 AM",
+    "owner": "christian@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS241",
+    "topic": "Conditional operators",
+    "date": "04/17/2020",
+    "timeBegin": "02:00:00 PM",
+    "timeEnd": "03:00:00 PM",
+    "owner": "christian@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS212",
+    "topic": "Compiling using gcc",
+    "date": "04/18/2020",
+    "timeBegin": "12:00:00 PM",
+    "timeEnd": "01:00:00 PM",
+    "owner": "christian@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS311",
+    "topic": "Memoization",
+    "date": "04/19/2020",
+    "timeBegin": "11:00:00 AM",
+    "timeEnd": "12:00:00 PM",
+    "owner": "christian@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS314",
+    "topic": "Using the underscore library",
+    "date": "04/14/2020",
+    "timeBegin": "01:00:00 PM",
+    "timeEnd": "02:00:00 PM",
+    "owner": "christian@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS211",
+    "topic": "Recursive backtracking",
+    "date": "04/15/2020",
+    "timeBegin": "03:00:00 PM",
+    "timeEnd": "04:00:00 PM",
+    "owner": "christian@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS311",
+    "topic": "Sorting algorithms",
+    "date": "04/16/2020",
+    "timeBegin": "02:00:00 PM",
+    "timeEnd": "03:00:00 PM",
+    "owner": "christian@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS111",
+    "topic": "Using methods",
+    "date": "04/20/2020",
+    "timeBegin": "09:00:00 AM",
+    "timeEnd": "10:00:00 AM",
+    "owner": "christian@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS111",
+    "topic": "Making a class in Java",
+    "date": "04/21/2020",
+    "timeBegin": "12:00:00 PM",
+    "timeEnd": "01:00:00 PM",
+    "owner": "sara@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS141",
+    "topic": "Truth tables",
+    "date": "04/09/2020",
+    "timeBegin": "09:00:00 AM",
+    "timeEnd": "10:00:00 AM",
+    "owner": "sara@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS211",
+    "topic": "Understanding how bubblesort works",
+    "date": "04/10/2020",
+    "timeBegin": "03:00:00 PM",
+    "timeEnd": "04:00:00 PM",
+    "owner": "sara@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS241",
+    "topic": "Conditional operators",
+    "date": "04/11/2020",
+    "timeBegin": "10:00:00 AM",
+    "timeEnd": "11:00:00 AM",
+    "owner": "sara@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS212",
+    "topic": "Compiling using gcc",
+    "date": "04/06/2020",
+    "timeBegin": "11:00:00 AM",
+    "timeEnd": "12:00:00 PM",
+    "owner": "sara@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS311",
+    "topic": "Memoization",
+    "date": "04/07/2020",
+    "timeBegin": "01:00:00 PM",
+    "timeEnd": "02:00:00 PM",
+    "owner": "sara@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS314",
+    "topic": "Using the underscore library",
+    "date": "04/02/2020",
+    "timeBegin": "10:00:00 AM",
+    "timeEnd": "11:00:00 AM",
+    "owner": "sara@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS211",
+    "topic": "Recursive backtracking",
+    "date": "04/12/2020",
+    "timeBegin": "02:00:00 PM",
+    "timeEnd": "03:00:00 PM",
+    "owner": "sara@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS311",
+    "topic": "Sorting algorithms",
+    "date": "04/13/2020",
+    "timeBegin": "12:00:00 PM",
+    "timeEnd": "01:00:00 PM",
+    "owner": "sara@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS111",
+    "topic": "Using methods",
+    "date": "04/03/2020",
+    "timeBegin": "11:00:00 AM",
+    "timeEnd": "12:00:00 PM",
+    "owner": "sara@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS111",
+    "topic": "Making a class in Java",
+    "date": "04/04/2020",
+    "timeBegin": "01:00:00 PM",
+    "timeEnd": "02:00:00 PM",
+    "owner": "mary@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS141",
+    "topic": "Truth tables",
+    "date": "04/05/2020",
+    "timeBegin": "09:00:00 AM",
+    "timeEnd": "10:00:00 AM",
+    "owner": "mary@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS211",
+    "topic": "Understanding how bubblesort works",
+    "date": "04/22/2020",
+    "timeBegin": "12:00:00 PM",
+    "timeEnd": "01:00:00 PM",
+    "owner": "mary@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS241",
+    "topic": "Conditional operators",
+    "date": "04/23/2020",
+    "timeBegin": "09:00:00 AM",
+    "timeEnd": "10:00:00 AM",
+    "owner": "mary@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS212",
+    "topic": "Compiling using gcc",
+    "date": "04/24/2020",
+    "timeBegin": "03:00:00 PM",
+    "timeEnd": "04:00:00 PM",
+    "owner": "mary@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS311",
+    "topic": "Memoization",
+    "date": "04/25/2020",
+    "timeBegin": "10:00:00 AM",
+    "timeEnd": "11:00:00 AM",
+    "owner": "mary@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS314",
+    "topic": "Using the underscore library",
+    "date": "04/17/2020",
+    "timeBegin": "11:00:00 AM",
+    "timeEnd": "12:00:00 PM",
+    "owner": "mary@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS211",
+    "topic": "Recursive backtracking",
+    "date": "04/18/2020",
+    "timeBegin": "01:00:00 PM",
+    "timeEnd": "02:00:00 PM",
+    "owner": "mary@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS311",
+    "topic": "Sorting algorithms",
+    "date": "04/19/2020",
+    "timeBegin": "10:00:00 AM",
+    "timeEnd": "11:00:00 AM",
+    "owner": "mary@foo.com",
+    "participants": []
+  },
+  {
+    "course": "ICS111",
+    "topic": "Using methods",
+    "date": "04/14/2020",
+    "timeBegin": "02:00:00 PM",
+    "timeEnd": "03:00:00 PM",
+    "owner": "mary@foo.com",
+    "participants": []
+  }
+],
+
+  "profiles": [
+    {
+      "user": "aaron@foo.com",
+      "name": {
+        "first": "Aaron",
+        "last": "Rogers"
+      },
+      "bio": "Hi. My name is Aaron. I study computer science at the University of Hawaii.",
+      "avatar": "https://randomuser.me/api/portraits/men/32.jpg",
+      "courses": {
+        "grasshopper": [ 
+          "212",
+          "311",
+          "314"
+        ],
+        "sensei": [
+          "111",
+          "141",
+          "211",
+          "241"
+        ]
+      },
+      "points": 0
+    },
+    {
+      "user": "michael@foo.com",
+      "name": {
+          "first": "Michael",
+          "last": "Murphy"
+      },
+      "bio": "Hi. My name is Michael. I study computer science at the University of Hawaii.",
+      "avatar": "https://randomuser.me/api/portraits/men/36.jpg",
+      "courses": {
+        "grasshopper": [ 
+          "212",
+          "311",
+          "314"
+        ],
+        "sensei": [
+          "111",
+          "141",
+          "211",
+          "241"
+        ]
+      },
+      "points": 0
+    },
+    {
+      "user": "jack@foo.com",
+      "name": {
+        "first": "Jack",
+        "last": "Johnson"
+      },
+      "bio": "Hi. My name is Jack. I study computer science at the University of Hawaii.",
+      "avatar": "https://randomuser.me/api/portraits/men/40.jpg",
+      "courses": {
+        "grasshopper": [ 
+          "212",
+          "311",
+          "314"
+        ],
+        "sensei": [
+          "111",
+          "141",
+          "211",
+          "241"
+        ]
+      },
+      "points": 0
+    },
+    {
+      "user": "cameron@foo.com",
+      "name": {
+        "first": "Cameron",
+        "last": "Haynes"
+      },
+      "bio": "Hi. My name is Cameron. I study computer science at the University of Hawaii.",
+      "avatar": "https://randomuser.me/api/portraits/men/44.jpg",
+      "courses": {
+        "grasshopper": [ 
+          "212",
+          "311",
+          "314"
+        ],
+        "sensei": [
+          "111",
+          "141",
+          "211",
+          "241"
+        ]
+      },
+      "points": 0
+    },
+    {
+      "user": "philip@foo.com",
+      "name": {
+        "first": "Philip",
+        "last": "Moore"
+      },
+      "bio": "Hi. My name is Philip. I study computer science at the University of Hawaii.",
+      "avatar": "https://randomuser.me/api/portraits/men/48.jpg",
+      "courses": {
+        "grasshopper": [ 
+          "212",
+          "311",
+          "314"
+        ],
+        "sensei": [
+          "111",
+          "141",
+          "211",
+          "241"
+        ]
+      },
+      "points": 0
+    },
+    {
+      "user": "christian@foo.com",
+      "name": {
+        "first": "Christian",
+        "last": "Fields"
+      },
+      "bio": "Hi. My name is Christian. I study computer science at the University of Hawaii.",
+      "avatar": "https://randomuser.me/api/portraits/men/52.jpg",
+      "courses": {
+        "grasshopper": [ 
+          "212",
+          "311",
+          "314"
+        ],
+        "sensei": [
+          "111",
+          "141",
+          "211",
+          "241"
+        ]
+      },
+      "points": 0
+    },
+    {
+      "user": "sara@foo.com",
+      "name": {
+        "first": "Sara",
+        "last": "Berry"
+      },
+      "bio": "Hi. My name is Sara. I study computer science at the University of Hawaii.",
+      "avatar": "https://randomuser.me/api/portraits/women/32.jpg",
+      "courses": {
+        "grasshopper": [ 
+          "212",
+          "311",
+          "314"
+        ],
+        "sensei": [
+          "111",
+          "141",
+          "211",
+          "241"
+        ]
+      },
+      "points": 0
+    },
+    {
+      "user": "mary@foo.com",
+      "name": {
+        "first": "Mary",
+        "last": "Matthews"
+      },
+      "bio": "Hi. My name is Mary. I study computer science at the University of Hawaii.",
+      "avatar": "https://randomuser.me/api/portraits/women/36.jpg",
+      "courses": {
+        "grasshopper": [ 
+          "212",
+          "311",
+          "314"
+        ],
+        "sensei": [
+          "111",
+          "141",
+          "211",
+          "241"
+        ]
+      },
+      "points": 0
+    },
+    {
+      "user": "alice@foo.com",
+      "name": {
+        "first": "Alice",
+        "last": "Long"
+      },
+      "bio": "Hi. My name is Alice. I study computer science at the University of Hawaii.",
+      "avatar": "https://randomuser.me/api/portraits/women/40.jpg",
+      "courses": {
+        "grasshopper": [ 
+          "212",
+          "311",
+          "314"
+        ],
+        "sensei": [
+          "111",
+          "141",
+          "211",
+          "241"
+        ]
+      },
+      "points": 0
+    }
+  ]
+}

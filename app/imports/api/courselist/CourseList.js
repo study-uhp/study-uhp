@@ -3,22 +3,18 @@ import SimpleSchema from 'simpl-schema';
 import { Tracker } from 'meteor/tracker';
 
 /** Define a Mongo collection to hold the data. */
-const StudySessions = new Mongo.Collection('StudySessions');
+const CourseList = new Mongo.Collection('CourseList');
 
 /** Define a schema to specify the structure of each document in the collection. */
-const StudySessionSchema = new SimpleSchema({
+const CourseListSchema = new SimpleSchema({
   course: String,
-  topic: String,
-  date: String,
-  timeBegin: String,
-  timeEnd: String,
-  owner: String,
-  participants: Array,
-  'participants.$': String,
+  title: String,
+  description: String,
+  credits: String,
 }, { tracker: Tracker });
 
 /** Attach this schema to the collection. */
-StudySessions.attachSchema(StudySessionSchema);
+CourseList.attachSchema(CourseListSchema);
 
 /** Make the collection and schema available to other code. */
-export { StudySessions, StudySessionSchema };
+export { CourseList, CourseListSchema };
