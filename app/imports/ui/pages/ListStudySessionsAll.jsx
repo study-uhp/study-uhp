@@ -33,7 +33,7 @@ class ListStudySessionsAll extends React.Component {
               </Table.Header>
               <Table.Body>
                 {this.props.studysessions.map((studysession) => <StudySessionAll
-                  key={studysession._id} studysession={studysession} />)}
+                  key={studysession._id} studysession={studysession} UserProfiles={this.props.UserProfiles}/>)}
               </Table.Body>
             </Table>
             <Button compact secondary as={NavLink} activeClassName="active" exact to="/add" key='add'>Create Session</Button>
@@ -46,6 +46,7 @@ class ListStudySessionsAll extends React.Component {
 /** Require an array of StudySessions in the props. */
 ListStudySessionsAll.propTypes = {
   studysessions: PropTypes.array.isRequired,
+  UserProfiles: PropTypes.object.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -53,8 +54,9 @@ ListStudySessionsAll.propTypes = {
 export default withTracker(() => {
   // Get access to Sessions.
   const subscription = Meteor.subscribe('StudySessionsAll');
+  const subscription1 = Meteor.subscribe('UserProfiles');
   return {
     studysessions: StudySessions.find({}).fetch(),
-    ready: subscription.ready(),
+    ready: subscription.ready() && subscription1.ready(),
   };
 })(ListStudySessionsAll);

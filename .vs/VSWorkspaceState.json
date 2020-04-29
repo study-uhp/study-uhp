@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\app",
+    "\\app\\imports",
+    "\\app\\imports\\startup",
+    "\\app\\imports\\startup\\client",
+    "\\app\\imports\\startup\\server",
+    "\\app\\imports\\ui",
+    "\\app\\imports\\ui\\components",
+    "\\app\\imports\\ui\\layouts",
+    "\\app\\imports\\ui\\pages"
+  ],
+  "SelectedNode": "\\app\\imports\\ui\\components\\StudySessionAll.jsx",
+  "PreviewInSolutionExplorer": false
+}
