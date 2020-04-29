@@ -13,6 +13,8 @@ const StudySessionSchema = new SimpleSchema({
   timeBegin: String,
   timeEnd: String,
   owner: String,
+  participants: Array,
+  'participants.$': String,
 }, { tracker: Tracker });
 
 /** Attach this schema to the collection. */

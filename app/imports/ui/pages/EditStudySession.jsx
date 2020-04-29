@@ -38,7 +38,7 @@ class EditStudySession extends React.Component {
                   <TextField name='date'/>
                   <TextField name='timeBegin'/>
                   <TextField name='timeEnd'/>
-                  <SubmitField primary compact value='Submit'/>
+                  <SubmitField value='Submit'/>
                   <ErrorsField/>
                   <HiddenField name='owner' />
                 </Segment>

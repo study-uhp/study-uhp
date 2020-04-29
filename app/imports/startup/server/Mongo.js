@@ -41,7 +41,37 @@ function addCourses(data) {
 /** Initialize the collection if empty. */
 if (CourseList.find().count() === 0) {
   if (icsCourses) {
-    console.log('Creating ICS course listiing.');
+    console.log('Creating ICS course listing.');
     icsCourses.map(data => addCourses(data));
   }
+}
+
+
+/** Adding the mock users */
+function createUser(user, role) {
+  const userID = Accounts.createUser({ username: user, email: user, password: 'changeme' });
+  if (role === 'admin') {
+    Roles.addUsersToRoles(userID, 'admin');
+  }
+}
+
+/** Defines a new user and associated profile. Error if user already exists. */
+function addProfile({ user, name, bio, avatar, courses, points, role }) {
+  console.log(`Defining profile ${user}`);
+  // Define the user in the Meteor accounts package.
+  createUser(user, role);
+  // Create the profile.
+  UserProfiles.insert({ user, name, bio, avatar, courses, points });
+}
+
+function addSessions(data) {
+  StudySessions.insert(data);
+}
+
+if ((Meteor.settings.loadAssetsFile) && (Meteor.users.find().count() < 3)) {
+  const assetsFileName = 'data.json';
+  console.log(`Loading data from private/${assetsFileName}`);
+  const jsonData = JSON.parse(Assets.getText(assetsFileName));
+  jsonData.profiles.map(profile => addProfile(profile));
+  jsonData.sessions.map(sessions => addSessions(sessions));
 }

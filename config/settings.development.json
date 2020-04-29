@@ -16,41 +16,46 @@
       "course": "ICS311",
       "topic": "Greedy Algorithms",
       "date": "04/04/2020",
-      "timeBegin": "1300",
-      "timeEnd": "1400",
-      "owner": "john@foo.com"
+      "timeBegin": "01:00:00 PM",
+      "timeEnd": "02:00:00 PM",
+      "owner": "john@foo.com",
+      "participants": []
     },
     { 
       "course": "ICS314",
       "topic": "Mongo Databases",
       "date": "04/07/2020",
-      "timeBegin": "1500",
-      "timeEnd": "1600",
-      "owner": "john@foo.com" 
+      "timeBegin": "03:00:00 PM",
+      "timeEnd": "04:00:00 PM",
+      "owner": "john@foo.com",
+      "participants": []
     },
     { 
       "course": "ICS212",
       "topic": "Pointers",
       "date": "04/05/2020",
-      "timeBegin": "1200",
-      "timeEnd": "1400",
-      "owner": "john@foo.com" 
+      "timeBegin": "12:00:00 PM",
+      "timeEnd": "01:00:00 PM",
+      "owner": "john@foo.com",
+      "participants": []
     },
     { 
       "course": "ICS311",
       "topic": "Dyanmic Programming",
       "date": "04/10/2020",
-      "timeBegin": "1600",
-      "timeEnd": "1700",
-      "owner": "john@foo.com" 
+      "timeBegin": "04:00:00 PM",
+      "timeEnd": "05:00:00 PM",
+      "owner": "john@foo.com",
+      "participants": []
     },
     { 
       "course": "ICS312",
       "topic": "Assembly",
       "date": "04/09/2020",
-      "timeBegin": "1200",
-      "timeEnd": "1400",
-      "owner": "john@foo.com" 
+      "timeBegin": "12:00:00 PM",
+      "timeEnd": "01:00:00 PM",
+      "owner": "john@foo.com",
+      "participants": []
     }
   ],
 
@@ -92,5 +97,6 @@
       },
       "points": 0
     }
-  ]
+  ],
+  "loadAssetsFile": true
 }
