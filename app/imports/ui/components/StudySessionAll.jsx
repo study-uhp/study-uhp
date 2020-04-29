@@ -18,7 +18,7 @@ class StudySessionAll extends React.Component {
   handleConfirm(data) {
     const { "participants": participants, _id } = data;
     console.log(data);
-    const user = Meteor.user().user;
+    const user = Meteor.userId().username();
     console.log(user);
     // StudySessions.update(_id, { $addToSet: { "participants": user } });
     //this.setState({ open: false });
@@ -64,8 +64,6 @@ StudySessionAll.propTypes = {
 //
 // /** Wrap this component in withRouter since we use the <Link> React Router element. */
 // export default withRouter(StudySessionAll);
-
-
 
 export default withTracker(() => {
   // Get access to Sessions.
