@@ -16,7 +16,7 @@ class Calendar extends React.Component {
         <Grid container centered className="main-content">
           <Grid.Column>
             <Header as="h2" textAlign="center">Calendar</Header>
-            <div style={{ height: '70vh'}} >
+            <div style={{ height: '70vh' }} >
             <Cal
               popup
               events={events}

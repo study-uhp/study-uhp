@@ -5,11 +5,16 @@ import { Tracker } from 'meteor/tracker';
 /** Define a Mongo collection to hold the data. */
 const StudySessions = new Mongo.Collection('StudySessions');
 
+const StudentSessionValues = {
+  course: ['ICS314', 'ICS111', 'ICS241', 'ICS311', 'ICS313', 'ICS212', 'ICS313'],
+};
+
 /** Define a schema to specify the structure of each document in the collection. */
 const StudySessionSchema = new SimpleSchema({
-  course: String,
+  course: { type: Array, optional: false },
+  'course.$': { type: String, allowedValues: StudentSessionValues.course },
   topic: String,
-  date: String,
+  date: Date,
   timeBegin: String,
   timeEnd: String,
   owner: String,
@@ -19,4 +24,4 @@ const StudySessionSchema = new SimpleSchema({
 StudySessions.attachSchema(StudySessionSchema);
 
 /** Make the collection and schema available to other code. */
-export { StudySessions, StudySessionSchema };
+export { StudentSessionValues, StudySessions, StudySessionSchema };

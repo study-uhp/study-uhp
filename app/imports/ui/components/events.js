@@ -1,4 +1,4 @@
-const now = new Date()
+const now = new Date();
 
 // Everyting is 0 indexed. Which is stupid.
 // YEAR, MONTH, DAY, HOURS (23), MIN (59)
@@ -53,4 +53,4 @@ export default [
     end: new Date(2020, 3, 1, 13, 0),
     desc: 'A study session',
   },
-]
+];
