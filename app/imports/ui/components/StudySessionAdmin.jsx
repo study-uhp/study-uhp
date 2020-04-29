@@ -1,7 +1,6 @@
 import React from 'react';
-import { Table, Icon } from 'semantic-ui-react';
+import { Table, Button } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 
 /** Renders a single row in the List Sessions (Admin) table. See pages/ListStudySessionsAdmin.jsx. */
 class StudySessionAdmin extends React.Component {
@@ -15,17 +14,12 @@ class StudySessionAdmin extends React.Component {
             {`${this.props.studysession.timeBegin} - ${this.props.studysession.timeEnd}`}
           </Table.Cell>
           <Table.Cell collapsing>{this.props.studysession.owner}</Table.Cell>
-          <Table.Cell collapsing>
-            <Link to={`/editadmin/${this.props.studysession._id}`}><Icon name='edit'/></Link>
-          </Table.Cell>
-          <Table.Cell collapsing>
-            <Link to={`/viewstudysessionadmin/${this.props.studysession._id}`}>View session</Link>
-          </Table.Cell>
+          <Table.Cell collapsing><Button secondary compact content='Delete' /></Table.Cell>
         </Table.Row>
     );
   }
 }
-// todo put in a button that allows for admins to take or give points.
+// todo implement delete session button.
 
 /** Require a document to be passed to this component. */
 StudySessionAdmin.propTypes = {

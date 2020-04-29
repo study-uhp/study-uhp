@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Loader } from 'semantic-ui-react';
+import { Grid, Loader, Header } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
@@ -20,6 +20,7 @@ class ViewStudySession extends React.Component {
     return (
         <Grid container centered className="main-content">
           <Grid.Column>
+
             <ViewSession studysession={this.props.doc}/>
           </Grid.Column>
         </Grid>
