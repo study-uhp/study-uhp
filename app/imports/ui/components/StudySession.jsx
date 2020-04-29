@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon, Table } from 'semantic-ui-react';
+import { Table } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 
@@ -15,7 +15,7 @@ class StudySession extends React.Component {
             {`${this.props.studysession.timeBegin} - ${this.props.studysession.timeEnd}`}
           </Table.Cell>
           <Table.Cell collapsing>
-            <Link to={`/edit/${this.props.studysession._id}`}><Icon name='edit'/></Link>
+            <Link to={`/edit/${this.props.studysession._id}`}>Edit Session</Link>
           </Table.Cell>
           <Table.Cell collapsing>
             <Link to={`/viewstudysession/${this.props.studysession._id}`}>View</Link>
