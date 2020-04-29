@@ -33,7 +33,7 @@ class ListStudySessionsAdmin extends React.Component {
               </Table.Header>
               <Table.Body>
                 {this.props.studysessions.map((studysession) => <StudySessionAdmin
-                  key={studysession._id} studysession={studysession} />)}
+                  key={studysession._id} studysession={studysession} StudySessions={StudySessions}/>)}
               </Table.Body>
             </Table>
           </Grid.Column>

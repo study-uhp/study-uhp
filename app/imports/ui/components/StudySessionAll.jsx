@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table } from 'semantic-ui-react';
+import { Button, Table } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 
@@ -15,10 +15,14 @@ class StudySessionAll extends React.Component {
             {`${this.props.studysession.timeBegin} - ${this.props.studysession.timeEnd}`}
           </Table.Cell>
           <Table.Cell collapsing>
-            <Link to={`/join/${this.props.studysession._id}`}>Join Session</Link>
+            <Link to={`/join/${this.props.studysession._id}`}>
+              <Button secondary compact content='Join' />
+            </Link>
           </Table.Cell>
           <Table.Cell collapsing>
-            <Link to={`/viewstudysession/${this.props.studysession._id}`}>View Session</Link>
+            <Link to={`/viewstudysession/${this.props.studysession._id}`}>
+              <Button secondary compact content='View' />
+            </Link>
           </Table.Cell>
         </Table.Row>
     );
