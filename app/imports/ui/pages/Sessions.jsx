@@ -2,49 +2,11 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Grid, Header, Loader, Button, Icon } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
-import { NavLink, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { StudySessions } from '../../api/studysessions/StudySessions';
 import DataTable from 'react-data-table-component';
-
-const columns = [
-  {
-    name: 'COURSE',
-    selector: 'course',
-    sortable: true,
-    width: '100px',
-  },
-  {
-    name: 'TOPIC',
-    selector: 'topic',
-    sortable: true,
-    cell: row => (
-      <div>
-        <Link to={`/viewstudysession/${row._id}`}>
-          {row.topic}
-        </Link>
-      </div>
-    ),
-  },
-  {
-    name: 'DATE',
-    selector: 'date',
-    sortable: true,
-    width: '125px',
-  },
-  {
-    name: 'START',
-    selector: 'timeBegin',
-    sortable: true,
-    width: '125px',
-  },
-  {
-    name: 'END',
-    selector: 'timeEnd',
-    sortable: true,
-    width: '125px',
-  },
-];
+import columns from '../components/sessions/columns';
 
 /** Renders a table containing all of the StudySessions. Use <StudySession> to render each row. */
 class Sessions extends React.Component {
@@ -62,9 +24,9 @@ class Sessions extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     return (
-        <Grid container centered className="main-content">
+        <Grid container centered className='main-content'>
           <Grid.Column>
-            <Header as="h2" textAlign="center">Upcoming Sessions</Header>
+            <Header as='h2' textAlign='center'>Upcoming Sessions</Header>
             <DataTable
               noHeader
               columns={columns}
@@ -85,17 +47,16 @@ class Sessions extends React.Component {
             <Button
               compact
               secondary
-              as={NavLink}
-              activeClassName="active"
-              exact to="/add"
+              as={Link}
+              to='/add'
               key='add'
               content='Create Session'
             />
             <Button 
               compact
               onClick={this.handleClick}
-              className="button-style"
-              floated="right"
+              className='button-style'
+              floated='right'
               content='Console'
             />
           </Grid.Column>
