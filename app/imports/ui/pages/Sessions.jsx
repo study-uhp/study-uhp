@@ -7,13 +7,31 @@ import PropTypes from 'prop-types';
 import { StudySessions } from '../../api/studysessions/StudySessions';
 import DataTable from 'react-data-table-component';
 import columns from '../components/sessions/columns';
+import SessionCard from '../components/sessions/SessionCard';
 
 /** Renders a table containing all of the StudySessions. Use <StudySession> to render each row. */
 class Sessions extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      opened: true,
+      seshid: {},
+    };
+    this.toggleSession = this.toggleSession.bind(this);
+  }
+  
+  toggleSession = val => {
+    const { opened } = this.state;
+    this.setState({
+      opened: !opened,
+      seshid: val,
+    });
+  }
+  
   /** Click handler for conole logging */
   handleClick = () => {
-    console.log();
+    console.log(this.state);
   }
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
@@ -23,9 +41,12 @@ class Sessions extends React.Component {
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
+    const { opened } = this.state;
+    
+
     return (
         <Grid container centered className='main-content'>
-          <Grid.Column>
+          <Grid.Column width={12}>
             <Header as='h2' textAlign='center'>Upcoming Sessions</Header>
             <DataTable
               noHeader
@@ -42,6 +63,9 @@ class Sessions extends React.Component {
               paginationIconLastPage={<Icon fitted name='angle double right'/>}
               paginationComponentOptions={{ noRowsPerPage: true }}
               theme='dark'
+              pointerOnHover
+              highlightOnHover
+              onRowClicked={row => this.state.seshid === row ? this.setState({ opened: false, seshid: {} }) : this.setState({ opened: true, seshid: row }) }
             />
             <br/>
             <Button
@@ -59,6 +83,19 @@ class Sessions extends React.Component {
               floated='right'
               content='Console'
             />
+            <Button 
+              compact
+              onClick={this.toggleSession}
+              className='button-style'
+              floated='right'
+              content='Show'
+            />
+          </Grid.Column>
+          <Grid.Column width={4}>
+            <div style={{ paddingTop: '20px' }}>
+              <Header as='h3' textAlign='center'>Session Details</Header>
+              {opened && <SessionCard studysession={this.state.seshid} />}
+            </div>
           </Grid.Column>
         </Grid>
     );
