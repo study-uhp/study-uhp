@@ -8,6 +8,8 @@ import { StudySessions } from '../../api/studysessions/StudySessions';
 import DataTable from 'react-data-table-component';
 import columns from '../components/sessions/columns';
 import SessionCard from '../components/sessions/SessionCard';
+import { createTheme } from '../components/sessions/theme';
+import sessionsStyle from '../components/sessions/style';
 
 /** Renders a table containing all of the StudySessions. Use <StudySession> to render each row. */
 class Sessions extends React.Component {
@@ -48,6 +50,11 @@ class Sessions extends React.Component {
         <Grid container centered className='main-content'>
           <Grid.Column width={12}>
             <Header as='h2' textAlign='center'>Upcoming Sessions</Header>
+            <div style={{ 
+              boxShadow: '-1px 5px 10px -6px black',
+              borderBottomLeftRadius: '5px',
+              borderBottomRightRadius: '5px',
+            }}>
             <DataTable
               noHeader
               columns={columns}
@@ -62,11 +69,13 @@ class Sessions extends React.Component {
               paginationIconFirstPage={<Icon fitted name='angle double left'/>}
               paginationIconLastPage={<Icon fitted name='angle double right'/>}
               paginationComponentOptions={{ noRowsPerPage: true }}
-              theme='dark'
+              theme='sessions'
+              customStyles={sessionsStyle}
               pointerOnHover
               highlightOnHover
               onRowClicked={row => this.state.seshid === row ? this.setState({ opened: false, seshid: {} }) : this.setState({ opened: true, seshid: row }) }
             />
+            </div>
             <br/>
             <Button
               compact

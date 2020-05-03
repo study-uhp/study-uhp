@@ -10,6 +10,7 @@ const columns = [
     selector: 'course',
     sortable: true,
     width: '100px',
+    style: { marginTop: '3px' },
     cell: row => (
       <div>
         <Label size='small' color='black'>
@@ -23,68 +24,62 @@ const columns = [
     name: 'TOPIC',
     selector: 'topic',
     sortable: true,
-    cell: row => (
-      <div>
-        <Link to={`/viewstudysession/${row._id}`}>
-          {row.topic}
-        </Link>
-      </div>
-    ),
+    compact: true,
+    grow: 4,
   },
   {
     name: 'DATE',
     selector: 'date',
     sortable: true,
-    width: '125px',
+    compact: true,
+    style: { color: 'rgba(255, 255, 255, 0.5)' },
   },
   {
     name: 'START',
     selector: 'timeBegin',
     sortable: true,
-    width: '125px',
+    compact: true,
+    style: { color: 'rgba(255, 255, 255, 0.5)' },
     // format: row => moment(row.timeBegin).format('HH:m a'),
   },
   {
     name: 'END',
     selector: 'timeEnd',
     sortable: true,
-    width: '125px',
-    // omit: {isAdmin},
-    // omit: true,
-  },
-  {
-    // name: 'Time',
-    cell: row => (
-      <div>
-        <Popup
-          inverted
-          pinned
-          size='tiny'
-          position='bottom center'
-          // offset='0, 50px'
-          trigger={<Icon fitted link name='ellipsis horizontal'/>}
-          content={
-            (Meteor.user().username === row.owner ? (
-              <Link to={`/edit/${row._id}`}>
-                EDIT
-              </Link>
-            ) : (
-              <Link to={`/join/${row._id}`}>
-                JOIN
-              </Link>
-            ))
-          }
-          on='click'
-        />
-        <div>
-          {Roles.userIsInRole(Meteor.userId(), 'admin') ? 'i am admin' : ''}
-        </div>
-      </div>
-    ),
-    width: '50px',
     compact: true,
-    // ignoreRowClick: true,
-  }
+    style: { color: 'rgba(255, 255, 255, 0.5)' },
+  },
+  // {
+  //   cell: row => (
+  //     <div>
+  //       <Popup
+  //         inverted
+  //         pinned
+  //         size='tiny'
+  //         position='bottom center'
+  //         // offset='0, 50px'
+  //         trigger={<Icon fitted link name='ellipsis horizontal'/>}
+  //         content={
+  //           (Meteor.user().username === row.owner ? (
+  //             <Link to={`/edit/${row._id}`}>
+  //               EDIT
+  //             </Link>
+  //           ) : (
+  //             <Link to={`/join/${row._id}`}>
+  //               JOIN
+  //             </Link>
+  //           ))
+  //         }
+  //         on='click'
+  //       />
+  //       <div>
+  //         {Roles.userIsInRole(Meteor.userId(), 'admin') ? 'i am admin' : ''}
+  //       </div>
+  //     </div>
+  //   ),
+  //   width: '50px',
+  //   compact: true,
+  // }
 ];
 
 export default columns;
