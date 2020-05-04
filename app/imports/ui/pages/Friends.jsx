@@ -1,11 +1,18 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Card, Container, Header, Loader } from 'semantic-ui-react';
+<<<<<<< Updated upstream
 import Friend from '/imports/ui/components/Friend';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { FriendsC } from '../../api/friends/FriendsC';
 
+=======
+import { withTracker } from 'meteor/react-meteor-data';
+import PropTypes from 'prop-types';
+import { FriendsC } from '../../api/friendsc/FriendsC';
+import Friend from '/imports/ui/components/Friend';
+>>>>>>> Stashed changes
 
 /** A simple static component to render some text for the landing page. */
 class Friends extends React.Component {
@@ -16,19 +23,27 @@ class Friends extends React.Component {
     }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
   renderPage() {
     return (
         <Container>
             <Header as="h2" textAlign="center">Friends</Header>
             <Card.Group>
                 {this.props.friendsc.map((friend) => <Friend
+<<<<<<< Updated upstream
                     key={friend._id} studysession={friend} />)}
+=======
+                    key={friend._id} friend={friend} />)}
+>>>>>>> Stashed changes
             </Card.Group>
         </Container>
 
     );
   }
 }
+<<<<<<< Updated upstream
 
 =======
     renderPage() {
@@ -43,6 +58,8 @@ class Friends extends React.Component {
         );
     }
 }
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 /** Require an array of FriendsC in the props. */
 Friends.propTypes = {

@@ -1,8 +1,12 @@
 import { Meteor } from 'meteor/meteor';
 import { StudySessions } from '../../api/studysessions/StudySessions';
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import { FriendsC } from '../../api/friends/FriendsC';
 =======
+=======
+import { FriendsC } from '../../api/friendsc/FriendsC';
+>>>>>>> Stashed changes
 import { UserProfiles } from '../../api/userprofiles/UserProfiles';
 import { CourseList } from '../../api/courselist/CourseList';
 import { icsCourses } from '../../api/courselist/CourseList.json';
@@ -57,6 +61,20 @@ function addProfile({ user, name, bio, avatar, courses, points, role }) {
   createUser(user, role);
   // Create the profile.
   UserProfiles.insert({ user, name, bio, avatar, courses, points });
+}
+
+/** Initialize the database with a default data document. */
+function addFriend(data) {
+  console.log(`  Adding: ${data.lastName} (${data.owner})`);
+  FriendsC.insert(data);
+}
+
+/** Initialize the collection if empty. */
+if (FriendsC.find().count() === 0) {
+  if (Meteor.settings.defaultFriendList) {
+    console.log('Creating default friends list.');
+    Meteor.settings.defaultFriendList.map(data => addFriend(data));
+  }
 }
 
 function addSessions(data) {

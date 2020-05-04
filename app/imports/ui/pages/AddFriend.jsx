@@ -5,13 +5,20 @@ import Swal from 'sweetalert2';
 import '@sweetalert2/theme-dark/dark.css';
 import { Meteor } from 'meteor/meteor';
 import 'uniforms-bridge-simple-schema-2'; // required for Uniforms
+<<<<<<< Updated upstream
 import { FriendsC, FriendsCSchema } from '../../api/friends/FriendsC';
+=======
+import { FriendsC, FriendsCSchema } from '../../api/friendsc/FriendsC';
+>>>>>>> Stashed changes
 
 
 /** Renders the Page for adding a document. */
 class AddFriend extends React.Component {
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
   /** On submit, insert the data. */
   submit(data, formRef) {
     const { firstName, lastName, email } = data;
@@ -55,6 +62,7 @@ class AddFriend extends React.Component {
 }
 
 export default AddFriend;
+<<<<<<< Updated upstream
 =======
     /** On submit, insert the data. */
     submit(data, formRef) {
@@ -99,4 +107,6 @@ export default AddFriend;
 }
 
 export default AddFriend;
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes

@@ -20,15 +20,21 @@ class Friend extends React.Component {
 /** Require a document to be passed to this component. */
 Friend.propTypes = {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
   friend: PropTypes.object.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */
 export default withRouter(Friend);
+<<<<<<< Updated upstream
 =======
     friend: PropTypes.object.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */
 export default withRouter(Friend);
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
