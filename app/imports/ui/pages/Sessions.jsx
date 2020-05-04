@@ -60,7 +60,11 @@ class Sessions extends React.Component {
               customStyles={sessionsStyle}
               pointerOnHover
               highlightOnHover
-              onRowClicked={row => this.state.session === row ? this.setState({ session: {} }) : this.setState({ session: row }) }
+              onRowClicked={row => 
+                this.state.session === row 
+                ? this.setState({ session: {} })
+                : this.setState({ session: row })
+              }
             />
             </div>
             <br/>

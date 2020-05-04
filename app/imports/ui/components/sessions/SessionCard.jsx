@@ -26,6 +26,7 @@ import {
 class SessionCard extends React.Component {
   constructor(props) {
     super(props);
+
     /** Give the card a default state with placeholder info */
     this.state = {
       topic: 'SESSION TOPIC',
@@ -67,7 +68,9 @@ class SessionCard extends React.Component {
             </TopInfo>
             <MiddleInfo>
               <SessionDate>{ date ? date : this.state.date }</SessionDate>
-              <SessionTime>{ timeBegin ? timeBegin : this.state.timeBegin } - { timeEnd ? timeEnd : this.state.timeEnd }</SessionTime>
+              <SessionTime>
+                { timeBegin ? timeBegin : this.state.timeBegin } - { timeEnd ? timeEnd : this.state.timeEnd }
+              </SessionTime>
               <SessionDesc>
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime recusandae fuga quae autem ad provident minima perfer.
               </SessionDesc>
