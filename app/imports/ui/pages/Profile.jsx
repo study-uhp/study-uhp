@@ -1,11 +1,50 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Feed, Button, Loader, Image, Label, Segment, Grid, Header } from 'semantic-ui-react';
+import { Icon, Button, Loader, Image, Label, Segment, Grid, Header } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { UserProfiles } from '../../api/userprofiles/UserProfiles';
 import { StudySessions } from '../../api/studysessions/StudySessions';
+import DataTable from 'react-data-table-component';
+import profileStyle from '../components/sessions/profilestyle';
+
+const CustomTitle = ({ row }) => (
+  <div>
+    {}
+    <div style={{ color: 'rgba(255, 255, 255, 0.5)', marginTop: '.25rem', fontSize: '10px' }}>
+      {row.date}
+    </div>
+    <div>
+      <div style={{ marginBottom: '.25rem', overflow: 'hidden', whiteSpace: 'wrap', textOverflow: 'ellipses' }}>
+        {}
+        {row.topic}
+      </div>
+    </div>
+  </div>
+);
+
+const columns = [
+  {
+    name: 'COURSE',
+    selector: 'course',
+    width: '70px',
+    style: { fontSize: '11px' }
+  },
+  {
+    name: 'TOPIC',
+    selector: 'topic',
+    compact: true,
+    maxWidth: '169px',
+    cell: row => <CustomTitle row={row} />,
+  },
+  {
+    name: 'DATE',
+    selector: 'date',
+    compact: true,
+    omit: true,
+  },
+];
 
 /** A simple static component to render some text for the landing page. */
 class Profile extends React.Component {
@@ -67,25 +106,32 @@ class Profile extends React.Component {
             </Segment>
             <Segment inverted style={{ width: '30%' }}>
               <Header inverted as='h4'>{profile.name.first}'s Upcoming Sessions</Header>
-                {this.props.studysessions.map((studysession) =>
-                  <Feed key={studysession._id} size='small'>
-                    <Feed.Event>
-                    <Feed.Label>
-                      <Label size='mini' color='black'>
-                        {studysession.course}
-                      </Label>
-                    </Feed.Label>
-                    <Feed.Content>
-                      <Feed.Date>
-                        {studysession.date}
-                      </Feed.Date>
-                      <Feed.Summary>
-                        {studysession.topic}
-                      </Feed.Summary>
-                    </Feed.Content>
-                    </Feed.Event>
-                  </Feed>
-                )}
+              <DataTable
+              noHeader
+              noTableHead
+              columns={columns}
+              data={this.props.studysessions}
+              keyField={this.props.studysessions._id}
+              dense
+              pagination
+              defaultSortField='date'
+              sortIcon={<Icon name='angle down'/>}
+              paginationIconNext={<Icon fitted name='angle right'/>}
+              paginationIconPrevious={<Icon fitted name='angle left'/>}
+              paginationIconFirstPage={<Icon fitted name='angle double left'/>}
+              paginationIconLastPage={<Icon fitted name='angle double right'/>}
+              paginationComponentOptions={{ noRowsPerPage: true }}
+              paginationPerPage={5}
+              theme='profile'
+              customStyles={profileStyle}
+              pointerOnHover
+              highlightOnHover
+              onRowClicked={row => 
+                this.state.session === row 
+                ? this.setState({ session: {} })
+                : this.setState({ session: row })
+              }
+              />
             </Segment>
           </Segment.Group>
         </Grid.Column>
