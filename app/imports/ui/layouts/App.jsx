@@ -22,6 +22,8 @@ import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
 import Dashboard from '../pages/Dashboard';
 import ViewStudySession from '../pages/ViewStudySession';
+import Friends from '../pages/Friends';
+import AddFriend from '../pages/AddFriend';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -44,6 +46,8 @@ class App extends React.Component {
               <ProtectedRoute path="/profile" component={Profile}/>
               <ProtectedRoute path="/edit/:_id" component={EditStudySession}/>
               <ProtectedRoute path="/editprofile/:_id" component={EditProfile}/>
+              <ProtectedRoute path="/addfriend" component={AddFriend}/>
+              <ProtectedRoute path="/Friends" component={Friends}/>
               <AdminProtectedRoute path="/admin" component={ListStudySessionsAdmin}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <Route component={NotFound}/>

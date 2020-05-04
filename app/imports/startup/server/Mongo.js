@@ -3,6 +3,7 @@ import { StudySessions } from '../../api/studysessions/StudySessions';
 import { UserProfiles } from '../../api/userprofiles/UserProfiles';
 import { CourseList } from '../../api/courselist/CourseList'
 import { icsCourses } from '../../api/courselist/CourseList.json'
+import { FriendsC } from '../../api/friendsc/FriendsC';
 
 /* eslint-disable no-console */
 
@@ -17,6 +18,20 @@ if (StudySessions.find().count() === 0) {
   if (Meteor.settings.defaultStudySessions) {
     console.log('Creating default study sessions.');
     Meteor.settings.defaultStudySessions.map(data => addData(data));
+  }
+}
+
+/** Initialize the database with a default data document. */
+function addFriend(data) {
+  console.log(`  Adding: ${data.lastName} (${data.owner})`);
+  FriendsC.insert(data);
+}
+
+/** Initialize the collection if empty. */
+if (FriendsC.find().count() === 0) {
+  if (Meteor.settings.defaultFriendList) {
+    console.log('Creating default friends list.');
+    Meteor.settings.defaultFriendList.map(data => addFriend(data));
   }
 }
 

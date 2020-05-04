@@ -98,5 +98,15 @@
       "points": 0
     }
   ],
+
+  "defaultFriendList": [
+    {
+      "firstName": "Philip", "lastName": "Johnson", "email": "sample@hawaii.du", "owner": "john@foo.com"
+    },
+    {
+      "firstName": "Cam", "lastName": "Moore", "email": "sample@hawaii.du", "owner": "john@foo.com"
+    }
+  ],
+
   "loadAssetsFile": true
 }
