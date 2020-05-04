@@ -11,27 +11,17 @@ import SessionCard from '../components/sessions/SessionCard';
 import { createTheme } from '../components/sessions/theme';
 import sessionsStyle from '../components/sessions/style';
 
-/** Renders a table containing all of the StudySessions. Use <StudySession> to render each row. */
+/** Renders a table containing all of the StudySessions. */
 class Sessions extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      opened: true,
-      seshid: {},
-    };
-    this.toggleSession = this.toggleSession.bind(this);
+      session: {},
+    }
   }
   
-  toggleSession = val => {
-    const { opened } = this.state;
-    this.setState({
-      opened: !opened,
-      seshid: val,
-    });
-  }
-  
-  /** Click handler for conole logging */
+  /** Click handler for console logging */
   handleClick = () => {
     console.log(this.state);
   }
@@ -43,9 +33,6 @@ class Sessions extends React.Component {
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
-    const { opened } = this.state;
-    
-
     return (
         <Grid container centered className='main-content'>
           <Grid.Column width={12}>
@@ -73,7 +60,7 @@ class Sessions extends React.Component {
               customStyles={sessionsStyle}
               pointerOnHover
               highlightOnHover
-              onRowClicked={row => this.state.seshid === row ? this.setState({ opened: false, seshid: {} }) : this.setState({ opened: true, seshid: row }) }
+              onRowClicked={row => this.state.session === row ? this.setState({ session: {} }) : this.setState({ session: row }) }
             />
             </div>
             <br/>
@@ -92,18 +79,11 @@ class Sessions extends React.Component {
               floated='right'
               content='Console'
             />
-            <Button 
-              compact
-              onClick={this.toggleSession}
-              className='button-style'
-              floated='right'
-              content='Show'
-            />
           </Grid.Column>
           <Grid.Column width={4}>
             <div style={{ paddingTop: '20px' }}>
               <Header as='h3' textAlign='center'>Session Details</Header>
-              {opened && <SessionCard studysession={this.state.seshid} />}
+              <SessionCard studysession={this.state.session} />
             </div>
           </Grid.Column>
         </Grid>
