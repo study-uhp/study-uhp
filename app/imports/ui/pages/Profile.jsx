@@ -8,50 +8,35 @@ import { UserProfiles } from '../../api/userprofiles/UserProfiles';
 import { StudySessions } from '../../api/studysessions/StudySessions';
 import DataTable from 'react-data-table-component';
 import profileStyle from '../components/sessions/profilestyle';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+import SessionCard from '../components/sessions/SessionCard';
 
-const CustomTitle = ({ row }) => (
-  <div>
-    {}
-    <div style={{ color: 'rgba(255, 255, 255, 0.5)', marginTop: '.25rem', fontSize: '10px' }}>
-      {row.date}
-    </div>
-    <div>
-      <div style={{ marginBottom: '.25rem', overflow: 'hidden', whiteSpace: 'wrap', textOverflow: 'ellipses' }}>
-        {}
-        {row.topic}
-      </div>
-    </div>
-  </div>
-);
+const MySwal = withReactContent(Swal);
 
 const columns = [
   {
-    name: 'COURSE',
-    selector: 'course',
-    width: '70px',
-    style: { fontSize: '11px' }
+    name: 'DATE',
+    selector: 'date',
+    compact: true,
+    style: { 
+      fontSize: '10px',
+      color: 'rgba(255, 255, 255, 0.5)',
+      paddingLeft: '5px',
+      paddingRight: '5px'
+    },
+    width: '65px',
   },
   {
     name: 'TOPIC',
     selector: 'topic',
     compact: true,
     maxWidth: '169px',
-    cell: row => <CustomTitle row={row} />,
-  },
-  {
-    name: 'DATE',
-    selector: 'date',
-    compact: true,
-    omit: true,
   },
 ];
 
 /** A simple static component to render some text for the landing page. */
 class Profile extends React.Component {
-
-  handleClick = () => {
-    console.log(this.props.userprofile)
-  }
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
@@ -62,10 +47,7 @@ class Profile extends React.Component {
   renderPage() {
 
     const profile = this.props.userprofile
-    const userName = `${profile.name.first} ${profile.name.last}`;
-    const userAvatar = profile.avatar;
-    const userBio = profile.bio;
-    const userPoints = profile.points;
+    const { name, avatar, bio, points } = this.props.userprofile;
 
     return (
       <Grid container centered className="main-content">
@@ -73,10 +55,10 @@ class Profile extends React.Component {
           <Header as="h2" textAlign="center">Profile</Header>
           <Segment.Group horizontal >
             <Segment inverted style={{ width: '30%' }}>
-              <Image src={userAvatar} size='small' circular centered/>
-              <Header as="h2" textAlign="center">{userName}</Header>
-              <Header as='h5' textAlign="center">Points: {userPoints}</Header>
-              {userBio}
+              <Image src={avatar} size='small' circular centered/>
+              <Header as="h2" textAlign="center">{name.first} {name.last}</Header>
+              <Header as='h5' textAlign="center">Points: {points}</Header>
+              {bio}
               <br/><br/>
               {/* <Button 
                 onClick={this.handleClick}
@@ -115,22 +97,23 @@ class Profile extends React.Component {
               dense
               pagination
               defaultSortField='date'
-              sortIcon={<Icon name='angle down'/>}
               paginationIconNext={<Icon fitted name='angle right'/>}
               paginationIconPrevious={<Icon fitted name='angle left'/>}
-              paginationIconFirstPage={<Icon fitted name='angle double left'/>}
-              paginationIconLastPage={<Icon fitted name='angle double right'/>}
+              paginationIconFirstPage={''}
+              paginationIconLastPage={''}
               paginationComponentOptions={{ noRowsPerPage: true }}
               paginationPerPage={5}
               theme='profile'
               customStyles={profileStyle}
               pointerOnHover
               highlightOnHover
-              onRowClicked={row => 
-                this.state.session === row 
-                ? this.setState({ session: {} })
-                : this.setState({ session: row })
-              }
+              onRowClicked={row => MySwal.fire({
+                showConfirmButton: false,
+                background: 'transparent',
+                width: 275,
+                padding: '0',
+                html: <SessionCard studysession={row} />,
+              })}
               />
             </Segment>
           </Segment.Group>
