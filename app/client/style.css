@@ -127,6 +127,23 @@ a:hover {
   color: green!important;
 }
 
+/* react date picker css */
+.customDatePickerWidth,
+.customDatePickerWidth > div.react-datepicker-wrapper,
+.customDatePickerWidth > div > div.react-datepicker__input-container
+.customDatePickerWidth > div > div.react-datepicker__input-container input {
+  width: 100%;
+}
+
+.react-datepicker__input-container input{
+  background: #919191 !important;
+  color: #4c4c4c!important;
+}
+.react-datepicker__input-container input:focus {
+  background: #fffff0 !important;
+  color: #000000 !important;
+}
+
 /*
  * Animated CSS button
  * Copyright Alexander Bodin 2019-09-07

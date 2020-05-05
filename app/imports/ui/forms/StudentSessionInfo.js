@@ -2,8 +2,7 @@ import SimpleSchema from 'simpl-schema';
 import { StudentSessionValues as DataValues } from '../../api/studysessions/StudySessions';
 
 const StudentSessionSchema = new SimpleSchema({
-  course: { label: 'Courses', type: Array, optional: false},
-  'course.$': { type: String, allowedValues: DataValues.course },
+  course: { label: 'Courses', type: String, allowedValues: DataValues.course },
   topic: { label: 'Topic', type: String },
   date: { label: 'Date', type: Date, defaultValue: new Date() },
   timeBegin: { label: 'Begin', type: String },
