@@ -3,84 +3,10 @@ import dayjs from 'dayjs';
 import faker from 'faker';
 import { _ } from 'meteor/underscore';
 import DataTable from 'react-data-table-component';
-import { Image } from 'semantic-ui-react';
 
 import { icsCourses } from '../../api/courselist/CourseList.json'
+import usercolumns from '../../api/generator/usercolumns'
 
-const columns = [
-  {
-    name: 'AVATAR',
-    selector: 'avatar',
-    width: '75px',
-    center: true,
-    cell: row => (
-      <div>
-        <Image circular size="mini" src={row.avatar}/>
-      </div>
-    ),
-  },
-  {
-    name: 'USERNAME',
-    selector: 'username',
-    sortable: true,
-    grow: 2,
-  },
-  {
-    name: 'FIRST',
-    selector: 'name.first',
-    sortable: true,
-    grow: 1,
-  },
-  {
-    name: 'LAST',
-    selector: 'name.last',
-    sortable: true,
-    grow: 1,
-  },
-  {
-    name: 'MAJOR',
-    selector: 'major',
-    minWidth: '175px',
-  },
-  {
-    name: 'YEAR',
-    selector: 'year',
-    sortable: true,
-    grow: 1,
-  },
-  {
-    name: 'GRASSHOPPER',
-    selector: 'courses.grasshopper',
-    sortable: true,
-    grow: 2,
-    cell: row => (
-        row.courses.grasshopper.join(', ')
-    ),
-  },
-  {
-    name: 'SENSEI',
-    selector: 'courses.sensei',
-    sortable: true,
-    grow: 2,
-    cell: row => (
-      row.courses.sensei.join(', ')
-  ),
-  },
-  {
-    name: 'POINTS',
-    selector: 'points',
-    sortable: true,
-    width: '75px',
-  },
-  {
-    name: 'BIO',
-    selector: 'bio',
-    sortable: true,
-    grow: 4,
-    wrap: true,
-  },
-
-];
 
 const pDay = [
   1, 2, 3, 4, 5, 6, 7, 8, 9,
@@ -88,6 +14,8 @@ const pDay = [
   17, 18, 19, 20, 21, 22, 23,
   24, 25, 26, 27, 28, 29, 30
 ];
+
+const pHour = [ 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17 ];
 
 const pMin = [
   30, 45, 60, 75, 90,
@@ -162,29 +90,127 @@ function getCourses(year, courses) {
 
 
 
-// const theList = [];
+const sessionlist = [];
 
-// for (let i = 0; i < 3; i++) {
-//   const sTime = dayjs('2020-05-' + _.sample(pDay))
-//   const eTime = sTime.add(_.sample(pMin), 'minute')
+for (let i = 0; i < 3; i++) {
+  const start = dayjs('2020-05-' + _.sample(pDay) + "T" + _.sample(pHour) + ":" + _.sample([ 15, 30, 45 ]))
+  const end = start.add(_.sample(pMin), 'minute')
 
-//   const theObj = {
-//     name: _.sample(someppl),
-//     time: {
-//       start: sTime,
-//       end: eTime,
-//     }
-//   }
+  const listofusers = _.pluck(userlist, 'username')
+  const owner = _.sample(listofusers)
+  const noowner = _.difference(listofusers, owner)
+  const grasshoppers = _.sample(noowner, _.random(1,5))
+  const nograss = _.difference(noowner, grasshoppers)
+  const senseis = _.sample(nograss, _.random(1,5))
 
-//   theList.push(theObj);
-// }
+  const sessionObj = {
+    course: _.sample(courselist),
+    topic: faker.lorem.sentence(5),
+    description: faker.lorem.sentences(_.random(2,3)),
+    start: start,
+    end: end,
+    owner: owner,
+    participants: {
+      grasshopper: grasshoppers,
+      sensei: senseis,
+    }
+  }
+
+  sessionlist.push(sessionObj);
+}
+
+
+const sessioncolumns = [
+  {
+    name: 'COURSE',
+    selector: 'course',
+    sortable: true,
+    width: '75px',
+  },
+  {
+    name: 'TOPIC',
+    selector: 'topic',
+    sortable: true,
+    wrap: true,
+    width: '275px'
+  },
+  {
+    name: 'DESCRIPTION',
+    selector: 'description',
+    sortable: true,
+    wrap: true,
+    width: '275px'
+  },
+  {
+    name: 'DATE',
+    width: '75px',
+    cell: row => (
+      row.start.format('MM/DD')
+    ),
+  },
+  {
+    name: 'START',
+    selector: 'start',
+    sortable: true,
+    width: '100px',
+    cell: row => (
+      row.start.format('hh:mm A')
+    ),
+  },
+  {
+    name: 'END',
+    selector: 'end',
+    sortable: true,
+    width: '100px',
+    cell: row => (
+      row.end.format('hh:mm A')
+    ),
+  },
+  {
+    name: 'LENGTH',
+    width: '100px',
+    cell: row => (
+      row.end.diff(row.start, 'm') + " min"
+    ),
+  },
+  {
+    name: 'GRASSHOPPERS',
+    selector: 'participants.grasshopper',
+    sortable: true,
+    wrap: true,
+    width: '225px',
+    cell: row => (
+        row.participants.grasshopper.join(', ')
+    ),
+  },
+  {
+    name: 'SENSEIS',
+    selector: 'participants.sensei',
+    sortable: true,
+    wrap: true,
+    width: '225px',
+    cell: row => (
+      row.participants.sensei.join(', ')
+  ),
+  },
+  {
+    name: 'OWNER',
+    selector: 'owner',
+    sortable: true,
+    width: '225px',
+  },
+  // {
+  //   name: 'LENGTH',
+  // },
+];
 
 class Generate extends React.Component {
   render() {
     return (
-      <div style={{ width: 1700, margin: 'auto' }}>
+      <div>
+        <div style={{ width: 1700, margin: 'auto' }}>
         <DataTable
-          columns={columns}
+          columns={usercolumns}
           data={userlist}
           keyField={userlist.username}
           dense
@@ -198,6 +224,19 @@ class Generate extends React.Component {
             {JSON.stringify(userlist, null, 2)}
           </pre>
         </div> */}
+      </div>
+      <div style={{ width: 1700, margin: 'auto' }}>
+        <DataTable
+          columns={sessioncolumns}
+          data={sessionlist}
+          keyField={sessionlist.start}
+          dense
+          pagination
+          defaultSortField='date'
+          theme='dark'
+          highlightOnHover
+        />
+      </div>
       </div>
     );
   }
