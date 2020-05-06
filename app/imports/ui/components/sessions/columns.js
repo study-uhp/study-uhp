@@ -1,4 +1,5 @@
 import React from 'react';
+import dayjs from 'dayjs';
 import { Label } from 'semantic-ui-react';
 
 const columns = [
@@ -11,7 +12,7 @@ const columns = [
     cell: row => (
       <div>
         <Label size='small' color='black'>
-          {row.course}
+          ICS {row.course}
         </Label>
       </div>
     ),
@@ -25,25 +26,26 @@ const columns = [
   },
   {
     name: 'DATE',
-    selector: 'date',
     sortable: true,
     compact: true,
     style: { color: 'rgba(255, 255, 255, 0.5)' },
+    cell: row => dayjs(row.start).format('MM/DD'),
   },
   {
     name: 'START',
-    selector: 'timeBegin',
+    selector: 'start',
     sortable: true,
     compact: true,
     style: { color: 'rgba(255, 255, 255, 0.5)' },
-    // format: row => moment(row.timeBegin).format('HH:m a'),
+    format: row => dayjs(row.start).format('hh:mm A'),
   },
   {
     name: 'END',
-    selector: 'timeEnd',
+    selector: 'end',
     sortable: true,
     compact: true,
     style: { color: 'rgba(255, 255, 255, 0.5)' },
+    format: row => dayjs(row.end).format('hh:mm A'),
   },
 ];
 
