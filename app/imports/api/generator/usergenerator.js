@@ -30,7 +30,7 @@ export default function generateUsers(num) {
     ]);
 
     const profileObject = {
-      username: (
+      user: (
         firstname.charAt(0) +
         lastname +
         _.random(2,9) +

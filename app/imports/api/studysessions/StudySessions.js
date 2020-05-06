@@ -9,12 +9,21 @@ const StudySessions = new Mongo.Collection('StudySessions');
 const StudySessionSchema = new SimpleSchema({
   course: String,
   topic: String,
-  date: String,
-  timeBegin: String,
-  timeEnd: String,
+  description: String,
+  start: Date,
+  end: Date,
   owner: String,
-  participants: Array,
-  'participants.$': String,
+  participants: Object,
+  'participants.grasshopper': Array,
+  'participants.grasshopper.$': {
+    type: String,
+    optional: true,
+  },
+  'participants.sensei': Array,
+  'participants.sensei.$': {
+    type: String,
+    optional: true,
+  },
 }, { tracker: Tracker });
 
 /** Attach this schema to the collection. */

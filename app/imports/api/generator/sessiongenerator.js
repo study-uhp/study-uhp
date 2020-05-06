@@ -54,7 +54,7 @@ export default function generateSessions(num, userlist) {
       );
     const end = start.add(_.sample(pMin), 'minute');
 
-    const listofusers = _.pluck(list, 'username');
+    const listofusers = _.pluck(list, 'user');
     const owner = _.sample(listofusers);
     const noowner = _.difference(listofusers, owner);
     const grasshoppers = _.sample(noowner, _.random(1,5));
@@ -65,8 +65,8 @@ export default function generateSessions(num, userlist) {
       course: _.sample(courselist),
       topic: faker.lorem.sentence(5),
       description: faker.lorem.sentences(_.random(2,3)),
-      start: start,
-      end: end,
+      start: start.toDate(),
+      end: end.toDate(),
       owner: owner,
       participants: {
         grasshopper: grasshoppers,

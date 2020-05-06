@@ -14,8 +14,8 @@ const usercolumns = [
     ),
   },
   {
-    name: 'USERNAME',
-    selector: 'username',
+    name: 'USER',
+    selector: 'user',
     sortable: true,
     grow: 2,
   },
