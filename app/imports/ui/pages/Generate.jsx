@@ -9,6 +9,7 @@ import { icsCourses } from '../../api/courselist/CourseList.json'
 import usercolumns from '../../api/generator/usercolumns'
 import sessioncolumns from '../../api/generator/sessioncolumns'
 
+/** List of possible days to pick from for session date generation */
 const pDay = [
   1, 2, 3, 4, 5, 6, 7, 8, 9,
   10, 11, 12, 13, 14, 15, 16,
@@ -16,10 +17,12 @@ const pDay = [
   24, 25, 26, 27, 28, 29, 30
 ];
 
+/** List of possible hours for session time generation */
 const pHour = [ 
   7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17
 ];
 
+/** List of possible lengths for sessions. Weighted towards 30-90 */
 const pMin = [
   30, 45, 60, 75, 90,
   30, 45, 60, 75, 90,
@@ -27,8 +30,13 @@ const pMin = [
   105, 120,
 ];
 
+/** Pluck out all of the course numbers from the master list */
 const courselist = _.pluck(icsCourses, 'course');
 
+/** 
+ * Generate a list of users. Returns an array full of objects, where each object
+ * is a single user. Number passed in is the number of users to generate.
+ */
 function generateUsers(num) {
   const userlist = [];
 
@@ -83,6 +91,14 @@ function generateUsers(num) {
   return userlist;
 }
 
+/**
+ * Helper function for the session generator that generate a list of courses.
+ * Returns an object with both grasshopper and sensei course listings for a
+ * user. There is some (rough) logic built in that tries to make the courses
+ * somewhat reasonable based on the year of the student. So a freshman doesnt
+ * end up as a sensei for a 400-level course etc. The random number of courses
+ * chosen per user per year is weighted to be a bit more realistic also.
+ */
 function getCourses(year, courses) {
   const courseObj = {};
   
@@ -161,6 +177,15 @@ function getCourses(year, courses) {
   return courseObj;
 }
 
+/** 
+ * Generate a list of session. Returns an array full of objects, where each object
+ * is a single session. Number passed in is the number of sesseions to generate.
+ * A list of users needs to be passed in as well for the generator to work, as it
+ * picks an owner from the list and then builds the list of grasshoppers and senseis
+ * from the list while removing the chosen users at each pass to stop duplicates.
+ * The start date is generate from the current year and month, and then a random day,
+ * time, and length are picked.
+ */
 function generateSessions(num, userlist) {
   const sessionlist = [];
   const list = userlist || [];
