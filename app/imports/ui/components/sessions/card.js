@@ -86,10 +86,20 @@ export const MiddleInfo = styled.div`
   justify-content: flex-start;
   text-align: left;
 `
+export const SessionDateLength = styled.div`
+  display: flex;
+  justify-content: space-between;
+`
 export const SessionDate = styled.div`
   font-weight: bold;
   line-height: 1rem;
   color: rgba(0,0,0,.67);
+`
+export const SessionLength = styled.div`
+  font-weight: bold;
+  line-height: 1rem;
+  font-size: .75rem;
+  color: rgba(0,0,0,.37);
 `
 export const SessionTime = styled.div`
   color: rgba(0,0,0,.5);
@@ -134,10 +144,12 @@ export const Participants = styled.div`
 `
 export const Grasshoppers = styled.div`
   display: flex;
+  width: 50%;
   flex-direction: column;
 `
 export const Senseis = styled.div`
   display: flex;
+  width: 50%;
   flex-direction: column;
 `
 export const ParticipantAvatars = styled.div`
@@ -164,5 +176,19 @@ export const AvatarSS = styled.div`
   background-size: contain;
   margin-right: -.5rem;
   border: 2px solid #254D32;
+  box-shadow: -1px 5px 5px -6px black;
+`
+export const AvatarNum = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  font-size: 10px;
+  border-radius: 50%;
+  color: rgba(255, 255, 255, .67);
+  background-color: rgba(27, 28, 29, .5);
+  margin-right: -.5rem;
+  /* border: 2px solid #254D32; */
   box-shadow: -1px 5px 5px -6px black;
 `
