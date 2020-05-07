@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { UserProfiles } from '../../../api/userprofiles/UserProfiles';
 import { _ } from 'meteor/underscore';
 import dayjs from 'dayjs';
+import { Icon } from 'semantic-ui-react';
 import { 
   Card,
   CardHeader,
@@ -30,7 +31,6 @@ import {
   SessionDateLength,
   SessionLength
 } from './card';
-import { Icon } from 'semantic-ui-react';
 
 const mockdata = {
   name: {
@@ -53,28 +53,15 @@ const mockdata = {
 
 class SessionCard extends React.Component {
 
-  handleClick = () => {
-    // console.log(UserProfiles.find({}).fetch());
-    // console.log(_.where(this.props.userprofiles, { user: Meteor.user().username }));
-    // console.log(_.filter(this.props.userprofiles, function (obj) { return obj.user === Meteor.user().username }));
-    // console.log(_.find(this.props.userprofiles, function (obj) { return obj.user === Meteor.user().username }));
-    console.log(this.props.studysession.participants.grasshopper)
-  }
-  handleClick2 = (list) => {
-    // console.log(UserProfiles.find({}).fetch());
-    // console.log(_.where(this.props.userprofiles, { user: Meteor.user().username }));
-    // console.log(_.filter(this.props.userprofiles, function (obj) { return obj.user === Meteor.user().username }));
-    // console.log(_.find(this.props.userprofiles, function (obj) { return obj.user === Meteor.user().username }));
-    console.log(list)
-  }
-
-  getUserAvatar = (owner) => {
-    const sessionowner = _.find(
+  /** Pass in a user, get back the url to their avatar */
+  getUserAvatar = (user) => {
+    const profile = _.find(
       this.props.userprofiles, function (obj) {
-        return obj.user === owner
-      });
+        return obj.user === user
+      }
+    );
 
-    return sessionowner.avatar;
+    return profile.avatar;
   }
 
   render() {
@@ -83,27 +70,62 @@ class SessionCard extends React.Component {
      *  If the user has not clicked on a study session this is actually an empty object
      *  and the card will default to using the values in its state.
      */
-    const { course, topic, description, start, end, owner, participants } = this.props.studysession;
-    // const avatar = owner ? this.getUserAvatar(owner) : 'https://react.semantic-ui.com/images/avatar/small/daniel.jpg';
+    const {
+      course,
+      topic,
+      description,
+      start,
+      end,
+      owner,
+      participants
+    } = this.props.studysession;
     
+    /** These two arrays hold the list of avatar images for the session particpants */
     const grasshopperList = [];
     const senseiList = [];
+
+    /** The number of avatars to display on the card before show '+...' */
     const displayAvatars = 3;
 
-    participants ? participants.grasshopper.forEach(user => grasshopperList.push(this.getUserAvatar(user))) : '';
-    participants ? participants.sensei.forEach(user => senseiList.push(this.getUserAvatar(user))) : '';
+    /** For each participant in the list, get their avatar */
+    {
+      participants
+      ? participants.grasshopper.forEach(
+        user => grasshopperList.push(
+          this.getUserAvatar(user)
+        )
+      )
+      : ''
+    };
 
-    const { name, avatar } = owner ? _.find(
-      this.props.userprofiles, function (obj) {
-        return obj.user === owner
-      }
-      ) : { name: mockdata.name, avatar: mockdata.avatar }
+    /** For each participant in the list, get their avatar */
+    {
+      participants
+      ? participants.sensei.forEach(
+        user => senseiList.push(
+          this.getUserAvatar(user)
+        )
+      )
+      : ''
+    };
+
+    /** Get the name and avatar of who created the session, or mock data. */
+    const { name, avatar } = owner
+      ? _.find(
+        this.props.userprofiles, function (obj) {
+          return obj.user === owner
+        }
+      )
+      : {
+        name: mockdata.name,
+        avatar: mockdata.avatar
+      };
 
     return (
       /**
        *  If no studysession is passed in from the user clicking on the table, gray out the card.
        *  Picking 'topic' is arbitrary, any empty value means a session has not been passed. The
-       *  logic for displaying the rest of the card info is basically the same.
+       *  logic for displaying the rest of the card info is basically the same. Yes, wrapper hell.
        */
       <div style={ topic ? {} : { opacity: '.2', pointerEvents: 'none' } }>
         <Card>
@@ -114,21 +136,36 @@ class SessionCard extends React.Component {
             <TopInfo>
               <Course>{ course ? 'ICS ' + course : mockdata.course }</Course>
               <OwnerInfo>
-                <span style={{ fontSize: '.6rem', color: 'rgba(0,0,0,.5)' }}>STARTED BY</span>
-                <span>{name.first} {name.last}</span>
+                <span style={{ 
+                  fontSize: '.6rem',
+                  color: 'rgba(0,0,0,.5)'
+                }}>
+                  STARTED BY
+                </span>
+                <span>
+                  {name.first} {name.last}
+                </span>
               </OwnerInfo>
               <Avatar avatar={avatar}/>
             </TopInfo>
             <MiddleInfo>
               <SessionDateLength>
-                <SessionDate>{ start ? dayjs(start).format('ddd MMM D') : mockdata.start.format('ddd MMM D') }</SessionDate>
+                <SessionDate>
+                  { 
+                    start
+                    ? dayjs(start).format('ddd MMM D')
+                    : mockdata.start.format('ddd MMM D')
+                  }
+                </SessionDate>
                 <SessionLength>
                   <Icon name='clock outline'/>
-                  { start ? 
-                  dayjs(end).diff(dayjs(start), 'm') + ' min' : mockdata.end.diff(mockdata.start, 'm') + ' min' }
-                  </SessionLength>
+                  { 
+                    start
+                    ? dayjs(end).diff(dayjs(start), 'm') + ' min'
+                    : mockdata.end.diff(mockdata.start, 'm') + ' min'
+                  }
+                </SessionLength>
               </SessionDateLength>
-              
               <SessionTime>
                 {
                   start
@@ -145,7 +182,7 @@ class SessionCard extends React.Component {
               </SessionDesc>
             </MiddleInfo>
             <BottomInfo>
-              <JoinButton onClick={() => this.handleClick2(grasshopperList)}>JOIN SESSION</JoinButton>
+              <JoinButton>JOIN SESSION</JoinButton>
             </BottomInfo>
           </CardBody>
           <CardFooter>
@@ -154,37 +191,55 @@ class SessionCard extends React.Component {
             </NumberParticipants>
             <Participants>
               <Grasshoppers>
-                <span style={{ fontSize: '.6rem', color: 'rgba(255,255,255,.5)' }}>GRASSHOPPERS</span>
+                GRASSHOPPERS
                 <Participants>
                   <ParticipantAvatars>
-                    {grasshopperList.length > displayAvatars ? (
-                      <AvatarNum>
-                        +{grasshopperList.length - displayAvatars}
-                      </AvatarNum>
-                    ) : ''}
-                    { participants ? (
+                    {/* Only display the '+..' if the participants number exceeds set amount */}
+                    {
+                      grasshopperList.length > displayAvatars
+                      ? (
+                        <AvatarNum>
+                          +{grasshopperList.length - displayAvatars}
+                        </AvatarNum>
+                      )
+                      : ''
+                    }
+                    {/* Return the avatar of each participant, up to set amount */}
+                    {
+                      participants
+                      ? (
                         _.first(grasshopperList, displayAvatars).map(
                           item => <AvatarGH key={item} avatar={item}/>
                         )
-                      ) : ''
+                      )
+                      : ''
                     }
                   </ParticipantAvatars>
                 </Participants>
               </Grasshoppers>
               <Senseis>
-                <span style={{ fontSize: '.6rem', color: 'rgba(255,255,255,.5)' }}>SENSEIS</span>
+                SENSEIS
                 <Participants>
                   <ParticipantAvatars>
-                    {senseiList.length > displayAvatars ? (
-                      <AvatarNum>
-                        +{senseiList.length - displayAvatars}
-                      </AvatarNum>
-                    ) : ''}
-                    { participants ? (
+                    {/* Only display the '+..' if the participants number exceeds set amount */}
+                    {
+                      senseiList.length > displayAvatars
+                      ? (
+                        <AvatarNum>
+                          +{senseiList.length - displayAvatars}
+                        </AvatarNum>
+                      )
+                      : ''
+                    }
+                    {/* Return the avatar of each participant, up to set amount */}
+                    {
+                      participants
+                      ? (
                         _.first(senseiList, displayAvatars).map(
                           item => <AvatarSS key={item} avatar={item}/>
                         )
-                      ) : ''
+                      )
+                      : ''
                     }
                   </ParticipantAvatars>
                 </Participants>

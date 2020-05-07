@@ -146,11 +146,15 @@ export const Grasshoppers = styled.div`
   display: flex;
   width: 50%;
   flex-direction: column;
+  font-size: .6rem;
+  color: rgba(255,255,255,.5);
 `
 export const Senseis = styled.div`
   display: flex;
   width: 50%;
   flex-direction: column;
+  font-size: .6rem;
+  color: rgba(255,255,255,.5);
 `
 export const ParticipantAvatars = styled.div`
   display: flex;
