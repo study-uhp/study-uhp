@@ -35,61 +35,68 @@ class Sessions extends React.Component {
   renderPage() {
     return (
         <Grid container centered className='main-content'>
-          <Grid.Column width={12}>
-            <Header as='h2' textAlign='center'>Upcoming Sessions</Header>
-            <div style={{ 
-              boxShadow: '-1px 5px 10px -6px black',
-              borderBottomLeftRadius: '5px',
-              borderBottomRightRadius: '5px',
-            }}>
-            <DataTable
-              noHeader
-              columns={columns}
-              data={this.props.studysessions}
-              keyField={this.props.studysessions._id}
-              dense
-              pagination
-              defaultSortField='date'
-              sortIcon={<Icon name='angle down'/>}
-              paginationIconNext={<Icon fitted name='angle right'/>}
-              paginationIconPrevious={<Icon fitted name='angle left'/>}
-              paginationIconFirstPage={<Icon fitted name='angle double left'/>}
-              paginationIconLastPage={<Icon fitted name='angle double right'/>}
-              paginationComponentOptions={{ noRowsPerPage: true }}
-              theme='sessions'
-              customStyles={sessionsStyle}
-              pointerOnHover
-              highlightOnHover
-              onRowClicked={row => 
-                this.state.session === row 
-                ? this.setState({ session: {} })
-                : this.setState({ session: row })
-              }
-            />
-            </div>
-            <br/>
-            <Button
-              compact
-              secondary
-              as={Link}
-              to='/add'
-              key='add'
-              content='Create Session'
-            />
-            <Button 
-              compact
-              onClick={this.handleClick}
-              className='button-style'
-              floated='right'
-              content='Console'
-            />
-          </Grid.Column>
-          <Grid.Column width={4}>
-            <div style={{ paddingTop: '20px' }}>
+          <Grid.Row>
+            <Grid.Column width={12}>
+              <Header as='h2' textAlign='center'>Upcoming Sessions</Header>
+            </Grid.Column>
+            <Grid.Column width={4}>
               <Header as='h3' textAlign='center'>Session Details</Header>
-              <SessionCard studysession={this.state.session} />
-            </div>
-          </Grid.Column>
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row>
+            <Grid.Column width={12}>
+              <div style={{ 
+                boxShadow: '-1px 5px 10px -6px black',
+                borderBottomLeftRadius: '5px',
+                borderBottomRightRadius: '5px',
+              }}>
+              <DataTable
+                noHeader
+                columns={columns}
+                data={this.props.studysessions}
+                keyField={this.props.studysessions._id}
+                dense
+                pagination
+                defaultSortField='date'
+                sortIcon={<Icon name='angle down'/>}
+                paginationIconNext={<Icon fitted name='angle right'/>}
+                paginationIconPrevious={<Icon fitted name='angle left'/>}
+                paginationIconFirstPage={<Icon fitted name='angle double left'/>}
+                paginationIconLastPage={<Icon fitted name='angle double right'/>}
+                paginationComponentOptions={{ noRowsPerPage: true }}
+                theme='sessions'
+                customStyles={sessionsStyle}
+                pointerOnHover
+                highlightOnHover
+                onRowClicked={row => 
+                  this.state.session === row 
+                  ? this.setState({ session: {} })
+                  : this.setState({ session: row })
+                }
+              />
+              </div>
+              <br/>
+              <Button
+                compact
+                secondary
+                as={Link}
+                to='/add'
+                key='add'
+                content='Create Session'
+              />
+              <Button 
+                compact
+                onClick={this.handleClick}
+                className='button-style'
+                floated='right'
+                content='Console'
+              />
+            </Grid.Column>
+            <Grid.Column width={4}>
+                <SessionCard studysession={this.state.session} />
+            </Grid.Column>
+          </Grid.Row>
+
         </Grid>
     );
   }
