@@ -57,7 +57,6 @@ class Sessions extends React.Component {
                 keyField={this.props.studysessions._id}
                 dense
                 pagination
-                defaultSortField='date'
                 sortIcon={<Icon name='angle down'/>}
                 paginationIconNext={<Icon fitted name='angle right'/>}
                 paginationIconPrevious={<Icon fitted name='angle left'/>}
@@ -113,7 +112,7 @@ export default withTracker(() => {
   // Get access to Sessions.
   const subscription = Meteor.subscribe('StudySessionsAll');
   return {
-    studysessions: StudySessions.find({}).fetch(),
+    studysessions: StudySessions.find({}, {sort: {start: 1}}).fetch(),
     ready: subscription.ready(),
   };
 })(Sessions);

@@ -26,14 +26,15 @@ const columns = [
   },
   {
     name: 'DATE',
+    selector: 'start',
     sortable: true,
     compact: true,
     style: { color: 'rgba(255, 255, 255, 0.5)' },
-    cell: row => dayjs(row.start).format('MM/DD'),
+    format: row => dayjs(row.start).format('MM/DD'),
   },
   {
     name: 'START',
-    selector: 'start',
+    selector: row => dayjs(row.start).format('HH:mm').toString(),
     sortable: true,
     compact: true,
     style: { color: 'rgba(255, 255, 255, 0.5)' },
@@ -41,7 +42,7 @@ const columns = [
   },
   {
     name: 'END',
-    selector: 'end',
+    selector: row => dayjs(row.end).format('HH:mm').toString(),
     sortable: true,
     compact: true,
     style: { color: 'rgba(255, 255, 255, 0.5)' },

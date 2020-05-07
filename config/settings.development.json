@@ -47,7 +47,7 @@
   ],
 
   "generateData": {
-    "users": 5,
-    "sessions": 10
+    "users": 15,
+    "sessions": 50
   }
 }

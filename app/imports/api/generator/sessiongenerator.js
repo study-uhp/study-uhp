@@ -65,8 +65,8 @@ export default function generateSessions(num, userlist) {
       course: _.sample(courselist),
       topic: faker.lorem.sentence(5),
       description: faker.lorem.sentences(_.random(2,3)),
-      start: start.toDate(),
-      end: end.toDate(),
+      start: start.toJSON(),
+      end: end.toJSON(),
       owner: owner,
       participants: {
         grasshopper: grasshoppers,
