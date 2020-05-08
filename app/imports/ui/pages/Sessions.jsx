@@ -68,8 +68,11 @@ class Sessions extends React.Component {
               <Header as='h2' textAlign='center'>Upcoming Sessions</Header>
             </Grid.Column>
           </Grid.Row>
-          <Grid.Row>
-            <Grid.Column textAlign='center' width={2}>
+          <Grid.Row style={{ paddingBottom: '0px' }}>
+            <Grid.Column width={2}>
+              <div style={{ 
+                marginLeft: '2rem',
+              }}>
               <Input
                 inverted
                 size='mini'
@@ -79,17 +82,17 @@ class Sessions extends React.Component {
                 value={searchString}
                 onChange={this.handleChange}
               />
-              <br/>
-                <div style={{
-                  textAlign: 'left',
-                  fontSize: '10px',
-                  color: 'rgba(255,255,255,.5',
-                  lineHeight: '1rem',
-                  paddingTop: '1rem',
-                  paddingBottom: '1rem'
-                }}>
-                  Try entering something like '05/12' or '07:30'. To search for a class, leave out the prefix. You can search for a person by their email.
-                </div>
+              </div>
+            </Grid.Column>
+            <Grid.Column width={5}>
+              <Button 
+                compact
+                onClick={this.handleClick}
+                className='button-style'
+                content='Console'
+              />
+            </Grid.Column>
+            <Grid.Column textAlign='center' width={3}>
               <Button
                 compact
                 secondary
@@ -98,19 +101,15 @@ class Sessions extends React.Component {
                 key='add'
                 content='Create Session'
               />
-              <br/>
-              <Button 
-                compact
-                onClick={this.handleClick}
-                className='button-style'
-                content='Console'
-              />
             </Grid.Column>
+          </Grid.Row>
+          <Grid.Row>
             <Grid.Column width={7}>
               <div style={{ 
                 boxShadow: '-1px 5px 10px -6px black',
                 borderBottomLeftRadius: '5px',
                 borderBottomRightRadius: '5px',
+                marginLeft: '2rem',
               }}>
               <DataTable
                 noHeader
@@ -142,7 +141,7 @@ class Sessions extends React.Component {
               />
               </div>
             </Grid.Column>
-            <Grid.Column width={2}>
+            <Grid.Column width={3}>
               <SessionCard studysession={session} />
             </Grid.Column>
           </Grid.Row>
