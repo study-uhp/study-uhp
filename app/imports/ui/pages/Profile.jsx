@@ -1,18 +1,42 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Feed, Button, Loader, Image, Label, Segment, Grid, Header } from 'semantic-ui-react';
+import { Icon, Button, Loader, Image, Label, Segment, Grid, Header } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { UserProfiles } from '../../api/userprofiles/UserProfiles';
 import { StudySessions } from '../../api/studysessions/StudySessions';
+import DataTable from 'react-data-table-component';
+import profileStyle from '../components/sessions/profilestyle';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+import SessionCard from '../components/sessions/SessionCard';
+
+const MySwal = withReactContent(Swal);
+
+const columns = [
+  {
+    name: 'DATE',
+    selector: 'date',
+    compact: true,
+    style: { 
+      fontSize: '10px',
+      color: 'rgba(255, 255, 255, 0.5)',
+      paddingLeft: '5px',
+      paddingRight: '5px'
+    },
+    width: '65px',
+  },
+  {
+    name: 'TOPIC',
+    selector: 'topic',
+    compact: true,
+    maxWidth: '169px',
+  },
+];
 
 /** A simple static component to render some text for the landing page. */
 class Profile extends React.Component {
-
-  handleClick = () => {
-    console.log(this.props.userprofile)
-  }
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
@@ -23,10 +47,7 @@ class Profile extends React.Component {
   renderPage() {
 
     const profile = this.props.userprofile
-    const userName = `${profile.name.first} ${profile.name.last}`;
-    const userAvatar = profile.avatar;
-    const userBio = profile.bio;
-    const userPoints = profile.points;
+    const { name, avatar, bio, points } = this.props.userprofile;
 
     return (
       <Grid container centered className="main-content">
@@ -34,10 +55,10 @@ class Profile extends React.Component {
           <Header as="h2" textAlign="center">Profile</Header>
           <Segment.Group horizontal >
             <Segment inverted style={{ width: '30%' }}>
-              <Image src={userAvatar} size='small' circular centered/>
-              <Header as="h2" textAlign="center">{userName}</Header>
-              <Header as='h5' textAlign="center">Points: {userPoints}</Header>
-              {userBio}
+              <Image src={avatar} size='small' circular centered/>
+              <Header as="h2" textAlign="center">{name.first} {name.last}</Header>
+              <Header as='h5' textAlign="center">Points: {points}</Header>
+              {bio}
               <br/><br/>
               {/* <Button 
                 onClick={this.handleClick}
@@ -67,25 +88,33 @@ class Profile extends React.Component {
             </Segment>
             <Segment inverted style={{ width: '30%' }}>
               <Header inverted as='h4'>{profile.name.first}'s Upcoming Sessions</Header>
-                {this.props.studysessions.map((studysession) =>
-                  <Feed key={studysession._id} size='small'>
-                    <Feed.Event>
-                    <Feed.Label>
-                      <Label size='mini' color='black'>
-                        {studysession.course}
-                      </Label>
-                    </Feed.Label>
-                    <Feed.Content>
-                      <Feed.Date>
-                        {studysession.date}
-                      </Feed.Date>
-                      <Feed.Summary>
-                        {studysession.topic}
-                      </Feed.Summary>
-                    </Feed.Content>
-                    </Feed.Event>
-                  </Feed>
-                )}
+              <DataTable
+              noHeader
+              noTableHead
+              columns={columns}
+              data={this.props.studysessions}
+              keyField={this.props.studysessions._id}
+              dense
+              pagination
+              defaultSortField='date'
+              paginationIconNext={<Icon fitted name='angle right'/>}
+              paginationIconPrevious={<Icon fitted name='angle left'/>}
+              paginationIconFirstPage={''}
+              paginationIconLastPage={''}
+              paginationComponentOptions={{ noRowsPerPage: true }}
+              paginationPerPage={5}
+              theme='profile'
+              customStyles={profileStyle}
+              pointerOnHover
+              highlightOnHover
+              onRowClicked={row => MySwal.fire({
+                showConfirmButton: false,
+                background: 'transparent',
+                width: 275,
+                padding: '0',
+                html: <SessionCard studysession={row} />,
+              })}
+              />
             </Segment>
           </Segment.Group>
         </Grid.Column>

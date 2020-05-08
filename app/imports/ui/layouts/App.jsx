@@ -9,7 +9,7 @@ import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
 import ListStudySessionsAll from '../pages/ListStudySessionsAll';
 import ListStudySessionsAll2 from '../pages/ListStudySessionsAll2';
-import ListStudySessions from '../pages/ListStudySessions';
+import Sessions from '../pages/Sessions';
 import ListStudySessionsAdmin from '../pages/ListStudySessionsAdmin';
 import AddStudySession from '../pages/AddStudySession';
 import EditStudySession from '../pages/EditStudySession';
@@ -37,7 +37,7 @@ class App extends React.Component {
               <ProtectedRoute path="/dashboard" component={Dashboard}/>
               <ProtectedRoute path="/allsessions" component={ListStudySessionsAll}/>
               <ProtectedRoute path="/allsessions2" component={ListStudySessionsAll2}/>
-              <ProtectedRoute path="/sessions" component={ListStudySessions}/>
+              <ProtectedRoute path="/sessions" component={Sessions}/>
               <ProtectedRoute path="/add" component={AddStudySession}/>
               <ProtectedRoute path="/viewstudysession/:_id" component={ViewStudySession}/>
               <ProtectedRoute path="/calendar" component={Calendar}/>
