@@ -20,6 +20,8 @@ import {
   SessionDesc,
   BottomInfo,
   JoinButton,
+  LeaveButton,
+  EditButton,
   NumberParticipants,
   Participants,
   Grasshoppers,
@@ -34,12 +36,12 @@ import {
 
 const mockdata = {
   name: {
-    first: 'USER',
-    last: 'NAME',
+    first: 'Study',
+    last: 'UHp',
   },
-  avatar: 'https://react.semantic-ui.com/images/avatar/small/daniel.jpg',
+  avatar: '/images/studyuhp_logo_square.png',
   course: 'COURSE',
-  topic: 'SESSION TOPIC',
+  topic: 'Session Topic',
   description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. ' +
     'Maxime recusandae fuga quae autem ad provident minima perfer.',
   start: dayjs(),
@@ -181,13 +183,30 @@ class SessionCard extends React.Component {
                 { description ? description : mockdata.description }
               </SessionDesc>
             </MiddleInfo>
-            <BottomInfo>
-              <JoinButton>JOIN SESSION</JoinButton>
-            </BottomInfo>
           </CardBody>
+            <BottomInfo>
+              { /**
+                 * If participants exists, does owner = user? Yes, edit button. No, is owner in
+                 * either participants list? Yes, leave button. No, join button. Default, join button.
+                 * Yes, this is uh... hard to read. But it works. Fix later, I promise.
+                 */
+                participants
+                ? owner === Meteor.user().username
+                ? <EditButton>EDIT SESSION</EditButton>
+                : _.contains(participants.grasshopper, Meteor.user().username)
+                || _.contains(participants.sensei, Meteor.user().username)
+                ? <LeaveButton>LEAVE SESSION</LeaveButton>
+                : <JoinButton>JOIN SESSION</JoinButton>
+                : <JoinButton>JOIN SESSION</JoinButton>
+              }
+            </BottomInfo>
           <CardFooter>
             <NumberParticipants>
-              {grasshopperList.length + senseiList.length} OTHER PARTICIPANTS
+              {
+                participants
+                ? grasshopperList.length + senseiList.length
+                : ''
+              } OTHER PARTICIPANTS
             </NumberParticipants>
             <Participants>
               <Grasshoppers>

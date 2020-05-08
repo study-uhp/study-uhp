@@ -11,7 +11,7 @@ export const Card = styled.div`
   z-index: 9999;
 `
 export const CardHeader =  styled.div`
-  min-height: 3.5rem;
+  min-height: 4.5rem;
   background: #1b1c1d;
   color: rgba(255,255,255,.87);
   font-weight: bold;
@@ -25,16 +25,16 @@ export const CardHeader =  styled.div`
 `
 export const CardBody = styled.div`
   background: #606465;
-  min-height: 100px;
+  min-height: 17.214rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
   padding-left: 1rem;
   padding-right: 1rem;
 `
 export const CardFooter = styled.div`
-  min-height: 70px;
+  min-height: 7.5rem;
   background: #393D3F;
-  padding-top: 1rem;
+  padding-top: 0;
   padding-bottom: 1rem;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -74,6 +74,7 @@ export const Avatar = styled.div`
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  background-color: #606465;
   background-image: url(${props => props.avatar});
   background-size: contain;
   border: 2px solid #606465;
@@ -113,9 +114,10 @@ export const SessionDesc = styled.div`
 export const BottomInfo = styled.div`
   display: flex;
   justify-content: center;
-  margin-bottom: -2rem;
+  margin-top: -1rem;
 `
 export const JoinButton = styled.button`
+  min-width: 9.72rem;
   background-color: rgb(0, 83, 37);
   color: rgba(255,255,255,.87);
   font-weight: 700;
@@ -128,7 +130,41 @@ export const JoinButton = styled.button`
   border-radius: 25px;
   &:hover {
     cursor: pointer;
-    background-color: rgb(0, 100, 45); // <Thing> when hovered
+    background-color: rgb(0, 100, 45);
+  }
+`
+export const LeaveButton = styled.button`
+  min-width: 9.72rem;
+  background-color: rgb(153, 21, 21);
+  color: rgba(255,255,255,.87);
+  font-weight: 700;
+  border-style: none;
+  padding: 0;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  border-radius: 25px;
+  &:hover {
+    cursor: pointer;
+    background-color: rgb(189, 29, 29);
+  }
+`
+export const EditButton = styled.button`
+  min-width: 9.72rem;
+  background-color: rgb(27, 28, 29);
+  color: rgba(255,255,255,.87);
+  font-weight: 700;
+  border-style: none;
+  padding: 0;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  border-radius: 25px;
+  &:hover {
+    cursor: pointer;
+    background-color: rgb(42, 43, 45);
   }
 `
 export const NumberParticipants = styled.div`
@@ -166,6 +202,7 @@ export const AvatarGH = styled.div`
   width: 30px;
   height: 30px;
   border-radius: 50%;
+  background-color: rgba(27, 28, 29, .5);
   background-image: url(${props => props.avatar});
   background-size: contain;
   margin-right: -.5rem;
@@ -176,6 +213,7 @@ export const AvatarSS = styled.div`
   width: 30px;
   height: 30px;
   border-radius: 50%;
+  background-color: rgba(27, 28, 29, .5);
   background-image: url(${props => props.avatar});
   background-size: contain;
   margin-right: -.5rem;
@@ -193,6 +231,5 @@ export const AvatarNum = styled.div`
   color: rgba(255, 255, 255, .67);
   background-color: rgba(27, 28, 29, .5);
   margin-right: -.5rem;
-  /* border: 2px solid #254D32; */
   box-shadow: -1px 5px 5px -6px black;
 `
