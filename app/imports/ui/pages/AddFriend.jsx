@@ -43,6 +43,7 @@ class AddFriend extends React.Component {
                 <TextField name='firstName'/>
                 <TextField name='lastName'/>
                 <TextField name='email'/>
+                <TextField name='owner'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
               </Segment>

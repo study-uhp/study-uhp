@@ -20,7 +20,7 @@ class Friends extends React.Component {
             <Header as="h2" textAlign="center">Friends</Header>
             <Card.Group>
                 {this.props.friendsc.map((friend) => <Friend
-                    key={friend._id} studysession={friend} />)}
+                    key={friend._id} friend={friend} />)}
             </Card.Group>
         </Container>
 

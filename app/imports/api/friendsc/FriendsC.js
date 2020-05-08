@@ -10,6 +10,7 @@ const FriendsCSchema = new SimpleSchema({
   firstName: String,
   lastName: String,
   email: String,
+  owner: String,
 }, { tracker: Tracker });
 
 /** Attach this schema to the collection. */
