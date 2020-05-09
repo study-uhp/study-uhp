@@ -110,11 +110,9 @@ export const SessionDesc = styled.div`
   color: rgba(0,0,0,.87);
   padding-top: 1rem;
 `
-
 export const BottomInfo = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: -1rem;
 `
 export const JoinButton = styled.button`
   min-width: 9.72rem;
@@ -128,6 +126,7 @@ export const JoinButton = styled.button`
   padding-top: .5rem;
   padding-bottom: .5rem;
   border-radius: 25px;
+  margin-top: -1rem;
   &:hover {
     cursor: pointer;
     background-color: rgb(0, 100, 45);
@@ -145,6 +144,7 @@ export const LeaveButton = styled.button`
   padding-top: .5rem;
   padding-bottom: .5rem;
   border-radius: 25px;
+  margin-top: -1rem;
   &:hover {
     cursor: pointer;
     background-color: rgb(189, 29, 29);
@@ -162,6 +162,7 @@ export const EditButton = styled.button`
   padding-top: .5rem;
   padding-bottom: .5rem;
   border-radius: 25px;
+  margin-top: -1rem;
   &:hover {
     cursor: pointer;
     background-color: rgb(42, 43, 45);

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { UserProfiles } from '../../../api/userprofiles/UserProfiles';
 import { _ } from 'meteor/underscore';
 import dayjs from 'dayjs';
-import { Icon } from 'semantic-ui-react';
+import { Icon, Loader } from 'semantic-ui-react';
 import { 
   Card,
   CardHeader,
@@ -66,7 +66,12 @@ class SessionCard extends React.Component {
     return profile.avatar;
   }
 
+  /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
+    return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
+  };
+
+  renderPage() {
     /** 
      *  Destructure the studdysession prop to make the conditional statements simpler.
      *  If the user has not clicked on a study session this is actually an empty object
@@ -81,7 +86,7 @@ class SessionCard extends React.Component {
       owner,
       participants
     } = this.props.studysession;
-    
+
     /** These two arrays hold the list of avatar images for the session particpants */
     const grasshopperList = [];
     const senseiList = [];
@@ -184,6 +189,7 @@ class SessionCard extends React.Component {
               </SessionDesc>
             </MiddleInfo>
           </CardBody>
+              <CardFooter>
             <BottomInfo>
               { /**
                  * If participants exists, does owner = user? Yes, edit button. No, is owner in
@@ -200,7 +206,6 @@ class SessionCard extends React.Component {
                 : <JoinButton>JOIN SESSION</JoinButton>
               }
             </BottomInfo>
-          <CardFooter>
             <NumberParticipants>
               {
                 participants
