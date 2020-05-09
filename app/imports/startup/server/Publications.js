@@ -38,6 +38,13 @@ Meteor.publish('UserProfiles', function publish() {
   return this.ready();
 });
 
+Meteor.publish('AllUserProfiles', function publish() {
+  if (this.userId) {
+    return UserProfiles.find();
+  }
+  return this.ready();
+});
+
 Meteor.publish('CourseList', function publish() {
   if (this.userId) {
     return CourseList.find();

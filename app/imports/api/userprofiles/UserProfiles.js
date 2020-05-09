@@ -11,7 +11,8 @@ const UserProfileSchema = new SimpleSchema({
   name: Object,
   'name.first': String,
   'name.last': String,
-  bio: String,
+  major: String,
+  year: String,
   avatar: {
     type: String,
     optional: true,
@@ -28,6 +29,7 @@ const UserProfileSchema = new SimpleSchema({
     optional: true,
   },
   points: Number,
+  bio: String,
 }, { tracker: Tracker });
 
 /** Attach this schema to the collection. */
