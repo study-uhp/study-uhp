@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 import { StudySessions } from '../../api/studysessions/StudySessions';
 import { UserProfiles } from '../../api/userprofiles/UserProfiles';
-import { CourseList } from '../../api/courselist/CourseList'
+import { CourseList } from '../../api/courselist/CourseList';
 
 /** This subscription publishes all documents regardless of user, but only if logged in. */
 Meteor.publish('StudySessionsAll', function publish() {

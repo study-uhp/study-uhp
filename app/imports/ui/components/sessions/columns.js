@@ -9,6 +9,7 @@ const columns = [
     sortable: true,
     width: '100px',
     style: { marginTop: '3px' },
+    // eslint-disable-next-line react/display-name
     cell: row => (
       <div>
         <Label size='small' color='black'>

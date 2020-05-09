@@ -1,17 +1,16 @@
 import React from 'react';
-import { Grid, Loader, Header, Segment, Form, Dropdown, Button } from 'semantic-ui-react';
+import { Grid, Loader, Header, Segment, Form } from 'semantic-ui-react';
 import Swal from 'sweetalert2';
-import withReactContent from 'sweetalert2-react-content'
-import { AutoForm, ErrorsField, HiddenField, SubmitField, TextField, LongTextField, ListField } from 'uniforms-semantic';
+import withReactContent from 'sweetalert2-react-content';
+import { AutoForm, ErrorsField, HiddenField, SubmitField, TextField, LongTextField } from 'uniforms-semantic';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
-import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import 'uniforms-bridge-simple-schema-2'; // required for Uniforms
 import SimpleSchema from 'simpl-schema';
-// import { StudySessions, StudySessionSchema } from '../../api/studysessions/StudySessions';
-import { UserProfiles, UserProfileSchema } from '../../api/userprofiles/UserProfiles';
-import { CourseList, CourseListSchema } from '../../api/courselist/CourseList';
+import { _ } from 'meteor/underscore';
+import { UserProfiles } from '../../api/userprofiles/UserProfiles';
+import { CourseList } from '../../api/courselist/CourseList';
 import MultiSelectField from '../components/MultiSelectField';
 
 const MySwal = withReactContent(Swal);
@@ -34,7 +33,7 @@ const editProfileSchema = (allCourses) => new SimpleSchema({
   'courses.grasshopper.$': {
     type: String,
     optional: true,
-    allowedValues: allCourses
+    allowedValues: allCourses,
   },
   'courses.sensei': {
     type: Array,
@@ -43,7 +42,7 @@ const editProfileSchema = (allCourses) => new SimpleSchema({
   'courses.sensei.$': {
     type: String,
     optional: true,
-    allowedValues: allCourses
+    allowedValues: allCourses,
   },
   points: Number,
 });
@@ -54,13 +53,14 @@ class EditProfile extends React.Component {
 
   /** On successful submit, insert the data. */
   submit(data) {
-    const { 'name': first, 'name': last, bio, avatar, 'courses': grasshopper, 'courses': sensei, _id } = data;
-    UserProfiles.update(_id, { 
-      $set: { 'name': first, 'name': last, bio, avatar, 'courses': grasshopper, 'courses': sensei, }
+    const { name, bio, avatar, courses, _id } = data;
+    UserProfiles.update(_id, {
+      $set: { name, bio, avatar, courses },
     }, (error) => (error ?
       MySwal.fire('Error', error.message, 'error') :
       MySwal.fire('Success', 'Profile updated successfully', 'success').then(() => {
-        window.location.href="./#/profile";
+        // eslint-disable-next-line no-undef
+        window.location.href = './#/profile';
       })));
   }
 
@@ -68,10 +68,10 @@ class EditProfile extends React.Component {
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
   }
-  
+
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   renderPage() {
-    
+
     const allCourses = _.pluck(CourseList.find().fetch(), 'course');
     const formSchema = editProfileSchema(allCourses);
 

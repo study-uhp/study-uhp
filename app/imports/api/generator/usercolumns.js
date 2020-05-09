@@ -7,6 +7,7 @@ const usercolumns = [
     selector: 'avatar',
     width: '75px',
     center: true,
+    // eslint-disable-next-line react/display-name
     cell: row => (
       <div>
         <Image circular size="mini" src={row.avatar}/>

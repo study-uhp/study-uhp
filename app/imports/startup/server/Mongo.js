@@ -1,10 +1,10 @@
 import { Meteor } from 'meteor/meteor';
 import { StudySessions } from '../../api/studysessions/StudySessions';
 import { UserProfiles } from '../../api/userprofiles/UserProfiles';
-import { CourseList } from '../../api/courselist/CourseList'
-import { icsCourses } from '../../api/courselist/CourseList.json'
+import { CourseList } from '../../api/courselist/CourseList';
+import { icsCourses } from '../../api/courselist/CourseList.json';
 import generateUsers from '../../api/generator/usergenerator';
-import generateSessions from '../../api/generator/sessiongenerator'
+import generateSessions from '../../api/generator/sessiongenerator';
 
 /* eslint-disable no-console */
 
@@ -36,8 +36,10 @@ if (CourseList.find().count() === 0) {
 
 /** Adding the mock users */
 function createUser(user, role) {
+  // eslint-disable-next-line no-undef
   const userID = Accounts.createUser({ username: user, email: user, password: 'changeme' });
   if (role === 'admin') {
+    // eslint-disable-next-line no-undef
     Roles.addUsersToRoles(userID, 'admin');
   }
 }

@@ -1,4 +1,3 @@
-import React from 'react';
 import dayjs from 'dayjs';
 
 const sessioncolumns = [
@@ -13,20 +12,20 @@ const sessioncolumns = [
     selector: 'topic',
     sortable: true,
     wrap: true,
-    width: '275px'
+    width: '275px',
   },
   {
     name: 'DESCRIPTION',
     selector: 'description',
     sortable: true,
     wrap: true,
-    width: '275px'
+    width: '275px',
   },
   {
     name: 'DATE',
     width: '75px',
     cell: row => (
-      row.start.format('MM/DD')
+      dayjs(row.start).format('MM/DD')
     ),
   },
   {
@@ -35,7 +34,7 @@ const sessioncolumns = [
     sortable: true,
     width: '100px',
     cell: row => (
-      row.start.format('hh:mm A')
+      dayjs(row.start).format('hh:mm A')
     ),
   },
   {
@@ -44,14 +43,14 @@ const sessioncolumns = [
     sortable: true,
     width: '100px',
     cell: row => (
-      row.end.format('hh:mm A')
+      dayjs(row.end).format('hh:mm A')
     ),
   },
   {
     name: 'LENGTH',
     width: '100px',
     cell: row => (
-      row.end.diff(row.start, 'm') + " min"
+      `${dayjs(row.end).diff(dayjs(row.start), 'm')} min`
     ),
   },
   {

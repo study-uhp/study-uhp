@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Grid, Table, Header, Loader, Button } from 'semantic-ui-react';
+import { Grid, Table, Loader, Button } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -35,7 +35,9 @@ class ListStudySessions extends React.Component {
                   key={studysession._id} studysession={studysession} />)}
               </Table.Body>
             </Table>
-            <Button compact secondary as={NavLink} activeClassName="active" exact to="/add" key='add'>Create Session</Button>
+            <Button compact secondary as={NavLink} activeClassName="active" exact to="/add" key='add'>
+              Create Session
+            </Button>
           </Grid.Column>
         </Grid>
     );
