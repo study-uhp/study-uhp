@@ -21,27 +21,34 @@ const formSchema = new SimpleSchema({
 
 /** Renders the Page for adding a document. */
 class AddStudySession extends React.Component {
-  state = {
-    date: new Date(),
-    timeBegin: new Date(),
-    timeEnd: new Date(),
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      date: '',
+      timeBegin: '',
+      timeEnd: '',
+      // Enable this if you want todays date to appear by default
+      // startDate: moment()
+    };
+    this.handleDateChange = this.handleDateChange.bind(this);
+  }
 
   handleDateChange(dateName, dateValue) {
-    let { date, timeBegin, timeEnd } = this.state;
     if (dateName === 'date') {
-      date = dateValue;
+      this.setState({
+        date: dateValue,
+      });
     }
     if (dateName === 'timeBegin') {
-      timeBegin = dateValue;
-      } else {
-      timeEnd = dateValue;
-      }
-    this.setState({
-      date,
-      timeBegin,
-      timeEnd,
-    });
+      this.setState({
+        timeBegin: dateValue,
+      });
+    }
+    if (dateName === 'timeEnd') {
+      this.setState({
+        timeEnd: dateValue,
+      });
+    }
   }
 
   /** On submit, insert the data. */
@@ -86,6 +93,7 @@ class AddStudySession extends React.Component {
                                 onChange={date => this.handleDateChange('date', date)}
                                 minDate={new Date()}
                                 popperPlacement="right-end"
+                                placeholderText={new Date().toLocaleDateString()}
                     />
                     <label className='control-label required' htmlFor='timeBegin'>Begin</label>
                     <DatePicker
@@ -99,6 +107,7 @@ class AddStudySession extends React.Component {
                         timeIntervals={30}
                         timeCaption="Time"
                         dateFormat="h:mm aa"
+                        placeholderText={new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                     />
                     <label className='control-label required' htmlFor='timeEnd'>End</label>
                     <DatePicker
@@ -112,6 +121,7 @@ class AddStudySession extends React.Component {
                         timeIntervals={30}
                         timeCaption="Time"
                         dateFormat="h:mm aa"
+                        placeholderText={new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                     />
                   </div>
                   <SubmitField value='Submit'/>

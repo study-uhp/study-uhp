@@ -155,11 +155,11 @@ form label.required:after{
   content: " *";
 }
 
-.react-datepicker__input-container input{
+.react-datepicker__input-container input:placeholder-shown{
   background: #919191 !important;
   color: #4c4c4c!important;
 }
-.react-datepicker__input-container input:visited{
+.react-datepicker__input-container input{
   background: #fffff0 !important;
   color: #000000 !important;
   outline-color: #e5dfa1 !important;
