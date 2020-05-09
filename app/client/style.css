@@ -127,6 +127,8 @@ a:hover {
   color: green!important;
 }
 
+/* v ISSUE 25 v */
+
 /* react date picker css */
 .customDatePickerWidth,
 .customDatePickerWidth > div.react-datepicker-wrapper,
@@ -169,6 +171,8 @@ form label.required:after{
   border-color: #E0B4B4;
   color: #9F3A38;
 }
+
+/* ^ ISSUE 25 ^ */
 
 /*
  * Animated CSS button
