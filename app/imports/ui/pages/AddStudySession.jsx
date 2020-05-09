@@ -1,6 +1,6 @@
 import React from 'react';
-import { Grid, Segment, Header } from 'semantic-ui-react';
-import { AutoForm, ErrorsField, SubmitField, TextField, NumField } from 'uniforms-semantic';
+import { Grid, Segment, Header, Container } from 'semantic-ui-react';
+import { AutoForm, SubmitField, TextField, NumField, ErrorField } from 'uniforms-semantic';
 import Swal from 'sweetalert2';
 import 'uniforms-bridge-simple-schema-2'; // required for Uniforms
 import SimpleSchema from 'simpl-schema';
@@ -12,29 +12,37 @@ import { StudySessions } from '../../api/studysessions/StudySessions';
 
 /** Create a schema to specify the structure of the data to appear in the form. */
 const formSchema = new SimpleSchema({
-  course: Number,
+  course: String,
   topic: String,
   date: String,
   timeBegin: String,
   timeEnd: String,
 });
 
-
 /** Renders the Page for adding a document. */
 class AddStudySession extends React.Component {
   state = {
-    startDate: new Date(),
-    startTime: new Date(),
-    endTime: new Date(),
+    date: new Date(),
+    timeBegin: new Date(),
+    timeEnd: new Date(),
   };
 
-  handleChange = date => {
+  handleDateChange(dateName, dateValue) {
+    let { date, timeBegin, timeEnd } = this.state;
+    if (dateName === 'date') {
+      date = dateValue;
+    }
+    if (dateName === 'timeBegin') {
+      timeBegin = dateValue;
+      } else {
+      timeEnd = dateValue;
+      }
     this.setState({
-      startDate: date,
-      startTime: date,
-      endTime: date,
+      date,
+      timeBegin,
+      timeEnd,
     });
-  };
+  }
 
   /** On submit, insert the data. */
   submit(data, formRef) {
@@ -64,22 +72,27 @@ class AddStudySession extends React.Component {
           <Grid.Column>
             <div style={{ width: '400px', marginLeft: 'auto', marginRight: 'auto' }}>
               <Header as="h2" textAlign="center">Add Session</Header>
-              <AutoForm ref={ref => { fRef = ref; }} schema={formSchema} onSubmit={data => this.submit(data, fRef)} >
+              <AutoForm ref={ref => {
+                fRef = ref;
+              }} schema={formSchema} onSubmit={data => this.submit(data, fRef)}>
                 <Segment inverted>
-                  <NumField name='course' decimal={false} icon={false} placeholder="ICS311"/>
+                  <TextField name='course' placeholder="ICS311"/>
                   <TextField name='topic' placeholder="Binary Search Trees"/>
-                  {/*<TextField name='date' placeholder="03/15/2020"/>*/}
-                  <div className='customDatePickerWidth'>
+                  <div className='customDatePickerWidth form-group'>
+                    <label className='control-label required' htmlFor='date'>Date</label>
                     <DatePicker name='date'
-                        selected={this.state.startDate}
-                        onChange={this.handleChange}
+                                selected={this.state.date}
+                                value={this.state.date}
+                                onChange={date => this.handleDateChange('date', date)}
+                                minDate={new Date()}
                                 popperPlacement="right-end"
                     />
-                    <TextField name='timeBegin' placeholder="0900"/>
+                    <label className='control-label required' htmlFor='timeBegin'>Begin</label>
                     <DatePicker
                         name='timeBegin'
-                        selected={this.state.startTime}
-                        onChange={this.handleChange}
+                        selected={this.state.timeBegin}
+                        value={this.state.timeBegin}
+                        onChange={date => this.handleDateChange('timeBegin', date)}
                         popperPlacement="right-end"
                         showTimeSelect
                         showTimeSelectOnly
@@ -87,10 +100,12 @@ class AddStudySession extends React.Component {
                         timeCaption="Time"
                         dateFormat="h:mm aa"
                     />
+                    <label className='control-label required' htmlFor='timeEnd'>End</label>
                     <DatePicker
                         name='timeEnd'
-                        selected={this.state.endTime}
-                        onChange={this.handleChange}
+                        selected={this.state.timeEnd}
+                        value={this.state.timeEnd}
+                        onChange={date => this.handleDateChange('timeEnd', date)}
                         popperPlacement="right-end"
                         showTimeSelect
                         showTimeSelectOnly
@@ -98,10 +113,13 @@ class AddStudySession extends React.Component {
                         timeCaption="Time"
                         dateFormat="h:mm aa"
                     />
-                    <TextField name='timeEnd' placeholder="1000"/>
                   </div>
                   <SubmitField value='Submit'/>
-                  <ErrorsField/>
+                  <ErrorField name="course"/>
+                  <ErrorField name="topic"/>
+                  <ErrorField name="date"/>
+                  <ErrorField name="timeBegin"/>
+                  <ErrorField name="timeEnd"/>
                 </Segment>
               </AutoForm>
             </div>
