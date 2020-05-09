@@ -167,10 +167,10 @@ form label.required:after{
   outline-color: #e5dfa1 !important;
 }
 
-.react-datepicker__input-container.error input[type="text"]{
-  border-color: #E0B4B4;
-  color: #9F3A38;
-}
+/*.react-datepicker__input-container.error input[type="text"]{*/
+/*  border-color: #E0B4B4;*/
+/*  color: #9F3A38;*/
+/*}*/
 
 /* ^ ISSUE 25 ^ */
 
