@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Loader, Header, Button } from 'semantic-ui-react';
+import { Grid, Loader, Button } from 'semantic-ui-react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import Swal from 'sweetalert2';

@@ -4,12 +4,12 @@ import { Icon, Button, Loader, Image, Label, Segment, Grid, Header } from 'seman
 import { withTracker } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import DataTable from 'react-data-table-component';
+import withReactContent from 'sweetalert2-react-content';
+import Swal from 'sweetalert2';
 import { UserProfiles } from '../../api/userprofiles/UserProfiles';
 import { StudySessions } from '../../api/studysessions/StudySessions';
-import DataTable from 'react-data-table-component';
 import profileStyle from '../components/sessions/profilestyle';
-import Swal from 'sweetalert2';
-import withReactContent from 'sweetalert2-react-content';
 import SessionCard from '../components/sessions/SessionCard';
 
 const MySwal = withReactContent(Swal);
@@ -19,11 +19,11 @@ const columns = [
     name: 'DATE',
     selector: 'date',
     compact: true,
-    style: { 
+    style: {
       fontSize: '10px',
       color: 'rgba(255, 255, 255, 0.5)',
       paddingLeft: '5px',
-      paddingRight: '5px'
+      paddingRight: '5px',
     },
     width: '65px',
   },
@@ -46,7 +46,7 @@ class Profile extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
 
-    const profile = this.props.userprofile
+    const profile = this.props.userprofile;
     const { name, avatar, bio, points } = this.props.userprofile;
 
     return (
@@ -60,34 +60,30 @@ class Profile extends React.Component {
               <Header as='h5' textAlign="center">Points: {points}</Header>
               {bio}
               <br/><br/>
-              {/* <Button 
+              {/* <Button
                 onClick={this.handleClick}
                 compact className="button-style" floated="right"
                 >Console
               </Button> */}
-              <Button 
-                as={Link} to={`/editprofile/${profile._id}`} 
+              <Button
+                as={Link} to={`/editprofile/${profile._id}`}
                 compact className="button-style" floated="left"
                 >Edit
               </Button>
             </Segment>
             <Segment inverted style={{ width: '40%' }}>
-              <Header inverted as='h4'>{profile.name.first}'s Courses</Header>
+              <Header inverted as='h4'>{`${profile.name.first}'s Courses`}</Header>
               <Header inverted as='h5'>Sensei:</Header>
-              {profile.courses.sensei.map((course) => 
-                <Label key={course} color='grey' size='tiny'>
+              {profile.courses.sensei.map((course) => <Label key={course} color='grey' size='tiny'>
                   {course}
-                </Label>
-              )}
+                </Label>)}
               <Header inverted as='h5'>Grasshopper:</Header>
-              {profile.courses.grasshopper.map((course) => 
-                <Label key={course} color='grey' size='tiny'>
+              {profile.courses.grasshopper.map((course) => <Label key={course} color='grey' size='tiny'>
                   {course}
-                </Label>
-              )}
+                </Label>)}
             </Segment>
             <Segment inverted style={{ width: '30%' }}>
-              <Header inverted as='h4'>{profile.name.first}'s Upcoming Sessions</Header>
+              <Header inverted as='h4'>{`${profile.name.first}'s Upcoming Sessions`}</Header>
               <DataTable
               noHeader
               noTableHead

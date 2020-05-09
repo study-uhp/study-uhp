@@ -2,16 +2,17 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import { UserProfiles } from '../../../api/userprofiles/UserProfiles';
 import { _ } from 'meteor/underscore';
 import dayjs from 'dayjs';
 import { Icon, Loader } from 'semantic-ui-react';
-import { 
+import { UserProfiles } from '../../../api/userprofiles/UserProfiles';
+import {
   Card,
   CardHeader,
   CardBody,
   CardFooter,
-  TopInfo,Course,
+  TopInfo,
+  Course,
   OwnerInfo,
   Avatar,
   MiddleInfo,
@@ -31,7 +32,7 @@ import {
   AvatarSS,
   AvatarNum,
   SessionDateLength,
-  SessionLength
+  SessionLength,
 } from './card';
 
 const mockdata = {
@@ -50,8 +51,8 @@ const mockdata = {
   participants: {
     grasshopper: [],
     sensei: [],
-  }
-}
+  },
+};
 
 class SessionCard extends React.Component {
 
@@ -59,8 +60,8 @@ class SessionCard extends React.Component {
   getUserAvatar = (user) => {
     const profile = _.find(
       this.props.userprofiles, function (obj) {
-        return obj.user === user
-      }
+        return obj.user === user;
+      },
     );
 
     return profile.avatar;
@@ -69,10 +70,10 @@ class SessionCard extends React.Component {
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
-  };
+  }
 
   renderPage() {
-    /** 
+    /**
      *  Destructure the studdysession prop to make the conditional statements simpler.
      *  If the user has not clicked on a study session this is actually an empty object
      *  and the card will default to using the values in its state.
@@ -84,7 +85,7 @@ class SessionCard extends React.Component {
       start,
       end,
       owner,
-      participants
+      participants,
     } = this.props.studysession;
 
     /** These two arrays hold the list of avatar images for the session particpants */
@@ -95,38 +96,46 @@ class SessionCard extends React.Component {
     const displayAvatars = 3;
 
     /** For each participant in the list, get their avatar */
-    {
-      participants
-      ? participants.grasshopper.forEach(
+    if (participants) {
+      participants.grasshopper.forEach(
         user => grasshopperList.push(
-          this.getUserAvatar(user)
-        )
-      )
-      : ''
-    };
-
-    /** For each participant in the list, get their avatar */
-    {
-      participants
-      ? participants.sensei.forEach(
+          this.getUserAvatar(user),
+        ),
+      );
+      participants.sensei.forEach(
         user => senseiList.push(
-          this.getUserAvatar(user)
-        )
-      )
-      : ''
-    };
+          this.getUserAvatar(user),
+        ),
+      );
+    }
 
     /** Get the name and avatar of who created the session, or mock data. */
     const { name, avatar } = owner
       ? _.find(
         this.props.userprofiles, function (obj) {
-          return obj.user === owner
-        }
+          return obj.user === owner;
+        },
       )
       : {
         name: mockdata.name,
-        avatar: mockdata.avatar
+        avatar: mockdata.avatar,
       };
+
+    let button;
+    const username = Meteor.user().username;
+
+    if (participants) {
+      if (owner === Meteor.user().username) {
+        button = <EditButton>EDIT SESSION</EditButton>;
+      }
+      if (_.contains(participants.grasshopper, username) || _.contains(participants.sensei, username)) {
+        button = <LeaveButton>LEAVE SESSION</LeaveButton>;
+      } else {
+        button = <JoinButton>JOIN SESSION</JoinButton>;
+      }
+    } else {
+      button = <JoinButton>JOIN SESSION</JoinButton>;
+    }
 
     return (
       /**
@@ -137,15 +146,15 @@ class SessionCard extends React.Component {
       <div style={ topic ? {} : { opacity: '.2', pointerEvents: 'none' } }>
         <Card>
           <CardHeader>
-            <span>{ topic ? topic : mockdata.topic }</span>
+            <span>{ topic || mockdata.topic }</span>
           </CardHeader>
           <CardBody>
             <TopInfo>
-              <Course>{ course ? 'ICS ' + course : mockdata.course }</Course>
+              <Course>{ course ? `ICS ${course}` : mockdata.course }</Course>
               <OwnerInfo>
-                <span style={{ 
+                <span style={{
                   fontSize: '.6rem',
-                  color: 'rgba(0,0,0,.5)'
+                  color: 'rgba(0,0,0,.5)',
                 }}>
                   STARTED BY
                 </span>
@@ -158,7 +167,7 @@ class SessionCard extends React.Component {
             <MiddleInfo>
               <SessionDateLength>
                 <SessionDate>
-                  { 
+                  {
                     start
                     ? dayjs(start).format('ddd MMM D')
                     : mockdata.start.format('ddd MMM D')
@@ -166,10 +175,10 @@ class SessionCard extends React.Component {
                 </SessionDate>
                 <SessionLength>
                   <Icon name='clock outline'/>
-                  { 
+                  {
                     start
-                    ? dayjs(end).diff(dayjs(start), 'm') + ' min'
-                    : mockdata.end.diff(mockdata.start, 'm') + ' min'
+                    ? `${dayjs(end).diff(dayjs(start), 'm')} min`
+                    : `${mockdata.end.diff(mockdata.start, 'm')} min`
                   }
                 </SessionLength>
               </SessionDateLength>
@@ -185,26 +194,13 @@ class SessionCard extends React.Component {
                 }
               </SessionTime>
               <SessionDesc>
-                { description ? description : mockdata.description }
+                { description || mockdata.description }
               </SessionDesc>
             </MiddleInfo>
           </CardBody>
               <CardFooter>
             <BottomInfo>
-              { /**
-                 * If participants exists, does owner = user? Yes, edit button. No, is owner in
-                 * either participants list? Yes, leave button. No, join button. Default, join button.
-                 * Yes, this is uh... hard to read. But it works. Fix later, I promise.
-                 */
-                participants
-                ? owner === Meteor.user().username
-                ? <EditButton>EDIT SESSION</EditButton>
-                : _.contains(participants.grasshopper, Meteor.user().username)
-                || _.contains(participants.sensei, Meteor.user().username)
-                ? <LeaveButton>LEAVE SESSION</LeaveButton>
-                : <JoinButton>JOIN SESSION</JoinButton>
-                : <JoinButton>JOIN SESSION</JoinButton>
-              }
+                {button}
             </BottomInfo>
             <NumberParticipants>
               {
@@ -233,7 +229,7 @@ class SessionCard extends React.Component {
                       participants
                       ? (
                         _.first(grasshopperList, displayAvatars).map(
-                          item => <AvatarGH key={item} avatar={item}/>
+                          item => <AvatarGH key={item} avatar={item}/>,
                         )
                       )
                       : ''
@@ -260,7 +256,7 @@ class SessionCard extends React.Component {
                       participants
                       ? (
                         _.first(senseiList, displayAvatars).map(
-                          item => <AvatarSS key={item} avatar={item}/>
+                          item => <AvatarSS key={item} avatar={item}/>,
                         )
                       )
                       : ''

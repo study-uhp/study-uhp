@@ -3,10 +3,10 @@ import DataTable from 'react-data-table-component';
 import { Container, Form } from 'semantic-ui-react';
 
 import generateUsers from '../../api/generator/usergenerator';
-import generateSessions from '../../api/generator/sessiongenerator'
+import generateSessions from '../../api/generator/sessiongenerator';
 
-import usercolumns from '../../api/generator/usercolumns'
-import sessioncolumns from '../../api/generator/sessioncolumns'
+import usercolumns from '../../api/generator/usercolumns';
+import sessioncolumns from '../../api/generator/sessioncolumns';
 
 class Generate extends React.Component {
   state = { numusers: '', numsesh: '' }
@@ -14,10 +14,10 @@ class Generate extends React.Component {
   handleChange = (e, { name, value }) => this.setState({ [name]: value })
 
   render() {
-    const { numusers, numsesh } = this.state
+    const { numusers, numsesh } = this.state;
 
-    const userlist = generateUsers(numusers)
-    const sessionlist = generateSessions(numsesh, userlist)
+    const userlist = generateUsers(numusers);
+    const sessionlist = generateSessions(numsesh, userlist);
 
     return (
       <div>

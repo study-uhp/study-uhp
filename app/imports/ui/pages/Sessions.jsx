@@ -4,13 +4,14 @@ import { Grid, Header, Loader, Button, Icon, Input } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { StudySessions } from '../../api/studysessions/StudySessions';
 import DataTable from 'react-data-table-component';
+import Fuse from 'fuse.js';
+import { _ } from 'meteor/underscore';
+import { StudySessions } from '../../api/studysessions/StudySessions';
 import columns from '../components/sessions/columns';
 import SessionCard from '../components/sessions/SessionCard';
-import { createTheme } from '../components/sessions/theme';
 import sessionsStyle from '../components/sessions/style';
-import Fuse from 'fuse.js';
+import '../components/sessions/theme';
 
 const options = {
   minMatchCharLength: 3,
@@ -23,8 +24,8 @@ const options = {
     'end',
     'owner',
     'participants.grasshopper',
-    'participants.sensei'
-  ]
+    'participants.sensei',
+  ],
 };
 
 /** Renders a table containing all of the StudySessions. */
@@ -39,9 +40,9 @@ class Sessions extends React.Component {
     this.setState(
       {
         [name]: value,
-        resetPaginationToggle: !this.state.resetPaginationToggle
-      }
-    )
+        resetPaginationToggle: !this.state.resetPaginationToggle,
+      },
+    );
   };
 
   /** Click handler for console logging */
@@ -52,7 +53,7 @@ class Sessions extends React.Component {
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
-  };
+  }
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
@@ -70,7 +71,7 @@ class Sessions extends React.Component {
           </Grid.Row>
           <Grid.Row style={{ paddingBottom: '0px' }}>
             <Grid.Column width={2}>
-              <div style={{ 
+              <div style={{
                 marginLeft: '2rem',
               }}>
               <Input
@@ -85,7 +86,7 @@ class Sessions extends React.Component {
               </div>
             </Grid.Column>
             <Grid.Column width={5}>
-              <Button 
+              <Button
                 compact
                 onClick={this.handleClick}
                 className='button-style'
@@ -105,7 +106,7 @@ class Sessions extends React.Component {
           </Grid.Row>
           <Grid.Row>
             <Grid.Column width={7}>
-              <div style={{ 
+              <div style={{
                 boxShadow: '-1px 5px 10px -6px black',
                 borderBottomLeftRadius: '5px',
                 borderBottomRightRadius: '5px',
@@ -133,10 +134,9 @@ class Sessions extends React.Component {
                 customStyles={sessionsStyle}
                 pointerOnHover
                 highlightOnHover
-                onRowClicked={row => 
-                  session === row 
+                onRowClicked={row => (session === row
                   ? this.setState({ session: {} })
-                  : this.setState({ session: row })
+                  : this.setState({ session: row }))
                 }
               />
               </div>
@@ -148,7 +148,7 @@ class Sessions extends React.Component {
         </Grid>
     );
   }
-};
+}
 
 /** Require an array of StudySessions in the props. */
 Sessions.propTypes = {

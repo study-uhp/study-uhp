@@ -22,6 +22,7 @@ import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
 import Dashboard from '../pages/Dashboard';
 import ViewStudySession from '../pages/ViewStudySession';
+import Generate from '../components/Generate';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -46,6 +47,7 @@ class App extends React.Component {
               <ProtectedRoute path="/editprofile/:_id" component={EditProfile}/>
               <AdminProtectedRoute path="/admin" component={ListStudySessionsAdmin}/>
               <ProtectedRoute path="/signout" component={Signout}/>
+              <ProtectedRoute path="/generate" component={Generate}/>
               <Route component={NotFound}/>
             </Switch>
             <FooterRoute />
@@ -133,6 +135,18 @@ const AdminProtectedRoute = ({ component: Component, ...rest }) => (
         }}
     />
 );
+
+/** Require a component and location to be passed to each SignInSignUpRoute. */
+SignInSignUpRoute.propTypes = {
+  component: PropTypes.func.isRequired,
+  location: PropTypes.object,
+};
+
+/** Require a component and location to be passed to each LoggedInRoute. */
+LoggedInRoute.propTypes = {
+  component: PropTypes.func.isRequired,
+  location: PropTypes.object,
+};
 
 /** Require a component and location to be passed to each ProtectedRoute. */
 ProtectedRoute.propTypes = {

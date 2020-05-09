@@ -36,7 +36,9 @@ class ListStudySessionsAll extends React.Component {
                   key={studysession._id} studysession={studysession} />)}
               </Table.Body>
             </Table>
-            <Button compact secondary as={NavLink} activeClassName="active" exact to="/add" key='add'>Create Session</Button>
+            <Button compact secondary as={NavLink} activeClassName="active" exact to="/add" key='add'>
+              Create Session
+            </Button>
           </Grid.Column>
         </Grid>
     );

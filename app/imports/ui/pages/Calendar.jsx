@@ -2,12 +2,12 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';
-import { StudySessions } from '../../api/studysessions/StudySessions';
-import { Grid, Header, Loader, Label } from 'semantic-ui-react';
+import { Grid, Header, Loader } from 'semantic-ui-react';
 import { Calendar as Cal, momentLocalizer } from 'react-big-calendar';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import moment from 'moment';
+import { StudySessions } from '../../api/studysessions/StudySessions';
 import SessionCard from '../components/sessions/SessionCard';
 import '../components/calendar/react-big-calendar.css';
 
@@ -21,7 +21,7 @@ class Calendar extends React.Component {
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
-  };
+  }
 
   renderPage() {
     const { studysessions } = this.props;

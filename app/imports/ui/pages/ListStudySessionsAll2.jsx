@@ -4,15 +4,16 @@ import { Grid, Header, Loader, Button, Icon } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import { NavLink, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import Griddle, { plugins, RowDefinition, ColumnDefinition } from 'griddle-react';
 import { StudySessions } from '../../api/studysessions/StudySessions';
-import Griddle, { plugins, RowDefinition, ColumnDefinition} from 'griddle-react';
 
+// eslint-disable-next-line react/prop-types
 const NewLayout = ({ Table, Pagination, Filter }) => (
   <div>
-    <div style={ {float: 'left' } } className="ui input">
+    <div style={ { float: 'left' } } className="ui input">
       <Filter />
     </div>
-    <div style={ {float: 'right'} }>
+    <div style={ { float: 'right' } }>
       <Pagination />
     </div>
     <Table />
@@ -34,18 +35,18 @@ const styleConfig = {
     PageDropdown: 'ui compact selection dropdown',
   },
   styles: {
-  }
-}
+  },
+};
 
 const sortProperties = [
-  { id: 'date', sortAscending: true }
+  { id: 'date', sortAscending: true },
 ];
 
 /** Renders a table containing all of the StudySessions. Use <StudySession> to render each row. */
 class ListStudySessionsAll2 extends React.Component {
 
-  CustomColumn = ({value}) => <Link to={`/viewstudysession/${value}`}>View</Link>;
-  
+  CustomColumn = ({ value }) => <Link to={`/viewstudysession/${value}`}>View</Link>;
+
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
@@ -63,7 +64,7 @@ class ListStudySessionsAll2 extends React.Component {
                 sortProperties={sortProperties}
                 styleConfig={styleConfig}
                 components={{
-                  Layout: NewLayout
+                  Layout: NewLayout,
                 }}
               >
               <RowDefinition>
@@ -76,7 +77,9 @@ class ListStudySessionsAll2 extends React.Component {
               </RowDefinition>
             </Griddle>
             <br/>
-            <Button compact secondary as={NavLink} activeClassName="active" exact to="/add" key='add'>Create Session</Button>
+            <Button compact secondary as={NavLink} activeClassName="active" exact to="/add" key='add'>
+              Create Session
+            </Button>
           </Grid.Column>
         </Grid>
     );

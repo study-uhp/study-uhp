@@ -9,8 +9,8 @@ export const Card = styled.div`
   text-align: center;
   box-shadow: -1px 5px 10px -6px black;
   z-index: 9999;
-`
-export const CardHeader =  styled.div`
+`;
+export const CardHeader = styled.div`
   min-height: 4.5rem;
   background: #1b1c1d;
   color: rgba(255,255,255,.87);
@@ -22,7 +22,7 @@ export const CardHeader =  styled.div`
   padding-right: 1rem;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-`
+`;
 export const CardBody = styled.div`
   background: #606465;
   min-height: 17.214rem;
@@ -30,7 +30,7 @@ export const CardBody = styled.div`
   padding-bottom: 1rem;
   padding-left: 1rem;
   padding-right: 1rem;
-`
+`;
 export const CardFooter = styled.div`
   min-height: 7.5rem;
   background: #393D3F;
@@ -40,13 +40,13 @@ export const CardFooter = styled.div`
   padding-right: 1rem;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-`
+`;
 export const TopInfo = styled.div`
   display: flex;
   margin-bottom: .5rem;
   justify-content: space-between;
   margin-top: -1.75rem;
-`
+`;
 export const Course = styled.div`
   background: #1b1c1d;
   color: rgba(255,255,255,.87);
@@ -57,7 +57,7 @@ export const Course = styled.div`
   padding-left: .5rem;
   padding-right: .5rem;
   font-size: .75rem;
-`
+`;
 export const OwnerInfo = styled.div`
   display: flex;
   flex-direction: column;
@@ -69,7 +69,7 @@ export const OwnerInfo = styled.div`
   line-height: 1rem;
   margin-top: .75rem;
   margin-right: .25rem;
-`
+`;
 export const Avatar = styled.div`
   width: 50px;
   height: 50px;
@@ -79,41 +79,41 @@ export const Avatar = styled.div`
   background-size: contain;
   border: 2px solid #606465;
   margin-top: -.25rem;
-`
+`;
 export const MiddleInfo = styled.div`
   display: flex;
   margin-bottom: 2rem;
   flex-direction: column;
   justify-content: flex-start;
   text-align: left;
-`
+`;
 export const SessionDateLength = styled.div`
   display: flex;
   justify-content: space-between;
-`
+`;
 export const SessionDate = styled.div`
   font-weight: bold;
   line-height: 1rem;
   color: rgba(0,0,0,.67);
-`
+`;
 export const SessionLength = styled.div`
   font-weight: bold;
   line-height: 1rem;
   font-size: .75rem;
   color: rgba(0,0,0,.37);
-`
+`;
 export const SessionTime = styled.div`
   color: rgba(0,0,0,.5);
   font-size: .75rem;
-`
+`;
 export const SessionDesc = styled.div`
   color: rgba(0,0,0,.87);
   padding-top: 1rem;
-`
+`;
 export const BottomInfo = styled.div`
   display: flex;
   justify-content: center;
-`
+`;
 export const JoinButton = styled.button`
   min-width: 9.72rem;
   background-color: rgb(0, 83, 37);
@@ -131,7 +131,7 @@ export const JoinButton = styled.button`
     cursor: pointer;
     background-color: rgb(0, 100, 45);
   }
-`
+`;
 export const LeaveButton = styled.button`
   min-width: 9.72rem;
   background-color: rgb(153, 21, 21);
@@ -149,7 +149,7 @@ export const LeaveButton = styled.button`
     cursor: pointer;
     background-color: rgb(189, 29, 29);
   }
-`
+`;
 export const EditButton = styled.button`
   min-width: 9.72rem;
   background-color: rgb(27, 28, 29);
@@ -167,38 +167,38 @@ export const EditButton = styled.button`
     cursor: pointer;
     background-color: rgb(42, 43, 45);
   }
-`
+`;
 export const NumberParticipants = styled.div`
   text-align: center;
   color: rgba(255,255,255,.6);
   font-size: .8rem;
   padding-top: .5rem;
   padding-bottom: .5rem;
-`
+`;
 export const Participants = styled.div`
   display: flex;
   justify-content: space-evenly;
-`
+`;
 export const Grasshoppers = styled.div`
   display: flex;
   width: 50%;
   flex-direction: column;
   font-size: .6rem;
   color: rgba(255,255,255,.5);
-`
+`;
 export const Senseis = styled.div`
   display: flex;
   width: 50%;
   flex-direction: column;
   font-size: .6rem;
   color: rgba(255,255,255,.5);
-`
+`;
 export const ParticipantAvatars = styled.div`
   display: flex;
   flex-direction: row-reverse;
   justify-content: flex-end;
   margin-right: .5rem;
-`
+`;
 export const AvatarGH = styled.div`
   width: 30px;
   height: 30px;
@@ -209,7 +209,7 @@ export const AvatarGH = styled.div`
   margin-right: -.5rem;
   border: 2px solid #3A7D44;
   box-shadow: -1px 5px 5px -6px black;
-`
+`;
 export const AvatarSS = styled.div`
   width: 30px;
   height: 30px;
@@ -220,7 +220,7 @@ export const AvatarSS = styled.div`
   margin-right: -.5rem;
   border: 2px solid #254D32;
   box-shadow: -1px 5px 5px -6px black;
-`
+`;
 export const AvatarNum = styled.div`
   display: flex;
   justify-content: center;
@@ -233,4 +233,4 @@ export const AvatarNum = styled.div`
   background-color: rgba(27, 28, 29, .5);
   margin-right: -.5rem;
   box-shadow: -1px 5px 5px -6px black;
-`
+`;
