@@ -4,10 +4,10 @@ import { Grid, Header, Loader } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { StudySessions } from '../../api/studysessions/StudySessions';
-import ListStudySessions from '../pages/ListStudySessions';
+import ListStudySessions from './ListStudySessions';
 
 /** Renders a table containing all of the StudySessions. Use <StudySession> to render each row. */
-class Dashboard extends React.Component {
+class Home extends React.Component {
 
     /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
     render() {
@@ -19,7 +19,7 @@ class Dashboard extends React.Component {
         return (
             <Grid container centered className="main-content">
                 <Grid.Column>
-                    <Header as="h2" textAlign="center">Dashboard</Header>
+                    <Header as="h2" textAlign="center">Home</Header>
                     <ListStudySessions/>
                 </Grid.Column>
             </Grid>
@@ -28,7 +28,7 @@ class Dashboard extends React.Component {
 }
 
 /** Require an array of StudySessions in the props. */
-Dashboard.propTypes = {
+Home.propTypes = {
     studysessions: PropTypes.array.isRequired,
     ready: PropTypes.bool.isRequired,
 };
@@ -41,4 +41,4 @@ export default withTracker(() => {
         studysessions: StudySessions.find({}).fetch(),
         ready: subscription.ready(),
     };
-})(Dashboard);
+})(Home);

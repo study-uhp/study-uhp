@@ -19,7 +19,7 @@ import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
-import Dashboard from '../pages/Dashboard';
+import Home from '../pages/Home';
 import ViewStudySession from '../pages/ViewStudySession';
 import Generate from '../components/Generate';
 
@@ -34,7 +34,7 @@ class App extends React.Component {
               <LoggedInRoute exact path="/" component={Landing}/>
               <SignInSignUpRoute path="/signin" component={Signin}/>
               <SignInSignUpRoute path="/signup" component={Signup}/>
-              <ProtectedRoute path="/dashboard" component={Dashboard}/>
+              <ProtectedRoute path="/home" component={Home}/>
               <ProtectedRoute path="/allsessions" component={ListStudySessionsAll}/>
               <ProtectedRoute path="/sessions" component={Sessions}/>
               <ProtectedRoute path="/add" component={AddStudySession}/>
@@ -77,7 +77,7 @@ const SignInSignUpRoute = ({ component: Component, ...rest }) => (
       render={(props) => {
         const isLogged = Meteor.userId() !== null;
         return isLogged ?
-            (<Redirect to={{ pathname: '/dashboard', state: { from: props.location } }}/>) :
+            (<Redirect to={{ pathname: '/home', state: { from: props.location } }}/>) :
             (<div><NavBar /><Component {...props} /><Footer /></div>
             );
       }}
@@ -90,7 +90,7 @@ const LoggedInRoute = ({ component: Component, ...rest }) => (
       render={(props) => {
         const isLogged = Meteor.userId() !== null;
         return isLogged ?
-            (<Redirect to={{ pathname: '/dashboard', state: { from: props.location } }}/>) :
+            (<Redirect to={{ pathname: '/home', state: { from: props.location } }}/>) :
             (<Component {...props} />
             );
       }}

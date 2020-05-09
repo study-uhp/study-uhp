@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { withRouter, NavLink } from 'react-router-dom';
-import { Menu, Dropdown, Input, Image } from 'semantic-ui-react';
+import { Menu, Dropdown, Image } from 'semantic-ui-react';
 import { Roles } from 'meteor/alanning:roles';
 import UserAvatar from './UserAvatar';
 
@@ -13,12 +13,13 @@ class NavBar extends React.Component {
     const menuStyle = { marginBottom: '10px', borderRadius: '0', height: '40px' };
     const logoStyle = { marginTop: '30px', background: 'transparent' };
 
-    /** This would get changed to something like {this.props.currentuser.picture} */
     const trigger = (
-        <span>
-        <UserAvatar/>
-        {this.props.currentUser}
-      </span>
+      <>
+        <UserAvatar />
+        <span style={{ paddingLeft: '.5rem' }}>
+          {this.props.currentUser}
+        </span>
+      </>
     );
 
     return (
@@ -27,17 +28,14 @@ class NavBar extends React.Component {
           <Image src='/images/studyuhp_logo_final_small.png'/>
         </Menu.Item>
         {this.props.currentUser ? ([
-          <Menu.Item position="right" key='search'>
-            <Input inverted transparent size='mini' className='icon' icon='search' placeholder='Search...'/>
+          <Menu.Item position="right" as={NavLink} activeClassName="active" exact to="/home" key='home'>
+            Home
           </Menu.Item>,
-          <Menu.Item as={NavLink} activeClassName="active" exact to="/allsessions2" key='allsessions'>
-            All Sessions
+          <Menu.Item as={NavLink} activeClassName="active" exact to="/sessions" key='sessions'>
+            Sessions
           </Menu.Item>,
           <Menu.Item as={NavLink} activeClassName="active" exact to="/calendar" key='calendar'>
             Calendar
-          </Menu.Item>,
-          <Menu.Item as={NavLink} activeClassName="active" exact to="/dashboard" key='dashboard'>
-            Dashboard
           </Menu.Item>,
         ]) : ''}
         {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
