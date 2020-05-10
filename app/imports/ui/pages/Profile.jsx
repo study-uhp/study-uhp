@@ -4,8 +4,9 @@ import { Icon, Button, Loader, Image, Label, Segment, Grid, Header } from 'seman
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import DataTable from 'react-data-table-component';
-import withReactContent from 'sweetalert2-react-content';
 import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+import dayjs from 'dayjs';
 import { UserProfiles } from '../../api/userprofiles/UserProfiles';
 import { StudySessions } from '../../api/studysessions/StudySessions';
 import profileStyle from '../components/sessions/profilestyle';
@@ -17,7 +18,7 @@ const MySwal = withReactContent(Swal);
 const columns = [
   {
     name: 'DATE',
-    selector: 'date',
+    selector: 'start',
     compact: true,
     style: {
       fontSize: '10px',
@@ -25,13 +26,14 @@ const columns = [
       paddingLeft: '5px',
       paddingRight: '5px',
     },
-    width: '65px',
+    width: '80px',
+    format: row => dayjs(row.start).format('MM/DD h:mm A'),
   },
   {
     name: 'TOPIC',
     selector: 'topic',
     compact: true,
-    maxWidth: '169px',
+    maxWidth: '159px',
   },
 ];
 
