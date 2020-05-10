@@ -49,6 +49,16 @@ class Profile extends React.Component {
                 compact className="button-style" floated="left"
                 >Edit
               </Button>
+              <Button
+                  as={Link} to={`/friends/${profile._id}`}
+                  compact className="button-style" floated="left"
+              >Friends
+              </Button>
+              <Button
+                  as={Link} to={`/addfriend/${profile._id}`}
+                  compact className="button-style" floated="left"
+              >Add Friend
+              </Button>
             </Segment>
             <Segment inverted style={{ width: '40%' }}>
               <Header inverted as='h4'>{profile.name.first}'s Courses</Header>

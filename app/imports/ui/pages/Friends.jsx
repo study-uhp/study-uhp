@@ -1,10 +1,11 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Card, Container, Header, Loader } from 'semantic-ui-react';
+import { Card, Container, Header, Loader, Button, Link } from 'semantic-ui-react';
 import Friend from '/imports/ui/components/Friend';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { FriendsC } from '../../api/friendsc/FriendsC';
+import {NavLink} from "react-router-dom";
 
 
 /** A simple static component to render some text for the landing page. */
