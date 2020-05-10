@@ -7,7 +7,6 @@ import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import NavBar from '../components/layout/NavBar';
 import Footer from '../components/layout/Footer';
 import Landing from '../pages/Landing';
-import ListStudySessionsAll from '../pages/ListStudySessionsAll';
 import Sessions from '../pages/Sessions';
 import AddStudySession from '../pages/AddStudySession';
 import Calendar from '../pages/Calendar';
@@ -17,7 +16,6 @@ import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
 import Home from '../pages/Home';
-import ViewStudySession from '../pages/ViewStudySession';
 import Generate from '../components/Generate';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
@@ -32,10 +30,8 @@ class App extends React.Component {
               <SignInSignUpRoute path="/signin" component={Signin}/>
               <SignInSignUpRoute path="/signup" component={Signup}/>
               <ProtectedRoute path="/home" component={Home}/>
-              <ProtectedRoute path="/allsessions" component={ListStudySessionsAll}/>
               <ProtectedRoute path="/sessions" component={Sessions}/>
               <ProtectedRoute path="/add" component={AddStudySession}/>
-              <ProtectedRoute path="/viewstudysession/:_id" component={ViewStudySession}/>
               <ProtectedRoute path="/calendar" component={Calendar}/>
               <ProtectedRoute path="/profile" component={Profile}/>
               {/* <AdminProtectedRoute path="/admin" component={ListStudySessionsAdmin}/> */}
