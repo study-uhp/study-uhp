@@ -4,8 +4,12 @@ import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { _ } from 'meteor/underscore';
 import dayjs from 'dayjs';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 import { Icon, Loader } from 'semantic-ui-react';
 import { UserProfiles } from '../../../api/userprofiles/UserProfiles';
+import { StudySessions } from '../../../api/studysessions/StudySessions';
+import JoinPicker from './JoinPicker';
 import {
   Card,
   CardHeader,
@@ -54,6 +58,8 @@ const mockdata = {
   },
 };
 
+const MySwal = withReactContent(Swal);
+
 class SessionCard extends React.Component {
 
   /** Pass in a user, get back the url to their avatar */
@@ -65,6 +71,36 @@ class SessionCard extends React.Component {
     );
 
     return profile.avatar;
+  }
+
+  joinSession(studysession) {
+    MySwal.fire({
+      title: 'Join session as a...',
+      showConfirmButton: false,
+      background: 'transparent',
+      width: 275,
+      padding: '0',
+      html: <JoinPicker studysession={studysession} />,
+    });
+
+  }
+
+  leaveSession(studysession) {
+    StudySessions.update(
+      { _id: studysession._id },
+      { $pull: { 'participants.grasshopper': Meteor.user().username, 'participants.sensei': Meteor.user().username } },
+      (error) => {
+        if (error) {
+          MySwal.fire('Error', error.message, 'error');
+        } else {
+          MySwal.fire('Success', 'Left session successfully', 'success');
+        }
+      },
+    );
+  }
+
+  editSession() {
+
   }
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
@@ -129,9 +165,9 @@ class SessionCard extends React.Component {
         button = <EditButton>EDIT SESSION</EditButton>;
       }
       if (_.contains(participants.grasshopper, username) || _.contains(participants.sensei, username)) {
-        button = <LeaveButton>LEAVE SESSION</LeaveButton>;
+        button = <LeaveButton onClick={() => this.leaveSession(this.props.studysession)}>LEAVE SESSION</LeaveButton>;
       } else {
-        button = <JoinButton>JOIN SESSION</JoinButton>;
+        button = <JoinButton onClick={() => this.joinSession(this.props.studysession)}>JOIN SESSION</JoinButton>;
       }
     } else {
       button = <JoinButton>JOIN SESSION</JoinButton>;
