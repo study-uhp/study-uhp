@@ -3,7 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import { Loader, Image } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import { UserProfiles } from '../../api/userprofiles/UserProfiles';
+import { UserProfiles } from '../../../api/userprofiles/UserProfiles';
 
 /** A simple static component to render some text for the landing page. */
 class UserAvatar extends React.Component {

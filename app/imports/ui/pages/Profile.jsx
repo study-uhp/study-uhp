@@ -2,22 +2,23 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Icon, Button, Loader, Image, Label, Segment, Grid, Header } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import DataTable from 'react-data-table-component';
-import withReactContent from 'sweetalert2-react-content';
 import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+import dayjs from 'dayjs';
 import { UserProfiles } from '../../api/userprofiles/UserProfiles';
 import { StudySessions } from '../../api/studysessions/StudySessions';
 import profileStyle from '../components/sessions/profilestyle';
 import SessionCard from '../components/sessions/SessionCard';
+import EditProfile from '../components/profile/EditProfile';
 
 const MySwal = withReactContent(Swal);
 
 const columns = [
   {
     name: 'DATE',
-    selector: 'date',
+    selector: 'start',
     compact: true,
     style: {
       fontSize: '10px',
@@ -25,18 +26,29 @@ const columns = [
       paddingLeft: '5px',
       paddingRight: '5px',
     },
-    width: '65px',
+    width: '80px',
+    format: row => dayjs(row.start).format('MM/DD h:mm A'),
   },
   {
     name: 'TOPIC',
     selector: 'topic',
     compact: true,
-    maxWidth: '169px',
+    maxWidth: '159px',
   },
 ];
 
 /** A simple static component to render some text for the landing page. */
 class Profile extends React.Component {
+
+  editProfilePop(id) {
+    MySwal.fire({
+      showConfirmButton: false,
+      background: 'transparent',
+      width: 275,
+      padding: '0',
+      html: <EditProfile doc={id} />,
+    });
+  }
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
@@ -60,13 +72,8 @@ class Profile extends React.Component {
               <Header as='h5' textAlign="center">Points: {points}</Header>
               {bio}
               <br/><br/>
-              {/* <Button
-                onClick={this.handleClick}
-                compact className="button-style" floated="right"
-                >Console
-              </Button> */}
               <Button
-                as={Link} to={`/editprofile/${profile._id}`}
+                onClick={() => this.editProfilePop(profile)}
                 compact className="button-style" floated="left"
                 >Edit
               </Button>

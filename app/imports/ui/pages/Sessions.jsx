@@ -2,12 +2,14 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Grid, Header, Loader, Button, Icon, Input } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import DataTable from 'react-data-table-component';
 import Fuse from 'fuse.js';
 import { _ } from 'meteor/underscore';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 import { StudySessions } from '../../api/studysessions/StudySessions';
+import AddSession from '../components/sessions/AddSession';
 import columns from '../components/sessions/columns';
 import SessionCard from '../components/sessions/SessionCard';
 import sessionsStyle from '../components/sessions/style';
@@ -28,6 +30,8 @@ const options = {
   ],
 };
 
+const MySwal = withReactContent(Swal);
+
 /** Renders a table containing all of the StudySessions. */
 class Sessions extends React.Component {
   state = {
@@ -45,10 +49,15 @@ class Sessions extends React.Component {
     );
   };
 
-  /** Click handler for console logging */
-  handleClick = () => {
-    console.log();
-  };
+  addSession() {
+    MySwal.fire({
+      showConfirmButton: false,
+      background: 'transparent',
+      width: 400,
+      padding: '0',
+      html: <AddSession/>,
+    });
+  }
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
@@ -86,21 +95,13 @@ class Sessions extends React.Component {
               </div>
             </Grid.Column>
             <Grid.Column width={5}>
-              <Button
-                compact
-                onClick={this.handleClick}
-                className='button-style'
-                content='Console'
-              />
             </Grid.Column>
             <Grid.Column textAlign='center' width={3}>
               <Button
                 compact
                 secondary
-                as={Link}
-                to='/add'
-                key='add'
                 content='Create Session'
+                onClick={() => this.addSession()}
               />
             </Grid.Column>
           </Grid.Row>

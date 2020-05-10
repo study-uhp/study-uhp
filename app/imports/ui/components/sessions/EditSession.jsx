@@ -1,20 +1,20 @@
 import React from 'react';
-import { Grid, Loader, Header, Segment } from 'semantic-ui-react';
+import { Grid, Loader, Segment } from 'semantic-ui-react';
 import Swal from 'sweetalert2';
-import { AutoForm, ErrorsField, HiddenField, SubmitField, TextField } from 'uniforms-semantic';
+import { AutoForm, ErrorsField, HiddenField, SubmitField, TextField, LongTextField } from 'uniforms-semantic';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import 'uniforms-bridge-simple-schema-2'; // required for Uniforms
-import { StudySessions, StudySessionSchema } from '../../api/studysessions/StudySessions';
+import { StudySessions, StudySessionSchema } from '../../../api/studysessions/StudySessions';
 
 /** Renders the Page for editing a single document. */
-class EditStudySession extends React.Component {
+class EditSession extends React.Component {
 
   /** On successful submit, insert the data. */
   submit(data) {
-    const { course, topic, date, timeBegin, timeEnd, _id } = data;
-    StudySessions.update(_id, { $set: { course, topic, date, timeBegin, timeEnd } }, (error) => (error ?
+    const { course, topic, description, start, end, _id } = data;
+    StudySessions.update(_id, { $set: { course, topic, description, start, end } }, (error) => (error ?
       Swal.fire('Error', error.message, 'error') :
       Swal.fire('Success', 'Study session updated successfully', 'success')));
   }
@@ -29,15 +29,14 @@ class EditStudySession extends React.Component {
     return (
         <Grid container centered className="main-content">
           <Grid.Column>
-            <div style={{ width: '400px', marginLeft: 'auto', marginRight: 'auto' }}>
-              <Header as="h2" textAlign="center">Edit Session</Header>
+            <div style={{ width: '400px' }}>
               <AutoForm schema={StudySessionSchema} onSubmit={data => this.submit(data)} model={this.props.doc}>
                 <Segment inverted>
                   <TextField name='course'/>
                   <TextField name='topic'/>
-                  <TextField name='date'/>
-                  <TextField name='timeBegin'/>
-                  <TextField name='timeEnd'/>
+                  <LongTextField name='description'/>
+                  <TextField name='start'/>
+                  <TextField name='end'/>
                   <SubmitField value='Submit'/>
                   <ErrorsField/>
                   <HiddenField name='owner' />
@@ -51,20 +50,17 @@ class EditStudySession extends React.Component {
 }
 
 /** Require the presence of a Session in the props object. Uniforms adds 'model' to the props, which we use. */
-EditStudySession.propTypes = {
+EditSession.propTypes = {
   doc: PropTypes.object,
   model: PropTypes.object,
   ready: PropTypes.bool.isRequired,
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
-export default withTracker(({ match }) => {
-  // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
-  const documentId = match.params._id;
+export default withTracker(() => {
   // Get access to StudySessions.
   const subscription = Meteor.subscribe('StudySessions');
   return {
-    doc: StudySessions.findOne(documentId),
     ready: subscription.ready(),
   };
-})(EditStudySession);
+})(EditSession);
