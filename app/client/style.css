@@ -419,16 +419,6 @@ a:hover {
   color: rgba(255, 255, 255, 0.9) !important;
 }
 
-/* .ui.table, .ui.table thead th {
-	background: rgb(54, 56, 58) !important;
-  color: rgba(255, 255, 255, 0.9) !important;
-}
-
-.ui.table tr.active, .ui.table td.active {
-	background: rgb(99, 102, 104) !important;
-  color: rgba(255, 255, 255, 0.9) !important;
-} */
-
 .ui.comments .comment .author {
 	color: rgba(255, 255, 255, 0.7) !important;
 }
@@ -443,4 +433,8 @@ a:hover {
 
 .ui.secondary.buttons .button:focus, .ui.secondary.button:focus {
 	background-color: #1B1C1D !important;
+}
+
+.swal2-content {
+  font-size: 1em !important;
 }

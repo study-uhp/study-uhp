@@ -10,7 +10,6 @@ import Landing from '../pages/Landing';
 import ListStudySessionsAll from '../pages/ListStudySessionsAll';
 import Sessions from '../pages/Sessions';
 import AddStudySession from '../pages/AddStudySession';
-import EditStudySession from '../pages/EditStudySession';
 import Calendar from '../pages/Calendar';
 import Profile from '../pages/Profile';
 import NotFound from '../pages/NotFound';
@@ -39,7 +38,6 @@ class App extends React.Component {
               <ProtectedRoute path="/viewstudysession/:_id" component={ViewStudySession}/>
               <ProtectedRoute path="/calendar" component={Calendar}/>
               <ProtectedRoute path="/profile" component={Profile}/>
-              <ProtectedRoute path="/edit/:_id" component={EditStudySession}/>
               {/* <AdminProtectedRoute path="/admin" component={ListStudySessionsAdmin}/> */}
               <ProtectedRoute path="/signout" component={Signout}/>
               <ProtectedRoute path="/generate" component={Generate}/>

@@ -10,6 +10,7 @@ import { Icon, Loader } from 'semantic-ui-react';
 import { UserProfiles } from '../../../api/userprofiles/UserProfiles';
 import { StudySessions } from '../../../api/studysessions/StudySessions';
 import JoinPicker from './JoinPicker';
+import EditSession from './EditSession';
 import {
   Card,
   CardHeader,
@@ -82,7 +83,6 @@ class SessionCard extends React.Component {
       padding: '0',
       html: <JoinPicker studysession={studysession} />,
     });
-
   }
 
   leaveSession(studysession) {
@@ -99,8 +99,14 @@ class SessionCard extends React.Component {
     );
   }
 
-  editSession() {
-
+  editSession(studysession) {
+    MySwal.fire({
+      showConfirmButton: false,
+      background: 'transparent',
+      width: 400,
+      padding: '0',
+      html: <EditSession doc={studysession} />,
+    });
   }
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
@@ -161,10 +167,9 @@ class SessionCard extends React.Component {
     const username = Meteor.user().username;
 
     if (participants) {
-      if (owner === Meteor.user().username) {
-        button = <EditButton>EDIT SESSION</EditButton>;
-      }
-      if (_.contains(participants.grasshopper, username) || _.contains(participants.sensei, username)) {
+      if (owner === username) {
+        button = <EditButton onClick={() => this.editSession(this.props.studysession)}>EDIT SESSION</EditButton>;
+      } else if (_.contains(participants.grasshopper, username) || _.contains(participants.sensei, username)) {
         button = <LeaveButton onClick={() => this.leaveSession(this.props.studysession)}>LEAVE SESSION</LeaveButton>;
       } else {
         button = <JoinButton onClick={() => this.joinSession(this.props.studysession)}>JOIN SESSION</JoinButton>;
