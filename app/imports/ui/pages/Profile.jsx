@@ -2,7 +2,6 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Icon, Button, Loader, Image, Label, Segment, Grid, Header } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import DataTable from 'react-data-table-component';
 import withReactContent from 'sweetalert2-react-content';
@@ -11,6 +10,7 @@ import { UserProfiles } from '../../api/userprofiles/UserProfiles';
 import { StudySessions } from '../../api/studysessions/StudySessions';
 import profileStyle from '../components/sessions/profilestyle';
 import SessionCard from '../components/sessions/SessionCard';
+import EditProfile from '../components/profile/EditProfile';
 
 const MySwal = withReactContent(Swal);
 
@@ -38,6 +38,16 @@ const columns = [
 /** A simple static component to render some text for the landing page. */
 class Profile extends React.Component {
 
+  editProfilePop(id) {
+    MySwal.fire({
+      showConfirmButton: false,
+      background: 'transparent',
+      width: 275,
+      padding: '0',
+      html: <EditProfile doc={id} />,
+    });
+  }
+
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
@@ -60,13 +70,8 @@ class Profile extends React.Component {
               <Header as='h5' textAlign="center">Points: {points}</Header>
               {bio}
               <br/><br/>
-              {/* <Button
-                onClick={this.handleClick}
-                compact className="button-style" floated="right"
-                >Console
-              </Button> */}
               <Button
-                as={Link} to={`/editprofile/${profile._id}`}
+                onClick={() => this.editProfilePop(profile)}
                 compact className="button-style" floated="left"
                 >Edit
               </Button>

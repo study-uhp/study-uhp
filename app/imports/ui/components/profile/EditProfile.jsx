@@ -9,9 +9,9 @@ import PropTypes from 'prop-types';
 import 'uniforms-bridge-simple-schema-2'; // required for Uniforms
 import SimpleSchema from 'simpl-schema';
 import { _ } from 'meteor/underscore';
-import { UserProfiles } from '../../api/userprofiles/UserProfiles';
-import { CourseList } from '../../api/courselist/CourseList';
-import MultiSelectField from '../components/MultiSelectField';
+import { UserProfiles } from '../../../api/userprofiles/UserProfiles';
+import { CourseList } from '../../../api/courselist/CourseList';
+import MultiSelectField from './MultiSelectField';
 
 const MySwal = withReactContent(Swal);
 
@@ -47,7 +47,6 @@ const editProfileSchema = (allCourses) => new SimpleSchema({
   points: Number,
 });
 
-
 /** Renders the Page for editing a single document. */
 class EditProfile extends React.Component {
 
@@ -58,10 +57,7 @@ class EditProfile extends React.Component {
       $set: { name, bio, avatar, courses },
     }, (error) => (error ?
       MySwal.fire('Error', error.message, 'error') :
-      MySwal.fire('Success', 'Profile updated successfully', 'success').then(() => {
-        // eslint-disable-next-line no-undef
-        window.location.href = './#/profile';
-      })));
+      MySwal.fire('Success', 'Profile updated successfully', 'success')));
   }
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
@@ -112,14 +108,11 @@ EditProfile.propTypes = {
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
-export default withTracker(({ match }) => {
-  // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
-  const documentId = match.params._id;
+export default withTracker(() => {
   // Get access to StudySessions.
   const subscription = Meteor.subscribe('UserProfiles');
   const sub2 = Meteor.subscribe('CourseList');
   return {
-    doc: UserProfiles.findOne(documentId),
     clist: CourseList.find().fetch(),
     ready: subscription.ready() && sub2.ready(),
   };

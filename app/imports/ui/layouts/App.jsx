@@ -12,7 +12,6 @@ import Sessions from '../pages/Sessions';
 import ListStudySessionsAdmin from '../pages/ListStudySessionsAdmin';
 import AddStudySession from '../pages/AddStudySession';
 import EditStudySession from '../pages/EditStudySession';
-import EditProfile from '../pages/EditProfile';
 import Calendar from '../pages/Calendar';
 import Profile from '../pages/Profile';
 import NotFound from '../pages/NotFound';
@@ -42,7 +41,6 @@ class App extends React.Component {
               <ProtectedRoute path="/calendar" component={Calendar}/>
               <ProtectedRoute path="/profile" component={Profile}/>
               <ProtectedRoute path="/edit/:_id" component={EditStudySession}/>
-              <ProtectedRoute path="/editprofile/:_id" component={EditProfile}/>
               <AdminProtectedRoute path="/admin" component={ListStudySessionsAdmin}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <ProtectedRoute path="/generate" component={Generate}/>
