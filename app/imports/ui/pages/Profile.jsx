@@ -2,6 +2,7 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Icon, Button, Loader, Image, Label, Segment, Grid, Header } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import DataTable from 'react-data-table-component';
 import Swal from 'sweetalert2';
@@ -76,6 +77,16 @@ class Profile extends React.Component {
                 onClick={() => this.editProfilePop(profile)}
                 compact className="button-style" floated="left"
                 >Edit
+              </Button>
+              <Button
+                  as={Link} to={`/friends/${profile._id}`}
+                  compact className="button-style" floated="left"
+              >Friends
+              </Button>
+              <Button
+                  as={Link} to={`/addfriend/${profile._id}`}
+                  compact className="button-style" floated="left"
+              >+Friend
               </Button>
             </Segment>
             <Segment inverted style={{ width: '40%' }}>

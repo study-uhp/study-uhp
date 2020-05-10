@@ -16,6 +16,8 @@ import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
 import Home from '../pages/Home';
 import Generate from '../components/Generate';
+import Friends from '../pages/Friends';
+import AddFriend from '../pages/AddFriend';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -35,6 +37,8 @@ class App extends React.Component {
               {/* <AdminProtectedRoute path="/admin" component={Admin}/> */}
               <ProtectedRoute path="/signout" component={Signout}/>
               <ProtectedRoute path="/generate" component={Generate}/>
+              <ProtectedRoute path="/addfriend" component={AddFriend}/>
+              <ProtectedRoute path="/Friends" component={Friends}/>
               <Route component={NotFound}/>
             </Switch>
             <FooterRoute />

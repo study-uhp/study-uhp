@@ -3,6 +3,7 @@ import { StudySessions } from '../../api/studysessions/StudySessions';
 import { UserProfiles } from '../../api/userprofiles/UserProfiles';
 import { CourseList } from '../../api/courselist/CourseList';
 import { icsCourses } from '../../api/courselist/CourseList.json';
+import { FriendsC } from '../../api/friendsc/FriendsC';
 import generateUsers from '../../api/generator/usergenerator';
 import generateSessions from '../../api/generator/sessiongenerator';
 
@@ -56,6 +57,19 @@ function addProfile({ user, name, major, year, avatar, courses, points, bio, rol
 function addSessions(data) {
   StudySessions.insert(data);
   console.log('Generated random session');
+}
+
+function addFriend(data) {
+  console.log(`  Adding: ${data.lastName} (${data.owner})`);
+  FriendsC.insert(data);
+}
+
+/** Initialize the collection if empty. */
+if (FriendsC.find().count() === 0) {
+  if (Meteor.settings.defaultFriendList) {
+    console.log('Creating default friends list.');
+    Meteor.settings.defaultFriendList.map(data => addFriend(data));
+  }
 }
 
 if ((Meteor.settings.generateData) && (Meteor.users.find().count() < 3)) {
