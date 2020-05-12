@@ -7,7 +7,7 @@
 
 body {  
   /* Late night ghetto dark mode. */
-  background-color: rgb(63, 63, 63) !important;
+  background-color: #393D3F !important;
   font-family: 'Open Sans', sans-serif !important;
 }
 
@@ -116,6 +116,16 @@ footer .ui.horizontal.divider {
 }
 
 .ui.menu .ui.dropdown .menu > .item > .icon{
+  color: rgba(255, 255, 255, 0.87) !important;
+}
+
+.ui.selection.dropdown, .ui.selection.dropdown .menu {
+	background: rgb(145, 145, 145) !important;
+	color: rgba(0, 0, 0, 0.87);
+}
+
+.ui.selection.dropdown .ui.label {
+	background-color: #1b1c1d !important;
 	color: rgba(255, 255, 255, 0.87) !important;
 }
 
@@ -438,3 +448,40 @@ form label.required:after{
   }
 }
 /*# sourceMappingURL=button.css.map */
+
+
+.ui.horizontal.segments {
+  background-color: #1B1C1D !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.ui.feed > .event > .content .summary {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+.ui.feed > .event > .content .date {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.ui.feed .ui.header {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.ui.comments .comment .author {
+	color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.ui.comments .comment .text {
+	color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.ui.comments .comment .metadata {
+	color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.ui.secondary.buttons .button:focus, .ui.secondary.button:focus {
+	background-color: #1B1C1D !important;
+}
+
+.swal2-content {
+  font-size: 1em !important;
+}

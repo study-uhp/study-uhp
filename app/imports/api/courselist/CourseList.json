@@ -1,0 +1,416 @@
+{
+  "icsCourses": [
+    {
+      "course": "101",
+      "title": "Digital Tools for the Information World",
+      "description": "Fundamental information technology concepts and computing terminology, productivity software for problem solving, computer technology trends and impact on individuals and society. Emphasizes the utilization of operating systems and the production of professional documents, spreadsheets, etc.",
+      "credits": "4"
+    },
+
+    {
+      "course": "102",
+      "title": "Introduction to Data Science",
+      "description": "Overview of the field of data science. Introduction to subjects such as data format, processing, visualization, and storage. Special emphasis on historical and wider context, and simple practical examples. Repeatable one time. A-F only.",
+      "credits": "3"
+    },
+
+    {
+      "course": "110",
+      "title": "(Alpha) Introduction to Computer Programming",
+      "description": "Basic concepts needed to write computer programs. Simple program design and implementation using a specific programming language; (C) C; (D) through animations; (P) Python. Each alpha repeatable unlimited times, but credit earned one time only.",
+      "credits": "3"
+    },
+
+    {
+      "course": "111",
+      "title": "Introduction to Computer Science I",
+      "description": "Overview of the fundamentals of computer science emphasizing problem solving, algorithm development, implementation, and debugging/testing using an object-oriented programming language. Pre: Recommended: computer experience.",
+      "credits": "4"
+    },
+
+    {
+      "course": "141",
+      "title": "Discrete Mathematics for Computer Science I",
+      "description": "Includes logic, sets, functions, matrices, algorithmic concepts, mathematical reasoning, recursion, counting techniques, and probability theory. Pre: MATH 215 or 241 or 251A. FS FQ",
+      "credits": "3"
+    },
+
+    {
+      "course": "210",
+      "title": "Information Systems in Society",
+      "description": "Lecture/discussion critically explores sociopolitical dimensions of Information and Communication Technology (ICT), and the information professions. A-F only. Pre: departmental approval. (Once a year)",
+      "credits": "3"
+    },
+
+    {
+      "course": "211",
+      "title": "Introduction to Computer Science II",
+      "description": "(3 Lec, 1 3-hr. Lab) Reinforce and strengthen problem-solving skills using abstract data types and introduce software development practices. Emphasize the use of searching and sorting algorithms and their complexity, recursion, object-oriented programming, and data structures. Pre: grade of \"B\" or higher in 111 or consent.",
+      "credits": "4"
+    },
+
+    {
+      "course": "212",
+      "title": "Program Structure",
+      "description": "Program organization paradigms, programming environments, implementation of a module from specifications, the C and C++ programming languages. Pre: 211 or consent.",
+      "credits": "3"
+    },
+
+    {
+      "course": "215",
+      "title": "Introduction to Scripting",
+      "description": "Introduction to scripting languages for the integration of applications and systems. Scripting in operating systems, web pages, server-side application integration, regular expressions, and event handling for languages such as Perl, JavaScript, PHP, Python, shell scripting. A-F only. Pre: 211 (or concurrent), or consent. (Once a year)",
+      "credits": "3"
+    },
+
+    {
+      "course": "222",
+      "title": "Basic Concepts of Computer Science",
+      "description": "What is the subject of computer science? What is a computer? Understand the basic models of computation and the concepts of computability, complexity, and network computation, and learn to use them in practice. A-F only. Pre: 141.",
+      "credits": "3"
+    },
+
+    {
+      "course": "235",
+      "title": "Machine Learning Methods",
+      "description": "Introduction to contemporary mathematical methods for empirical inference, data modeling, and machine learning. A-F only. Pre: MATH 241, MATH 203, MATH 215, or MATH 251A. (Fall only)",
+      "credits": "3"
+    },
+
+    {
+      "course": "241",
+      "title": "Discrete Mathematics for Computer Science II",
+      "description": "Includes program correctness, recurrence relations and their solutions, relations and their properties, divide and conquer relations, graph theory, trees and their applications, Boolean algebra, introduction to formal languages and automata theory. Pre: 141 (with a minimum grade of B) or consent.",
+      "credits": "3"
+    },
+
+    {
+      "course": "290",
+      "title": "Computer Science Careers: An Exploration of the Specialties of Computer Science",
+      "description": "Exploration of the specialties of computer science. Meets every two week for 2.5 hours to explore specific areas in computer science. CR/NC only. (Once a year)",
+      "credits": "1"
+    },
+
+    {
+      "course": "311",
+      "title": "Algorithms",
+      "description": "(4 1-hr Lec) Design and correctness of algorithms, including divide-and-conquer, greedy and dynamic programming methods. Complexity analyses using recurrence relations, probabilistic methods, and NP-completeness. Applications to order statistics, disjoint sets, B-trees and balanced trees, graphs, network flows, and string matching. Pre: (211 and 241) with a minimum grade of B or better, and (MATH 216 or 242 or 252A), or consent.",
+      "credits": "4"
+    },
+
+    {
+      "course": "312",
+      "title": "Machine-Level and Systems Programming",
+      "description": "Machine organization, machine instructions, addressing modes, assembler language, subroutine linkage, linking to higher-level languages, interface to operating systems, introduction to assemblers, loaders and compilers. Pre: 212 (or concurrent), (311 or EE 367), and 314, or consent.",
+      "credits": "3"
+    },
+
+    {
+      "course": "313",
+      "title": "Programming Language Theory",
+      "description": "Syntax, semantics, control structures, variable binding and scopes, data and control abstractions. Programming in functional (LISP) and logic (Prolog) programming styles. Pre: Pre: 212, (311 or EE 367), and 314, or consent.",
+      "credits": "3"
+    },
+
+    {
+      "course": "314",
+      "title": "Software Engineering I",
+      "description": "Problem analysis and design, team-oriented development, quality assurance, configuration management, project planning. These topics are covered in the sequence 314-414. Pre: 211 and 241, or consent.",
+      "credits": "3"
+    },
+
+    {
+      "course": "321",
+      "title": "Database Systems I",
+      "description": "Introduction to relational database systems, data modeling, query processing, transaction processing, storage, and indexing. Pre: (311 or EE 367) and 314, or consent.",
+      "credits": "3"
+    },
+
+    {
+      "course": "331",
+      "title": "Logic Design and Microprocessors",
+      "description": "(1 3-hr Lab) Basic machine architecture, microprocessors, bus organization, circuit elements, logic circuit analysis and design, microcomputer system design. Pre: 212, (311 or EE 367), and 314; or consent.",
+      "credits": "4"
+    },
+
+    {
+      "course": "332",
+      "title": "Operating Systems",
+      "description": "Operating system concepts and structure, processes and threads, CPU scheduling, memory management, scheduling, file systems, inter-process communication, virtualization, popular operating systems. A-F only. Pre: (311 or EE 367) and 314.",
+      "credits": "3"
+    },
+
+    {
+      "course": "351",
+      "title": "Network Design and Management",
+      "description": "Overview of the internet and its capabilities; introduction to HTTP, TCP/IP, ethernet, and wireless 802.11; routers, switches, and NAT; network and wireless security; practical experience in designing and implementing networks. Pre: (311 or EE 367) and 314, or consent. (Once a year)",
+      "credits": "3"
+    },
+
+    {
+      "course": "355",
+      "title": "Security and Trust I: Resource Protections",
+      "description": "Security and trust in computers, networks, and society. Security models. Access and authorization. Availability and Denial-of-Service. Trust processes and network interactions. Pre: 222 and 314 and (311 or EE 367).",
+      "credits": "3"
+    },
+
+    {
+      "course": "361",
+      "title": "Introduction to Artificial Intelligence Programming",
+      "description": "Introduction to the theory of Artificial Intelligence and the practical application of AI techniques in Functional (Common LISP and/or Scheme) and Logic (Prolog) programming languages. Students gain practical experience through programming assignments and projects. A-F only. Pre: (212 or 215) and (311 or EE 367) and 314, or consent.",
+      "credits": "3"
+    },
+
+    {
+      "course": "390",
+      "title": "Computing Ethics for Lab Assistants",
+      "description": "A lecture/discussion/internship on ethical issues and instructional techniques for students assisting a laboratory section of ICS 101. The class uses multiple significant writing and oral presentation activities to help students learn course content. Pre: 101(Alpha) and consent.",
+      "credits": "3"
+    },
+
+    {
+      "course": "414",
+      "title": "Software Engineering II",
+      "description": "Continuation of 314. Project management, quality, and productivity control, testing and validation, team management. Team-oriented software-implementation project. Pre: (311 or EE 367) and 314.",
+      "credits": "3"
+    },
+
+    {
+      "course": "415",
+      "title": "Introduction to Programming for the Web",
+      "description": "Introduction to emerging technologies for construction of World Wide Web (WWW)-based software. Covers programming and scripting languages used for the creation of WWW sites and client-server programming. Students will complete a medium-sized software project that uses languages and concepts discussed in class. Pre: (311 or EE 367) and 314, or consent.",
+      "credits": "3"
+    },
+
+    {
+      "course": "419",
+      "title": "The Science, Psychology and Philosophy of Systems Design",
+      "description": "Scientific, psychological and philosophical bases of systems design, including a survey of human-factors and ergonomic standards; the nature of innovation and creativity as it relates to systems design. Web-enhanced course. Pre: (311 or EE 367) and 314, or consent. (Once a year)",
+      "credits": "3"
+    },
+
+    {
+      "course": "421",
+      "title": "Database Systems II",
+      "description": "Very large database systems, data integration, data warehousing, designing big data systems, parallel query processing, distributed transactions. Pre: 321 or consent.",
+      "credits": "3"
+    },
+
+    {
+      "course": "422",
+      "title": "Network Science Methodology",
+      "description": "Computational and statistical methods for analyzing network models of social, technological, information, and biological networks. Introduction to relevant data analytics and graph analysis software packages. Pre: 311 or consent.",
+      "credits": "3"
+    },
+
+    {
+      "course": "423",
+      "title": "Data Security and Cryptography I",
+      "description": "Secret communication and confidentiality data storage. Elements of cryptography and cryptanalysis. Classical ciphers. Symmetric key cryptography. Public key cryptography. Data security in cyber space. Pre: 355 or consent.",
+      "credits": "3"
+    },
+
+    {
+      "course": "424",
+      "title": "Application Frameworks",
+      "description": "Experience producing applications with at least two different applications frameworks. A-F only. Pre: (311 or EE 367) and 314, or consent.",
+      "credits": "3"
+    },
+
+    {
+      "course": "425",
+      "title": "Computer Security and Ethics",
+      "description": "Theoretical results, security policy, encryption, key management, digital signatures, certificates, passwords. Ethics: privacy, computer crime, professional ethics. Effects of the computer revolution on society. A-F only. Pre: 355 or consent. (Once a year)",
+      "credits": "3"
+    },
+
+    {
+      "course": "426",
+      "title": "Computer System Security",
+      "description": "Information flow, confinement, information assurance, malicious programs, vulnerability analysis, network security, writing secure programs. A-F only. Pre: 355 or consent. (Once a year)",
+      "credits": "3"
+    },
+
+    {
+      "course": "428",
+      "title": "Digital Forensics",
+      "description": "Provides students with the knowledge of underlying principles and skills to identify, preserve, and extract electronic evidence for further analysis. Pre: 355 or consent.",
+      "credits": "3"
+    },
+
+    {
+      "course": "431",
+      "title": "Computer Architecture",
+      "description": "Memory management, control flow, interrupt mechanisms, multiprocessor systems, special-purpose devices. Pre: 331 or EE 361/361L.",
+      "credits": "3"
+    },
+
+    {
+      "course": "432",
+      "title": "Concurrent and High-Performance Programming",
+      "description": "Principles of concurrent and high performance programming. Multi-threading in C and Java for shared-memory programming. Distributed memory programming with Java. Introduction to cluster computing. A-F only. Pre: 212 and 322 and (311 or EE 367) and 314, or consent. (Once a year)",
+      "credits": "3"
+    },
+
+    {
+      "course": "435",
+      "title": "Machine Learning Fundamentals",
+      "description": "Introduction to machine learning concepts with a focus on relevant ideas from computational neuroscience. Information processing and learning in the nervous system. Neural networks. Supervised and unsupervised learning. Basics of statistical learning theory. Pre: (311 or EE 367) and 314, or consent. Recommended: MATH 307. (Once a year)",
+      "credits": "3"
+    },
+
+    {
+      "course": "441",
+      "title": "Theory of Computation",
+      "description": "Grammars, sequential machines, equivalence, minimalization, analysis and synthesis, regular expressions, computability, unsolvability, Gödel’s theorem, Turing machines. Pre: (311 or EE 367) and 314, or consent.",
+      "credits": "3"
+    },
+
+    {
+      "course": "442",
+      "title": "Analytical Models and Methods",
+      "description": "Applications of mathematical methods in computer science with emphasis on discrete mathematics, numerical computation, algebraic models, operations research. Pre: (311 or EE 367) and 314, or consent.",
+      "credits": "3"
+    },
+
+    {
+      "course": "443",
+      "title": "Parallel Algorithms",
+      "description": "Introduction to parallel models of computation and design and analysis of parallel algorithms. Pre: (311 or EE 367) and 314. (Fall only)",
+      "credits": "3"
+    },
+
+    {
+      "course": "451",
+      "title": "Data Networks",
+      "description": "Network analysis, architecture, digital signal analysis and design; circuit switching, packet switching, packet broadcasting; protocols and standards; local area networks; satellite networks; ALOHA channels; examples. Pre: 212 and (311 or EE 367) and 314, or consent.",
+      "credits": "3"
+    },
+
+    {
+      "course": "452",
+      "title": "Software Design for Robotics",
+      "description": "Sensors, actuators, signal processing, paradigms of robotic software design, introduction to machine learning, introduction to computer vision, and robot-to-human interaction. A-F only. Pre: two ICS 300-level courses or consent. Recommended: 312 and 313. (Once a year: spring)",
+      "credits": "3"
+    },
+
+    {
+      "course": "455",
+      "title": "Security and Trust II: Information Assurance",
+      "description": "Channel security. Trojan and noninterference. Basic concepts of cryptology. Cryptographic primitives. Protocols for authentication and key establishment. Pre: 355.",
+      "credits": "3"
+    },
+
+    {
+      "course": "461",
+      "title": "Artificial Intelligence",
+      "description": "Survey of artificial intelligence: natural language processing, vision and robotics, expert systems. Emphasis on fundamental concepts: search, planning, and problem solving, logic, knowledge representation. Pre: 311 or consent.",
+      "credits": "3"
+    },
+
+    {
+      "course": "462",
+      "title": "Artificial Intelligence for Games",
+      "description": "Techniques to stimulate intelligence in video games: movement, pathfinding with A* search, decision/behavior trees, state machines, machine learning, tactics. Extend games with your own AI implementations; experience \"shootout\" contests for the best AI algorithm/implementation. Pre: 212 and (311 or EE 367) and 314 and (PHYS 151 or PHYS 170). (Alt. years)",
+      "credits": "3"
+    },
+
+    {
+      "course": "464",
+      "title": "Human Computer Interaction I",
+      "description": "Application of concepts and methodologies of human factors, psychology and software engineering to address ergonomic, cognitive, and social factors in the design and evaluation of human-computer systems. Pre: (311 or EE 367) and 314, or consent.",
+      "credits": "3"
+    },
+
+    {
+      "course": "465",
+      "title": "Introduction to Hypermedia",
+      "description": "Basic issues of interactive access to information in various formats on computers. Available hardware and software: editing, integration, programming. Implementation of a sample information system. Pre: (311 or EE 367) and 314.",
+      "credits": "3"
+    },
+
+    {
+      "course": "466",
+      "title": "Design for Mobile Devices",
+      "description": "Lecture introducing design issues, programming languages, operating systems and mark-up languages for internet-enabled mobile devices, such as cell phones and PDAs. A-F or Audit. Pre: (311 or EE 367) and 314, or consent. (Spring only)",
+      "credits": "3"
+    },
+
+    {
+      "course": "469",
+      "title": "Cognitive Science",
+      "description": "Introduces basic concepts, central problems, and methods from cognitive science. Identifies contributions from disciplines such as cognitive psychology, linguistics, artificial intelligence, philosophy, and neuroscience. Pre: (311 or EE 367) and 314, or consent.",
+      "credits": "3"
+    },
+
+    {
+      "course": "471",
+      "title": "Probability, Statistics, and Queuing",
+      "description": "A hands-on introduction to probability, statistical inference, regression, Markov chains, queuing theory. Use of an interactive statistical graphics environment such as R. Pre: (311 or EE 367) and 314, or consent.",
+      "credits": "3"
+    },
+
+    {
+      "course": "475",
+      "title": "Introduction to Bioinformatics Sequences and Genomes Analysis",
+      "description": "Introduction to bioinformatics to computer sciences students by focusing on how computer sciences techniques can be used for the storage, analysis, prediction and simulation of biological sequences (DNA, RNA and proteins). A-F only. Pre: (311 or EE 367) and 314, or consent. (Once a year)",
+      "credits": "3"
+    },
+
+    {
+      "course": "476",
+      "title": "Bioinformatics Algorithms and Tool Development",
+      "description": "Study of commonly used bioinformatic algorithms, with an emphasis on string, tree, and graph algorithms. Presentation of probabilistic and clustering methods. Implementation of the studied algorithms and design of applications. Pre: 475 or consent. (Once a year)",
+      "credits": "3"
+    },
+
+    {
+      "course": "481",
+      "title": "Introduction to Computer Graphics",
+      "description": "Fundamentals of computer graphics including graphics hardware, representation, manipulation, and display of two- and three-dimensional objects, use of commercial software. Pre: (MATH 216, MATH 242, or MATH 252A) and (311 or EE 367) and 314; or consent.",
+      "credits": "3"
+    },
+
+    {
+      "course": "483",
+      "title": "Computer Vision",
+      "description": "Introductory course in computer vision. Topics include image formation, image processing and filtering, edge detection, texture analysis and synthesis, binocular stereo, segmentation, tracking, object recognition and applications. A-F only. Pre: 212 and (311 or EE 367) and 314, or consent. Once a year.",
+      "credits": "3"
+    },
+
+    {
+      "course": "484",
+      "title": "Data Visualization",
+      "description": "Introduction to data visualization through practical techniques for turning data into images to produce insight. Topics include: information visualization, geospatial visualization, scientific visualization, social network visualization, and medical visualization. Junior standing or higher. Pre: (311 or EE 367) and 314. (Spring only)",
+      "credits": "3"
+    },
+
+    {
+      "course": "485",
+      "title": "Video Game Design and Development",
+      "description": "Students will team design, build, and demonstrate video games or related interactive entertainment environments and applications. Topics will include emerging computer science techniques relevant to the development of these types of environments. Junior standing or higher. Pre: two ICS 300-level courses. (Spring only)",
+      "credits": "3"
+    },
+
+    {
+      "course": "491",
+      "title": "Special Topics",
+      "description": "Reflects special interests of faculty. Oriented toward juniors and seniors. Repeatable one time for BS/CS students. Pre: at least two 300-level ICS classes or consent.",
+      "credits": "3"
+    },
+
+    {
+      "course": "495",
+      "title": "Special Topics in Security",
+      "description": "Special topics in security oriented toward juniors and seniors. Repeatable unlimited times. Pre: at least two 300-level ICS courses or consent. (Alt. years: fall)",
+      "credits": "3"
+    },
+
+    {
+      "course": "499",
+      "title": "Computer Project",
+      "description": "Individual or small-group projects in system design or application under faculty supervision. Pre: consent.",
+      "credits": "V"
+    }
+  ]
+}

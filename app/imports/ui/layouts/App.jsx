@@ -4,22 +4,18 @@ import { Meteor } from 'meteor/meteor';
 import 'semantic-ui-css/semantic.css';
 import { Roles } from 'meteor/alanning:roles';
 import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
-import NavBar from '../components/NavBar';
-import Footer from '../components/Footer';
+import NavBar from '../components/layout/NavBar';
+import Footer from '../components/layout/Footer';
 import Landing from '../pages/Landing';
-import ListStudySessionsAll from '../pages/ListStudySessionsAll';
-import ListStudySessions from '../pages/ListStudySessions';
-import ListStudySessionsAdmin from '../pages/ListStudySessionsAdmin';
-import AddStudySession from '../pages/AddStudySession';
-import EditStudySession from '../pages/EditStudySession';
+import Sessions from '../pages/Sessions';
 import Calendar from '../pages/Calendar';
 import Profile from '../pages/Profile';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
-import Dashboard from '../pages/Dashboard';
-import ViewStudySession from '../pages/ViewStudySession';
+import Home from '../pages/Home';
+import Generate from '../components/Generate';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -32,16 +28,13 @@ class App extends React.Component {
               <LoggedInRoute exact path="/" component={Landing}/>
               <SignInSignUpRoute path="/signin" component={Signin}/>
               <SignInSignUpRoute path="/signup" component={Signup}/>
-              <ProtectedRoute path="/dashboard" component={Dashboard}/>
-              <ProtectedRoute path="/allsessions" component={ListStudySessionsAll}/>
-              <ProtectedRoute path="/sessions" component={ListStudySessions}/>
-              <ProtectedRoute path="/add" component={AddStudySession}/>
-              <ProtectedRoute path="/viewstudysession/:_id" component={ViewStudySession}/>
+              <ProtectedRoute path="/home" component={Home}/>
+              <ProtectedRoute path="/sessions" component={Sessions}/>
               <ProtectedRoute path="/calendar" component={Calendar}/>
               <ProtectedRoute path="/profile" component={Profile}/>
-              <ProtectedRoute path="/edit/:_id" component={EditStudySession}/>
-              <AdminProtectedRoute path="/admin" component={ListStudySessionsAdmin}/>
+              {/* <AdminProtectedRoute path="/admin" component={Admin}/> */}
               <ProtectedRoute path="/signout" component={Signout}/>
+              <ProtectedRoute path="/generate" component={Generate}/>
               <Route component={NotFound}/>
             </Switch>
             <FooterRoute />
@@ -73,7 +66,7 @@ const SignInSignUpRoute = ({ component: Component, ...rest }) => (
       render={(props) => {
         const isLogged = Meteor.userId() !== null;
         return isLogged ?
-            (<Redirect to={{ pathname: '/dashboard', state: { from: props.location } }}/>) :
+            (<Redirect to={{ pathname: '/home', state: { from: props.location } }}/>) :
             (<div><NavBar /><Component {...props} /><Footer /></div>
             );
       }}
@@ -86,7 +79,7 @@ const LoggedInRoute = ({ component: Component, ...rest }) => (
       render={(props) => {
         const isLogged = Meteor.userId() !== null;
         return isLogged ?
-            (<Redirect to={{ pathname: '/dashboard', state: { from: props.location } }}/>) :
+            (<Redirect to={{ pathname: '/home', state: { from: props.location } }}/>) :
             (<Component {...props} />
             );
       }}
@@ -129,6 +122,18 @@ const AdminProtectedRoute = ({ component: Component, ...rest }) => (
         }}
     />
 );
+
+/** Require a component and location to be passed to each SignInSignUpRoute. */
+SignInSignUpRoute.propTypes = {
+  component: PropTypes.func.isRequired,
+  location: PropTypes.object,
+};
+
+/** Require a component and location to be passed to each LoggedInRoute. */
+LoggedInRoute.propTypes = {
+  component: PropTypes.func.isRequired,
+  location: PropTypes.object,
+};
 
 /** Require a component and location to be passed to each ProtectedRoute. */
 ProtectedRoute.propTypes = {
