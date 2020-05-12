@@ -24,8 +24,8 @@ class EditSession extends React.Component {
     super(props);
     this.state = {
       date: '',
-      timeBegin: '',
-      timeEnd: '',
+      start: '',
+      end: '',
       // Enable this if you want todays date to appear by default
       // startDate: moment()
     };
@@ -38,22 +38,22 @@ class EditSession extends React.Component {
         date: dateValue,
       });
     }
-    if (dateName === 'timeBegin') {
+    if (dateName === 'start') {
       this.setState({
-        timeBegin: dateValue,
+        start: dateValue,
       });
     }
-    if (dateName === 'timeEnd') {
+    if (dateName === 'end') {
       this.setState({
-        timeEnd: dateValue,
+        end: dateValue,
       });
     }
   }
 
   /** On successful submit, insert the data. */
   submit(data) {
-    const { course, topic, description, start, end, _id } = data;
-    StudySessions.update(_id, { $set: { course, topic, description, start, end } }, (error) => (error ?
+    const { course, topic, description, date, start, end, _id } = data;
+    StudySessions.update(_id, { $set: { course, topic, description, date, start, end } }, (error) => (error ?
       Swal.fire('Error', error.message, 'error') :
       Swal.fire('Success', 'Study session updated successfully', 'success')));
   }
@@ -84,12 +84,12 @@ class EditSession extends React.Component {
                                 popperPlacement="right-end"
                                 placeholderText={new Date().toLocaleDateString()}
                     />
-                    <label className='control-label required' htmlFor='timeBegin'>Begin</label>
+                    <label className='control-label required' htmlFor='start'>Begin</label>
                     <DatePicker
-                        name='timeBegin'
-                        selected={this.state.timeBegin}
-                        value={this.state.timeBegin}
-                        onChange={date => this.handleDateChange('timeBegin', date)}
+                        name='start'
+                        selected={this.state.start}
+                        value={this.state.start}
+                        onChange={date => this.handleDateChange('start', date)}
                         popperPlacement="right-end"
                         showTimeSelect
                         showTimeSelectOnly
@@ -98,12 +98,12 @@ class EditSession extends React.Component {
                         dateFormat="h:mm aa"
                         placeholderText={new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                     />
-                    <label className='control-label required' htmlFor='timeEnd'>End</label>
+                    <label className='control-label required' htmlFor='end'>End</label>
                     <DatePicker
-                        name='timeEnd'
-                        selected={this.state.timeEnd}
-                        value={this.state.timeEnd}
-                        onChange={date => this.handleDateChange('timeEnd', date)}
+                        name='end'
+                        selected={this.state.end}
+                        value={this.state.end}
+                        onChange={date => this.handleDateChange('end', date)}
                         popperPlacement="right-end"
                         showTimeSelect
                         showTimeSelectOnly
@@ -116,9 +116,10 @@ class EditSession extends React.Component {
                   <SubmitField value='Submit'/>
                   <ErrorField name="course"/>
                   <ErrorField name="topic"/>
+                  <ErrorField name="description"/>
                   <ErrorField name="date"/>
-                  <ErrorField name="timeBegin"/>
-                  <ErrorField name="timeEnd"/>
+                  <ErrorField name="start"/>
+                  <ErrorField name="end"/>
                 </Segment>
               </AutoForm>
             </div>

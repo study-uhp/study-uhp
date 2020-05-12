@@ -10,6 +10,7 @@ const StudySessionSchema = new SimpleSchema({
   course: String,
   topic: String,
   description: String,
+  date: String,
   start: String,
   end: String,
   owner: String,
