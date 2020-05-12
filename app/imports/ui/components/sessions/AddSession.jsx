@@ -90,7 +90,7 @@ class AddSession extends React.Component {
                         popperPlacement="right-end"
                         showTimeSelect
                         showTimeSelectOnly
-                        timeIntervals={30}
+                        timeIntervals={15}
                         timeCaption="Time"
                         dateFormat="h:mm aa"
                         placeholderText={new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
@@ -104,7 +104,7 @@ class AddSession extends React.Component {
                         popperPlacement="right-end"
                         showTimeSelect
                         showTimeSelectOnly
-                        timeIntervals={30}
+                        timeIntervals={15}
                         timeCaption="Time"
                         dateFormat="h:mm aa"
                         placeholderText={new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
