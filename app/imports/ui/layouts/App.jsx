@@ -10,6 +10,7 @@ import Landing from '../pages/Landing';
 import Sessions from '../pages/Sessions';
 import Calendar from '../pages/Calendar';
 import Profile from '../pages/Profile';
+import Profile2 from '../pages/Profile2';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
@@ -32,6 +33,7 @@ class App extends React.Component {
               <ProtectedRoute path="/sessions" component={Sessions}/>
               <ProtectedRoute path="/calendar" component={Calendar}/>
               <ProtectedRoute path="/profile" component={Profile}/>
+              <ProtectedRoute path="/profile2" component={Profile2}/>
               {/* <AdminProtectedRoute path="/admin" component={Admin}/> */}
               <ProtectedRoute path="/signout" component={Signout}/>
               <ProtectedRoute path="/generate" component={Generate}/>
