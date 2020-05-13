@@ -18,6 +18,7 @@ import Home from '../pages/Home';
 import Generate from '../components/Generate';
 import Friends from '../pages/Friends';
 import AddFriend from '../pages/AddFriend';
+import SendMessage from '../pages/SendMessage';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -39,6 +40,7 @@ class App extends React.Component {
               <ProtectedRoute path="/generate" component={Generate}/>
               <ProtectedRoute path="/addfriend" component={AddFriend}/>
               <ProtectedRoute path="/Friends" component={Friends}/>
+              <ProtectedRoute path="/SendMessage" component={SendMessage}/>
               <Route component={NotFound}/>
             </Switch>
             <FooterRoute />

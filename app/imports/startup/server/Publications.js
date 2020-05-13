@@ -4,6 +4,7 @@ import { StudySessions } from '../../api/studysessions/StudySessions';
 import { UserProfiles } from '../../api/userprofiles/UserProfiles';
 import { CourseList } from '../../api/courselist/CourseList';
 import { FriendsC } from '../../api/friendsc/FriendsC';
+import { Messages } from '../../api/Messages';
 
 /** This subscription publishes all documents regardless of user, but only if logged in. */
 Meteor.publish('StudySessionsAll', function publish() {
@@ -65,6 +66,14 @@ Meteor.publish('FriendsC', function publish() {
   if (this.userId) {
     const username = Meteor.users.findOne(this.userId).username;
     return FriendsC.find({ owner: username });
+  }
+  return this.ready();
+});
+
+Meteor.publish('Messages', function publish() {
+  if (this.userId) {
+    const username = Meteor.users.findOne(this.userId).username;
+    return Messages.find({ owner: username });
   }
   return this.ready();
 });

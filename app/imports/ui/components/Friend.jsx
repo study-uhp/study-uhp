@@ -11,7 +11,7 @@ class Friend extends React.Component {
                 <Card.Content>
                     <Card.Header>{this.props.friend.firstName} {this.props.friend.lastName}</Card.Header>
                     <Card.Meta>{this.props.friend.email}</Card.Meta>
-                    <Button compact secondary as={NavLink} activeClassName="active" exact to="/add" key='add'>Message</Button>
+                    <Button compact secondary as={NavLink} activeClassName="active" exact to="/SendMessage" key='SendMessage'>Message</Button>
                     <Button compact secondary as={NavLink} activeClassName="active" exact to="/remove" key='remove'>Remove</Button>
                 </Card.Content>
             </Card>

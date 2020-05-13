@@ -4,6 +4,7 @@ import { UserProfiles } from '../../api/userprofiles/UserProfiles';
 import { CourseList } from '../../api/courselist/CourseList';
 import { icsCourses } from '../../api/courselist/CourseList.json';
 import { FriendsC } from '../../api/friendsc/FriendsC';
+import { Messages } from '../../api/Messages';
 import generateUsers from '../../api/generator/usergenerator';
 import generateSessions from '../../api/generator/sessiongenerator';
 
