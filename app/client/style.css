@@ -420,21 +420,25 @@ a:hover {
 }
 
 .ui.comments .comment .author {
-	color: rgba(255, 255, 255, 0.7) !important;
+  color: rgba(255, 255, 255, 0.7) !important;
 }
 
 .ui.comments .comment .text {
-	color: rgba(255, 255, 255, 0.9) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
 }
 
 .ui.comments .comment .metadata {
-	color: rgba(255, 255, 255, 0.4) !important;
+  color: rgba(255, 255, 255, 0.4) !important;
 }
 
 .ui.secondary.buttons .button:focus, .ui.secondary.button:focus {
-	background-color: #1B1C1D !important;
+  background-color: #1B1C1D !important;
 }
 
 .swal2-content {
   font-size: 1em !important;
+}
+
+.swal2-container {
+  z-index: 9999 !important;
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Icon, Button, Loader, Image, Label, Segment, Grid, Header } from 'semantic-ui-react';
+import { Icon, Button, Loader, Label, Header } from 'semantic-ui-react';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import DataTable from 'react-data-table-component';
@@ -12,6 +12,21 @@ import { StudySessions } from '../../api/studysessions/StudySessions';
 import profileStyle from '../components/sessions/profilestyle';
 import SessionCard from '../components/sessions/SessionCard';
 import EditProfile from '../components/profile/EditProfile';
+import {
+  ProfileContainer,
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  TopInfo,
+  Owner,
+  Major,
+  Avatar,
+  Stats,
+  MiddleInfo,
+  CourseHeader,
+  CourseList,
+} from '../components/profile/profile';
 
 const MySwal = withReactContent(Swal);
 
@@ -26,25 +41,23 @@ const columns = [
       paddingLeft: '5px',
       paddingRight: '5px',
     },
-    width: '80px',
+    width: '100px',
     format: row => dayjs(row.start).format('MM/DD h:mm A'),
   },
   {
     name: 'TOPIC',
     selector: 'topic',
-    compact: true,
-    maxWidth: '159px',
+    maxWidth: '350px',
   },
 ];
 
-/** A simple static component to render some text for the landing page. */
 class Profile extends React.Component {
 
   editProfilePop(id) {
     MySwal.fire({
       showConfirmButton: false,
       background: 'transparent',
-      width: 275,
+      width: 450,
       padding: '0',
       html: <EditProfile doc={id} />,
     });
@@ -59,76 +72,102 @@ class Profile extends React.Component {
   renderPage() {
 
     const profile = this.props.userprofile;
-    const { name, avatar, bio, points } = this.props.userprofile;
+    const { name, avatar, bio, points, major, year } = this.props.userprofile;
 
     return (
-      <Grid container centered className="main-content">
-        <Grid.Column style={{ width: '80%' }}>
-          <Header as="h2" textAlign="center">Profile</Header>
-          <Segment.Group horizontal >
-            <Segment inverted style={{ width: '30%' }}>
-              <Image src={avatar} size='small' circular centered/>
-              <Header as="h2" textAlign="center">{name.first} {name.last}</Header>
-              <Header as='h5' textAlign="center">Points: {points}</Header>
+      <ProfileContainer>
+        <Card>
+          <CardHeader>
+              <Owner>
+                {name.first} {name.last}
+              </Owner>
+              <Major>
+                {major}
+              </Major>
+          </CardHeader>
+          <CardBody>
+            <TopInfo>
+              <Avatar avatar={avatar}/>
+              <Stats>
+                <span style={{ color: 'rgba(101, 196, 88, 0.64)' }}>
+                  Verified Student
+                </span>
+              </Stats>
+              <Stats>
+                <span>{year}</span>
+                <span style={{ fontSize: '14px', color: 'rgba(0,0,0,.6' }}>
+                  {points} points
+                </span>
+              </Stats>
+            </TopInfo>
+            <MiddleInfo>
               {bio}
-              <br/><br/>
-              <Button
-                onClick={() => this.editProfilePop(profile)}
-                compact className="button-style" floated="left"
-                >Edit
-              </Button>
-            </Segment>
-            <Segment inverted style={{ width: '40%' }}>
-              <Header inverted as='h4'>{`${profile.name.first}'s Courses`}</Header>
-              <Header inverted as='h5'>Sensei:</Header>
-              {profile.courses.sensei.map((course) => <Label key={course} color='grey' size='tiny'>
+            </MiddleInfo>
+            <CourseHeader>Sensei:</CourseHeader>
+            <CourseList>
+              {profile.courses.sensei.sort(function (a, b) { return a - b; }).map(
+                (course) => <Label key={course} color='grey' size='tiny'>
                   {course}
-                </Label>)}
-              <Header inverted as='h5'>Grasshopper:</Header>
-              {profile.courses.grasshopper.map((course) => <Label key={course} color='grey' size='tiny'>
+                </Label>,
+              )}
+            </CourseList>
+            <CourseHeader>Grasshopper:</CourseHeader>
+            <CourseList>
+              {profile.courses.grasshopper.sort(function (a, b) { return a - b; }).map(
+                (course) => <Label key={course} color='grey' size='tiny'>
                   {course}
-                </Label>)}
-            </Segment>
-            <Segment inverted style={{ width: '30%' }}>
-              <Header inverted as='h4'>{`${profile.name.first}'s Upcoming Sessions`}</Header>
-              <DataTable
-              noHeader
-              noTableHead
-              columns={columns}
-              data={this.props.studysessions}
-              keyField={this.props.studysessions._id}
-              dense
-              pagination
-              defaultSortField='date'
-              paginationIconNext={<Icon fitted name='angle right'/>}
-              paginationIconPrevious={<Icon fitted name='angle left'/>}
-              paginationIconFirstPage={''}
-              paginationIconLastPage={''}
-              paginationComponentOptions={{ noRowsPerPage: true }}
-              paginationPerPage={5}
-              theme='profile'
-              customStyles={profileStyle}
-              pointerOnHover
-              highlightOnHover
-              onRowClicked={row => MySwal.fire({
-                showConfirmButton: false,
-                background: 'transparent',
-                width: 275,
-                padding: '0',
-                html: <SessionCard studysession={row} />,
-              })}
-              />
-            </Segment>
-          </Segment.Group>
-        </Grid.Column>
-      </Grid>
+                </Label>,
+              )}
+            </CourseList>
+          </CardBody>
+          <CardFooter>
+            <Button
+              onClick={() => this.editProfilePop(profile)}
+              compact
+              color='black'
+              floated='right'
+            >
+              Edit
+            </Button>
+          </CardFooter>
+        </Card>
+        <div>
+          <Header inverted as='h4'>{`${profile.name.first}'s Upcoming Sessions`}</Header>
+          <DataTable
+            noHeader
+            noTableHead
+            columns={columns}
+            data={this.props.studysessions}
+            keyField={this.props.studysessions._id}
+            dense
+            pagination
+            defaultSortField='date'
+            paginationIconNext={<Icon fitted name='angle right'/>}
+            paginationIconPrevious={<Icon fitted name='angle left'/>}
+            paginationIconFirstPage={''}
+            paginationIconLastPage={''}
+            paginationComponentOptions={{ noRowsPerPage: true }}
+            paginationPerPage={5}
+            theme='profile'
+            customStyles={profileStyle}
+            pointerOnHover
+            highlightOnHover
+            onRowClicked={row => MySwal.fire({
+              showConfirmButton: false,
+              background: 'transparent',
+              width: 275,
+              padding: '0',
+              html: <SessionCard studysession={row} />,
+            })}
+          />
+        </div>
+      </ProfileContainer>
     );
   }
 }
 
 /** Require an array of StudySessions in the props. */
 Profile.propTypes = {
-  // userprofile: PropTypes.array.isRequired,
   userprofile: PropTypes.object,
   studysessions: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
@@ -141,7 +180,6 @@ export default withTracker(() => {
   const subscription2 = Meteor.subscribe('StudySessions');
   return {
     studysessions: StudySessions.find({}).fetch(),
-    // userprofile: UserProfiles.find({}).fetch(),
     userprofile: UserProfiles.findOne({}),
     ready: subscription1.ready() && subscription2.ready(),
   };
