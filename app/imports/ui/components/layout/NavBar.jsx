@@ -28,10 +28,7 @@ class NavBar extends React.Component {
           <Image src='/images/studyuhp_logo_final_small.png'/>
         </Menu.Item>
         {this.props.currentUser ? ([
-          <Menu.Item position="right" as={NavLink} activeClassName="active" exact to="/home" key='home'>
-            Home
-          </Menu.Item>,
-          <Menu.Item as={NavLink} activeClassName="active" exact to="/sessions" key='sessions'>
+          <Menu.Item position='right' as={NavLink} activeClassName="active" exact to="/sessions" key='sessions'>
             Sessions
           </Menu.Item>,
           <Menu.Item as={NavLink} activeClassName="active" exact to="/calendar" key='calendar'>

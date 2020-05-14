@@ -14,7 +14,6 @@ import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
-import Home from '../pages/Home';
 import Generate from '../components/Generate';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
@@ -28,7 +27,6 @@ class App extends React.Component {
               <LoggedInRoute exact path="/" component={Landing}/>
               <SignInSignUpRoute path="/signin" component={Signin}/>
               <SignInSignUpRoute path="/signup" component={Signup}/>
-              <ProtectedRoute path="/home" component={Home}/>
               <ProtectedRoute path="/sessions" component={Sessions}/>
               <ProtectedRoute path="/calendar" component={Calendar}/>
               <ProtectedRoute path="/profile" component={Profile}/>
@@ -66,7 +64,7 @@ const SignInSignUpRoute = ({ component: Component, ...rest }) => (
       render={(props) => {
         const isLogged = Meteor.userId() !== null;
         return isLogged ?
-            (<Redirect to={{ pathname: '/home', state: { from: props.location } }}/>) :
+            (<Redirect to={{ pathname: '/sessions', state: { from: props.location } }}/>) :
             (<div><NavBar /><Component {...props} /><Footer /></div>
             );
       }}
@@ -79,7 +77,7 @@ const LoggedInRoute = ({ component: Component, ...rest }) => (
       render={(props) => {
         const isLogged = Meteor.userId() !== null;
         return isLogged ?
-            (<Redirect to={{ pathname: '/home', state: { from: props.location } }}/>) :
+            (<Redirect to={{ pathname: '/sessions', state: { from: props.location } }}/>) :
             (<Component {...props} />
             );
       }}
